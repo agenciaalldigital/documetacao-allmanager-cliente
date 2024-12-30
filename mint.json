@@ -1,9 +1,9 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Allcom Telecom",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "logo/logo-allcom.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "support@allcomtelecom.com"
     }
   ],
   "topbarCtaButton": {
@@ -85,7 +85,15 @@
       "pages": [
         "api-reference/endpoint/mot/invoices",
         "api-reference/endpoint/mot/devices",
-        "api-reference/endpoint/mot/devices-quantity"
+        "api-reference/endpoint/mot/devices-quantity",
+        "api-reference/endpoint/mot/imei-lock-get",
+        "api-reference/endpoint/mot/imei-lock-post",
+        "api-reference/endpoint/mot/imei-unlock-get",
+        "api-reference/endpoint/mot/imei-unlock-post",
+        "api-reference/endpoint/mot/unlock-network-get",
+        "api-reference/endpoint/mot/unlock-network-post",
+        "api-reference/endpoint/mot/block-network-get",
+        "api-reference/endpoint/mot/block-network-post"
       ]
     }
   ],

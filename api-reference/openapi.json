@@ -621,6 +621,812 @@
           }
         }
       }
+    },
+    "/broker/imei-lock": {
+      "get": {
+        "summary": "Busca as ações de bloqueio de IMEI",
+        "description": "Retorna uma lista paginada das ações de bloqueio de IMEI com base nos filtros fornecidos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "description": "Página",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "Tamanho da página",
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "description": "Número do MSISDN do dispositivo",
+            "schema": {
+              "type": "string",
+              "example": "5534991026676"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status da ação",
+            "schema": {
+              "type": "integer",
+              "example": 0
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "description": "Usuário que criou a ação",
+            "schema": {
+              "type": "string",
+              "example": "teste.com"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Data início da criação da ação",
+            "schema": {
+              "type": "string",
+              "example": "YYYYMMDD"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Data final da criação da ação",
+            "schema": {
+              "type": "string",
+              "example": "YYYYMMDD"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "Identificador do cliente",
+            "schema": {
+              "type": "number",
+              "example": 546454
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações do dispositivo encontradas com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "createdAt": "2021-03-10 09:11:42",
+                    "customerId": 12586,
+                    "iccid": "19440266",
+                    "imsi": "546545646546546",
+                    "msisdn": "034965655897",
+                    "processingDate": "",
+                    "statusCode": 0,
+                    "statusMessage": "Processo finalizado com sucesso",
+                    "processData": "2018-12-01 14:00:00",
+                    "actionType": "RESET HLR ou RESET OTA ou SUSPENSÃO PROVISORIA",
+                    "createdBy": "teste@gmail.com"
+                  }
+                ]
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor."
+          }
+        }
+      },
+      "post": {
+        "summary": "Realiza o bloqueio de IMEI",
+        "description": "Permite criar um bloqueio de IMEI com os dados fornecidos no corpo da requisição.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações dos dispositivos a serem bloqueados.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "msisdn": {
+                          "type": "string",
+                          "description": "Número do MSISDN do dispositivo.",
+                          "example": "5534991025544"
+                        },
+                        "iccid": {
+                          "type": "string",
+                          "description": "Identificador ICCID do dispositivo.",
+                          "example": "9485349328492"
+                        },
+                        "imei": {
+                          "type": "string",
+                          "description": "IMEI do dispositivo.",
+                          "example": "7678"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "devices": [
+                  {
+                    "msisdn": "5534991025544",
+                    "iccid": "9485349328492",
+                    "imei": "7678"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Bloqueio realizado com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Bloqueio realizado com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/imei-unlock": {
+      "get": {
+        "description": "Busca as ações de desbloqueio de IMEI.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "description": "Página",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "Tamanho da página",
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "description": "Número do MSISDN do dispositivo",
+            "schema": {
+              "type": "string",
+              "example": "5534991026676"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações de desbloqueio encontradas com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "createdAt": "2021-03-10 09:11:42",
+                    "customerId": 12586,
+                    "msisdn": "5534991026676",
+                    "statusCode": 0,
+                    "statusMessage": "Desbloqueio realizado com sucesso"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "500": {
+            "description": "Erro interno do servidor."
+          }
+        }
+      },
+      "post": {
+        "description": "Realiza o desbloqueio de IMEI.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações dos dispositivos a serem desbloqueados.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "msisdn": {
+                          "type": "string",
+                          "description": "Número do MSISDN do dispositivo.",
+                          "example": "5534991025544"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "devices": [
+                  {
+                    "msisdn": "5534991025544"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Desbloqueio realizado com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Desbloqueio realizado com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/unlock-network": {
+      "get": {
+        "description": "Busca as ações de desbloqueio de rede.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página.",
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "description": "Número do MSISDN.",
+            "schema": {
+              "type": "string",
+              "example": "5534991023333"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ações de desbloqueio de rede retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "msisdn": "5534991023333",
+                    "actionType": "UNLOCK_NETWORK",
+                    "status": "COMPLETED",
+                    "createdBy": "admin",
+                    "createdAt": "2024-01-01 12:00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Solicita o desbloqueio de rede.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações do desbloqueio de rede.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msisdn": {
+                    "type": "string",
+                    "description": "Número do MSISDN a ser desbloqueado.",
+                    "example": "5534991023333"
+                  },
+                  "dateUnlock": {
+                    "type": "string",
+                    "description": "Data do desbloqueio.",
+                    "example": "2024-10-01"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Solicitação de desbloqueio processada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Desbloqueio solicitado com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Invalid parameters"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/block-network": {
+      "get": {
+        "summary": "Busca as ações de bloqueio de rede",
+        "description": "Busca as ações de bloqueio de rede (via radius).",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Página",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "description": "Número do MSISDN do dispositivo",
+            "schema": {
+              "type": "string",
+              "example": "5534991026676"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status da ação",
+            "schema": {
+              "type": "integer",
+              "example": 0
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "description": "Usuário que criou a ação",
+            "schema": {
+              "type": "string",
+              "example": "teste.com"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Data início da criação da ação",
+            "schema": {
+              "type": "string",
+              "example": "YYYYMMDD"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Data final da criação da ação",
+            "schema": {
+              "type": "string",
+              "example": "YYYYMMDD"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso na busca.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "createdAt": "2021-03-10 09:11:42",
+                    "customerId": 12586,
+                    "msisdn": "034965655897",
+                    "statusCode": 0,
+                    "statusMessage": "Processo finalizado com sucesso"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Solicita o bloqueio de rede",
+        "description": "Solicita o bloqueio de rede (via radius).",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações do dispositivo a ser bloqueado.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msisdn": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "5534991023333"
+                  },
+                  "typeBlockUnlock": {
+                    "type": "integer",
+                    "description": "Tipo de bloqueio/desbloqueio.",
+                    "example": 1
+                  },
+                  "dateStartBlock": {
+                    "type": "string",
+                    "description": "Data de início do bloqueio.",
+                    "example": "20240101"
+                  },
+                  "dateEndBlock": {
+                    "type": "string",
+                    "description": "Data de fim do bloqueio.",
+                    "example": "20240120"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bloqueio realizado com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Bloqueio realizado com sucesso"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {},
