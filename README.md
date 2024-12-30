@@ -1,0 +1,1 @@
+# documetacao-allmanager-cliente
