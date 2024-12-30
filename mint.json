@@ -27,7 +27,7 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "APIs Allmanager",
       "url": "api-reference"
     }
   ],
@@ -75,11 +75,17 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Autentificação",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/autentificacao/auth"
+      ]
+    },
+    {
+      "group": "MoT",
+      "pages": [
+        "api-reference/endpoint/mot/invoices",
+        "api-reference/endpoint/mot/devices",
+        "api-reference/endpoint/mot/devices-quantity"
       ]
     }
   ],

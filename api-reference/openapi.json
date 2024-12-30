@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "title": "OpenAPI Auth Store",
+    "description": "API de exemplo para demonstração de autenticação e obtenção de tokens.",
     "license": {
       "name": "MIT"
     },
@@ -13,82 +13,134 @@
       "url": "http://sandbox.mintlify.com"
     }
   ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
+  "security": [],
   "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
+    "/oauth-portal/access-token": {
+      "post": {
+        "description": "Executa a criação de um token de acesso.",
+        "requestBody": {
+          "description": "Informações necessárias para criar o token.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client_id": {
+                    "type": "string",
+                    "description": "Identificador do cliente."
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "description": "Segredo do cliente para autenticação."
+                  }
+                },
+                "required": ["client_id", "client_secret"]
+              },
+              "example": {
+                "client_id": "string",
+                "client_secret": "string"
+              }
+            }
+          }
+        },
         "parameters": [
           {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Autorizacao convertida em base64 do client_id e client_secret separados por dois pontos.",
+            "schema": {
+              "type": "string",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "username",
+            "in": "header",
+            "required": true,
+            "description": "Username recebido por email.",
+            "schema": {
+              "type": "string",
+              "example": "usuario@example.com"
+            }
+          },
+          {
+            "name": "password",
+            "in": "header",
+            "required": true,
+            "description": "Senha de acesso recebida por email.",
+            "schema": {
+              "type": "string",
+              "example": "senha123"
+            }
+          },
+          {
+            "name": "realm",
+            "in": "header",
+            "required": true,
+            "description": "Domínio de autenticação do Keycloak.",
+            "schema": {
+              "type": "string",
+              "example": "algar-telecom"
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Plant response",
+          "201": {
+            "description": "Token criado com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "Token de acesso gerado."
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "description": "Tipo do token gerado."
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "description": "Tempo de expiração do token em segundos."
+                    }
                   }
+                },
+                "example": {
+                  "access_token": "string",
+                  "token_type": "string",
+                  "expires_in": 0
                 }
               }
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "Erro inesperado ao criar token.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Descrição do erro."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid credentials"
                 }
               }
             }
@@ -96,32 +148,473 @@
         }
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+    "/broker/{customerId}/invoices": {
+      "get": {
+        "description": "Listar as faturas de contas virtuais / Buscar os detalhes da fatura do MoT.",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
+            "name": "client_id",
+            "in": "header",
             "required": true,
+            "description": "Identificador do client id do sensedia.",
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status da fatura.",
+            "schema": {
+              "type": "string",
+              "example": "status"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Data inicial.",
+            "schema": {
+              "type": "string",
+              "example": "YYYYmmdd"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "Data final.",
+            "schema": {
+              "type": "string",
+              "example": "YYYYmmdd"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
+          "200": {
+            "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "type": "object",
+                  "properties": {
+                    "quantityInvoices": {
+                      "type": "integer",
+                      "description": "Quantidade de faturas."
+                    },
+                    "listaFaturasVirtuais": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "invoiceId": {
+                            "type": "integer",
+                            "description": "Identificador da fatura."
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "description": "Data de início."
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "description": "Data de fim."
+                          },
+                          "dueDate": {
+                            "type": "string",
+                            "description": "Data de vencimento."
+                          },
+                          "totalTraffic": {
+                            "type": "integer",
+                            "description": "Tráfego total."
+                          },
+                          "invoiceAmount": {
+                            "type": "integer",
+                            "description": "Valor da fatura."
+                          },
+                          "terminals": {
+                            "type": "integer",
+                            "description": "Terminais."
+                          },
+                          "useTerminals": {
+                            "type": "integer",
+                            "description": "Uso de terminais."
+                          },
+                          "subInvoiceQuantity": {
+                            "type": "integer",
+                            "description": "Quantidade de subfaturas."
+                          },
+                          "idStatusInvoice": {
+                            "type": "string",
+                            "description": "Identificador do status da fatura."
+                          },
+                          "synchronized": {
+                            "type": "boolean",
+                            "description": "Se está sincronizado."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "quantityInvoices": 1,
+                  "listaFaturasVirtuais": [
+                    {
+                      "invoiceId": 6,
+                      "startDate": "01-09-2021",
+                      "endDate": "30-09-2021",
+                      "dueDate": "11-10-2021",
+                      "totalTraffic": 0,
+                      "invoiceAmount": 0,
+                      "terminals": 0,
+                      "useTerminals": 0,
+                      "subInvoiceQuantity": 0,
+                      "idStatusInvoice": "C",
+                      "synchronized": false
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/devices": {
+      "get": {
+        "description": "Retornar a lista de dispositivos de um cliente MoT. Lista paginada com filtros. (Possui dados sensíveis).",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "description": "Página",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "linesPerPage",
+            "in": "query",
+            "required": true,
+            "description": "Tamanho da página",
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "description": "Mostrar contrato",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "devices": [
+                    {
+                      "id": 12548965,
+                      "customerId": "string",
+                      "acronym": "IOT_MULTICONECT_M2M",
+                      "nickName": "apelido",
+                      "apn": "apn.teste.br",
+                      "zipCode": "38414158",
+                      "city": "Uberlandia",
+                      "assetParentIot": "A5698745654",
+                      "activationDate": "2019-03-28T00:00:19.928Z",
+                      "state": "Minas Gerais",
+                      "franchising": 5,
+                      "accountCredit": 0,
+                      "iccid": "11113202000000449000",
+                      "imei": "05789654854859",
+                      "imsi": "1111120200044773",
+                      "hostname": "99.999.999.99",
+                      "latitude": "-5.489552",
+                      "longitude": "-47.45366",
+                      "locationInfo": "string",
+                      "msisdn": "5510000004818",
+                      "logicNumber": "99999",
+                      "online": false,
+                      "connOperator": "ALGAR",
+                      "operator": "ALGAR TELECOM",
+                      "parentId": "898789999",
+                      "plan": "IOT MONITORAMENTO - TODAS OPERADORAS - 5 MBYTES",
+                      "customerName": "Empresa X",
+                      "status": "ACTIVE",
+                      "rat": "2G",
+                      "lastConnection": "2021-06-07T02:17:13.000Z",
+                      "observation": "string",
+                      "consumption": "string",
+                      "consumptionValidated": "string",
+                      "consumptionCurrentDay": "string",
+                      "consumptionPercent": "string",
+                      "blockingType": "string",
+                      "blockingInitialDate": "string",
+                      "blockingFinalDate": "string",
+                      "automaticBlocking": "string",
+                      "cancellationDate": "2024-12-30T17:39:32.727Z",
+                      "contractAssetNumber": "A118430431",
+                      "customerDocumentNumber": "45632199000109",
+                      "lastStatusUpdate": "2024-12-30T17:39:32.727Z",
+                      "lastUpdate": "2024-12-30T17:39:32.727Z",
+                      "networkBlockEndDate": "2024-12-30T17:39:32.727Z",
+                      "networkBlockStartDate": "2024-12-30T17:39:32.727Z",
+                      "networkBlockStatus": "NONE",
+                      "suspensionEndDate": "2024-12-30T17:39:32.727Z",
+                      "suspensionStartDate": "2024-12-30T17:39:32.727Z",
+                      "deviceNumber": "GPRFB71D"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "500": {
+            "description": "Erro Interno do servidor."
+          }
+        }
+      }
+    },
+    "/broker/devices/quantity": {
+      "get": {
+        "description": "Busca quantidade de dispositivos do cliente.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "description": "Número de identificação do dispositivo.",
+            "schema": {
+              "type": "string",
+              "example": "status"
+            }
+          },
+          {
+            "name": "operator",
+            "in": "query",
+            "required": true,
+            "description": "Operadora.",
+            "schema": {
+              "type": "string",
+              "example": "operator"
+            }
+          },
+          {
+            "name": "connectedOperator",
+            "in": "query",
+            "required": true,
+            "description": "Operadora conectada.",
+            "schema": {
+              "type": "string",
+              "example": "connectedOperator"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "description": "Visões dos dispositivos.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "activationDateFrom",
+            "in": "query",
+            "description": "Data de ativação inicial.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-01-01"
+            }
+          },
+          {
+            "name": "activationDateTo",
+            "in": "query",
+            "description": "Data de ativação final.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-12-31"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações do dispositivo encontradas com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "quantity": 100
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal server error"
                 }
               }
             }
@@ -130,66 +623,11 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
-    }
+  "components": {},
+  "x-mintlify": {
+    "group": "Autentificação",
+    "pages": [
+      "api-reference/endpoint/autentificacao/auth"
+    ]
   }
 }
