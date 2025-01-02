@@ -23,6 +23,12 @@
   ],
   "navigation": [
     {
+      "group": "Vamos começar",
+      "pages": [
+        "introduction"
+      ]
+    },
+    {
       "group": "Autentificação",
       "pages": [
         "api-reference/endpoint/autentificacao/auth"
@@ -65,5 +71,11 @@
         "api-reference/endpoint/lorawan/uplink-unlock"
       ]
     }
-  ]
+  ],
+  "footerSocials": {
+    "instagram": "https://www.instagram.com/allcomtelecom?igsh=Ym9yZ2JwdzR2cDl1 ",
+    "website": "https://allcomtelecom.com/",
+    "linkedin": "https://www.linkedin.com/company/allcom-brasil/posts/?feedView=all",
+    "youtube": "https://www.youtube.com/@allcomtelecom"
+  }
 }

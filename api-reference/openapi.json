@@ -59,7 +59,7 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
-            "description": "Autorizacao convertida em base64 do client_id e client_secret separados por dois pontos.",
+            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).",
             "schema": {
               "type": "string",
               "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
@@ -150,7 +150,7 @@
     },
     "/broker/{customerId}/invoices": {
       "get": {
-        "description": "Listar as faturas de contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
         "parameters": [
           {
             "name": "client_id",
@@ -349,7 +349,7 @@
     },
     "/broker/devices": {
       "get": {
-        "description": "Retornar a lista de dispositivos de um cliente MoT. Lista paginada com filtros. (Possui dados sensíveis).",
+        "description": "Retornar a lista de dispositivos de um cliente MoT. A lista em questão está pginada com filtros. (Possui dados sensíveis).",
         "parameters": [
           {
             "name": "client_id",
@@ -497,7 +497,7 @@
     },
     "/broker/devices/quantity": {
       "get": {
-        "description": "Busca quantidade de dispositivos do cliente.",
+        "description": "Busca a quantidade de dispositivos do cliente.",
         "parameters": [
           {
             "name": "client_id",
