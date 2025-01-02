@@ -1427,7 +1427,1721 @@
           }
         }
       }
-    }
+    },
+    "/lorawan/broker/activation": {
+      "post": {
+        "summary": "Realiza uma nova ação de ativação com dispositivos",
+        "description": "Envia uma solicitação para realizar uma nova ação de ativação com dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados necessários para realizar a nova ação de ativação.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "integer",
+                    "description": "Código da ação.",
+                    "example": 0
+                  },
+                  "contractId": {
+                    "type": "string",
+                    "description": "Identificador do contrato.",
+                    "example": "A213215454"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": { "type": "string", "description": "Descrição do dispositivo." },
+                        "devEui": { "type": "string", "description": "Identificador devEui do dispositivo." },
+                        "appEui": { "type": "string", "description": "Identificador appEui do dispositivo." },
+                        "activation": { "type": "string", "description": "Modo de ativação do dispositivo." },
+                        "encryption": { "type": "string", "description": "Tipo de criptografia do dispositivo." },
+                        "devAddr": { "type": "string", "description": "Endereço devAddr do dispositivo." },
+                        "nwksKey": { "type": "string", "description": "Chave de rede do dispositivo." },
+                        "appsKey": { "type": "string", "description": "Chave de aplicação do dispositivo." },
+                        "devClass": { "type": "string", "description": "Classe do dispositivo." },
+                        "countersSize": { "type": "integer", "description": "Tamanho dos contadores." },
+                        "adr": {
+                          "type": "object",
+                          "properties": {
+                            "txPower": { "type": "string", "description": "Potência de transmissão." },
+                            "datarate": { "type": "string", "description": "Taxa de dados." },
+                            "mode": { "type": "string", "description": "Modo de transmissão." }
+                          }
+                        },
+                        "tags": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Tags associadas ao dispositivo."
+                        },
+                        "band": { "type": "string", "description": "Banda do dispositivo." }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "action": 0,
+                "contractId": "A213215454",
+                "devices": [
+                  {
+                    "description": "string",
+                    "devEui": "string",
+                    "appEui": "string",
+                    "activation": "string",
+                    "encryption": "string",
+                    "devAddr": "string",
+                    "nwksKey": "string",
+                    "appsKey": "string",
+                    "devClass": "string",
+                    "countersSize": 0,
+                    "adr": {
+                      "txPower": "string",
+                      "datarate": "string",
+                      "mode": "string"
+                    },
+                    "tags": ["string"],
+                    "band": "string"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação criada com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parâmetros inválidos."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Erro desconhecido."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/deactivation": {
+      "post": {
+        "summary": "Envia uma ação de desativação com dispositivos",
+        "description": "Requisição para enviar uma ação de desativação com dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Ação de desativação de dispositivos Lorawan",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "example": "sdf1s1df51s1df5s"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "action": "1",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1df51s1df5s"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação criada com sucesso."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/block/uplink": {
+      "post": {
+        "summary": "Enviar uma ação de bloqueio uplink dos dispositivos",
+        "description": "Requisição para enviar uma ação de bloqueio uplink dos dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Ação de bloqueio uplink dos dispositivos.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação que será executada",
+                    "example": ""
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador do dispositivo (DevEUI)",
+                          "example": "sdf1sdfs15s1df5s"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "action": "",
+                "devices": [
+                  {
+                    "devEui": "sdf1sdfs15s1df5s"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação de bloqueio uplink criada com sucesso."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/unlock/uplink": {
+      "post": {
+        "summary": "Envia uma ação de desbloqueio uplink dos dispositivos",
+        "description": "Essa rota é utilizada para desbloquear o uplink dos dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Identificador do client id do sensedia"
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Token gerado"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação de desbloqueio"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador único do dispositivo"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "action": "",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1dfs1s1df5s"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Ação criada com sucesso."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/block/downLink": {
+      "post": {
+        "summary": "Envie uma ação de bloqueio downlink dos dispositivos",
+        "description": "Envie uma ação para bloquear downlink dos dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do sensedia",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Ação de bloqueio downlink de dispositivos",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação a ser executada"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador único do dispositivo"
+                        }
+                      },
+                      "required": ["devEui"]
+                    },
+                    "description": "Lista de dispositivos a serem bloqueados"
+                  }
+                },
+                "required": ["action", "devices"]
+              },
+              "example": {
+                "action": "block",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1dfs15s1df5s"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação realizada com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parâmetros inválidos"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Token inválido ou ausente"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Erro ao processar a requisição"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/unlock/downLink": {
+      "post": {
+        "summary": "Envie uma ação de desbloqueio downlink dos dispositivos",
+        "description": "Envie uma ação para desbloquear downlink dos dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Ação de desbloqueio downlink de dispositivos",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação a ser executada"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador único do dispositivo"
+                        }
+                      },
+                      "required": ["devEui"]
+                    },
+                    "description": "Lista de dispositivos a serem desbloqueados"
+                  }
+                },
+                "required": ["action", "devices"]
+              },
+              "example": {
+                "action": "unlock",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1dfs15s1df5s"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação realizada com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parâmetros inválidos"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Token inválido ou ausente"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Erro ao processar a requisição"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/change/tag": {
+      "post": {
+        "summary": "Envie uma ação de mudança de tags nos dispositivos",
+        "description": "Envie uma ação para alterar as tags associadas aos dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Ação de alteração de tags nos dispositivos",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação a ser executada"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador único do dispositivo"
+                        },
+                        "tags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "description": "Tags associadas ao dispositivo"
+                          }
+                        }
+                      },
+                      "required": ["devEui", "tags"]
+                    },
+                    "description": "Lista de dispositivos e suas respectivas tags"
+                  }
+                },
+                "required": ["action", "devices"]
+              },
+              "example": {
+                "action": "15",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1dfs15s1df5s",
+                    "tags": [
+                      "string"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação realizada com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parâmetros inválidos"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Token inválido ou ausente"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Erro ao processar a requisição"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/change/description": {
+      "post": {
+        "summary": "Envie uma ação de mudança de descrição nos dispositivos",
+        "description": "Envie uma ação para alterar as descrições associadas aos dispositivos.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Ação de alteração de descrições nos dispositivos",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação a ser executada"
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador único do dispositivo"
+                        },
+                        "description": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "description": "Descrição associada ao dispositivo"
+                          }
+                        }
+                      },
+                      "required": ["devEui", "description"]
+                    },
+                    "description": "Lista de dispositivos e suas respectivas descrições"
+                  }
+                },
+                "required": ["action", "devices"]
+              },
+              "example": {
+                "action": "14",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1dfs15s1df5s",
+                    "description": [
+                      "string"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação realizada com sucesso."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parâmetros inválidos"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Token inválido ou ausente"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Erro ao processar a requisição"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/referrals": {
+      "post": {
+        "summary": "Envia uma ação de encaminhamento dos dispositivos",
+        "description": "Cria uma ação para encaminhamento de dispositivos no sistema LoRaWAN.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados para a criação do encaminhamento.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Ação a ser executada.",
+                    "example": "16"
+                  },
+                  "contractId": {
+                    "type": "string",
+                    "description": "Identificador do contrato.",
+                    "example": "A12154648484"
+                  },
+                  "deviceReferrals": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "filter": {
+                          "type": "object",
+                          "description": "Filtro para dispositivos específicos.",
+                          "properties": {
+                            "description": {
+                              "type": "string",
+                              "example": "Filtro de dispositivos específicos"
+                            },
+                            "applications": {
+                              "type": "array",
+                              "items": { "type": "string" },
+                              "example": ["app_001", "app_002"]
+                            },
+                            "devices": {
+                              "type": "array",
+                              "items": { "type": "string" },
+                              "example": ["device_001", "device_002"]
+                            },
+                            "tags": {
+                              "type": "array",
+                              "items": { "type": "string" },
+                              "example": ["tag_001", "tag_002"]
+                            }
+                          }
+                        },
+                        "connection": {
+                          "type": "object",
+                          "properties": {
+                            "clientId": {
+                              "type": "string",
+                              "example": "client_001"
+                            },
+                            "topicUp": {
+                              "type": "string",
+                              "example": "lorawan/topicUp"
+                            },
+                            "topicDown": {
+                              "type": "string",
+                              "example": "lorawan/topicDown"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Conexão para monitoramento remoto"
+                            },
+                            "authorization": {
+                              "type": "string",
+                              "example": "Basic abc123xyz"
+                            },
+                            "uri": {
+                              "type": "string",
+                              "example": "mqtt://teste.teste"
+                            },
+                            "url": {
+                              "type": "string",
+                              "example": "http://teste.teste"
+                            },
+                            "type": {
+                              "type": "string",
+                              "example": "mqtt"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Encaminhamento criado com sucesso.",
+            "content": {
+              "application/json": {
+                "example": { "message": "Encaminhamento criado com sucesso." }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": { "errors": "Parameter not found" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Retira encaminhamento LoRaWAN",
+        "description": "Remove ações de encaminhamento dos dispositivos LoRaWAN.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "idReferrals",
+            "in": "query",
+            "description": "Identificador do encaminhamento.",
+            "schema": {
+              "type": "integer",
+              "example": 12345
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Encaminhamento removido com sucesso.",
+            "content": {
+              "application/json": {
+                "example": { "message": "Encaminhamento removido com sucesso." }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": { "errors": "Parameter not found" }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Busca os encaminhamentos LoRaWAN",
+        "description": "Lista todos os encaminhamentos de dispositivos LoRaWAN cadastrados.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de registros por página.",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de encaminhamentos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "customerId": 15302,
+                    "filter": {},
+                    "tags": ["15302_tag_teste"],
+                    "connection": {
+                      "filter": "6660518cf680eadd037f0993",
+                      "description": "Teste encaminhamento",
+                      "url": "https://webhook-test.com/test",
+                      "type": "http2",
+                      "expiresIn": 0
+                    },
+                    "referralIds": [
+                      {
+                        "orgId": 1,
+                        "name": "IoT LoRa Plano 04",
+                        "filterId": "6660518cf680eadd037f0993",
+                        "createdAt": "2024-06-05T11:52:46.068+00:00"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": { "errors": "Parameter not found" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/actions": {
+      "get": {
+        "summary": "Obtém ativações com base nos filtros fornecidos",
+        "description": "Retorna uma lista de ativações com base nos filtros fornecidos.",
+        "parameters": [
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "description": "Filtro pelo ID do cliente.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 12345
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filtro pelo status da ativação.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "PENDING"
+            }
+          },
+          {
+            "name": "devEui",
+            "in": "query",
+            "description": "Filtro pelo devEui do dispositivo.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ABCDEF1234567890"
+            }
+          },
+          {
+            "name": "actionType",
+            "in": "query",
+            "description": "Filtro pelo tipo de ação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Filtro pela data de início (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Filtro pela data de fim (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-31T23:59:59Z"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "actionType": "string",
+                    "idContract": "string",
+                    "devEui": "string",
+                    "customer": {
+                      "id": 0,
+                      "name": "string",
+                      "email": "string"
+                    },
+                    "customerId": 0,
+                    "status": "PENDING",
+                    "processLog": "string",
+                    "processingDate": "2025-01-02T13:32:49.549Z",
+                    "createdAt": "2025-01-02T13:32:49.549Z",
+                    "createdBy": "string",
+                    "updatedAt": "2025-01-02T13:32:49.549Z",
+                    "updatedBy": "string",
+                    "processData": "string"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/messages": {
+      "get": {
+        "summary": "Busca lista de histórico de mensagens",
+        "description": "Retorna uma lista de histórico de mensagens com base nos filtros fornecidos.",
+        "parameters": [
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "description": "Filtro pelo ID do cliente.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 12345
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filtro pelo status da ativação.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "PENDING"
+            }
+          },
+          {
+            "name": "devEui",
+            "in": "query",
+            "description": "Filtro pelo devEui do dispositivo.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ABCDEF1234567890"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Filtro de localidade.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "en-US"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Filtro pela data de início (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Filtro pela data de fim (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-31T23:59:59Z"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de histórico de mensagens retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "actionType": "string",
+                    "idContract": "string",
+                    "devEui": "string",
+                    "customer": {
+                      "id": 0,
+                      "name": "string",
+                      "email": "string"
+                    },
+                    "customerId": 0,
+                    "status": "PENDING",
+                    "processLog": "string",
+                    "processingDate": "2025-01-02T13:37:23.499Z",
+                    "createdAt": "2025-01-02T13:37:23.499Z",
+                    "createdBy": "string",
+                    "updatedAt": "2025-01-02T13:37:23.499Z",
+                    "updatedBy": "string",
+                    "processData": "string"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/topDownlinks": {
+      "get": {
+        "summary": "Gera informações para Dashboard relacionadas aos Downlinks LoRaWAN",
+        "description": "Obtém informações para alimentar o Dashboard com dados relacionados aos Downlinks no sistema LoRaWAN.",
+        "parameters": [
+          {
+            "name": "linesPerPage",
+            "in": "query",
+            "description": "Quantidade de registros por página.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "devEui": 12345678,
+                    "value": "example_value_1"
+                  },
+                  {
+                    "devEui": 87654321,
+                    "value": "example_value_2"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/topUplinks": {
+      "get": {
+        "summary": "Gera informações para Dashboard relacionadas aos Uplinks LoRaWAN",
+        "description": "Obtém informações para alimentar o Dashboard com dados relacionados aos Uplinks no sistema LoRaWAN.",
+        "parameters": [
+          {
+            "name": "linesPerPage",
+            "in": "query",
+            "description": "Quantidade de registros por página.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "devEui": 12345678,
+                    "value": "example_value_1"
+                  },
+                  {
+                    "devEui": 87654321,
+                    "value": "example_value_2"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/device/status": {
+      "get": {
+        "summary": "Gera informações para Dashboard dos Devices LoRaWAN",
+        "description": "Obtém informações para alimentar o Dashboard com dados relacionados ao status dos dispositivos no sistema LoRaWAN.",
+        "parameters": [
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "totalDevices": 0,
+                  "activeDownlinkDevices": 0,
+                  "activeUplinkDevices": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }      
   },
   "components": {},
   "x-mintlify": {

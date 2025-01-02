@@ -95,6 +95,27 @@
         "api-reference/endpoint/mot/block-network-get",
         "api-reference/endpoint/mot/block-network-post"
       ]
+    },
+    {
+      "group": "Lorawan",
+      "pages": [
+        "api-reference/endpoint/lorawan/activation",
+        "api-reference/endpoint/lorawan/actions",
+        "api-reference/endpoint/lorawan/change-description",
+        "api-reference/endpoint/lorawan/change-tag",
+        "api-reference/endpoint/lorawan/deactivation",
+        "api-reference/endpoint/lorawan/device-status",
+        "api-reference/endpoint/lorawan/downlink-block",
+        "api-reference/endpoint/lorawan/downlink-unlock",
+        "api-reference/endpoint/lorawan/messages",
+        "api-reference/endpoint/lorawan/referrals-delete",
+        "api-reference/endpoint/lorawan/referrals-get",
+        "api-reference/endpoint/lorawan/referrals-post",
+        "api-reference/endpoint/lorawan/top-downlinks",
+        "api-reference/endpoint/lorawan/top-uplinks",
+        "api-reference/endpoint/lorawan/uplink-block",
+        "api-reference/endpoint/lorawan/uplink-unlock"
+      ]
     }
   ],
   "footerSocials": {
