@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Allcom Telecom",
   "logo": {
-    "dark": "/images/logo-allcom-preto.png",
-    "light": "/images/logo-allcom-branco.png"
+    "dark": "/images/logo-allcom-branco.png",
+    "light": "/images/logo-allcom-preto.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
