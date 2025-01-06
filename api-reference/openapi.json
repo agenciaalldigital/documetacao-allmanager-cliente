@@ -4,18 +4,24 @@
     "title": "OpenAPI Auth Store",
     "description": "API de exemplo para demonstração de autenticação e obtenção de tokens.",
     "license": {
-      "name": "MIT"
+      "name": "Allcom Telecom"
     },
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "http://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1"
     }
   ],
   "security": [],
   "paths": {
-    "/oauth-portal/access-token": {
+    "/access-token": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/oauth-portal",
+          "description": "Servidor de autenticação para rota de token"
+        }
+      ],
       "post": {
         "description": "Executa a criação de um token de acesso.",
         "requestBody": {
