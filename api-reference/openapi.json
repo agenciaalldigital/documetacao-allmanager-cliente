@@ -23,7 +23,7 @@
         }
       ],
       "post": {
-        "description": "Executa a criação de um token de acesso.",
+        "description": "Executa a criação de um token de acesso. Copie e cole os valores padrões (default) nos respectivos campos antes de executar a requisição.",
         "requestBody": {
           "description": "Informações necessárias para criar o token.",
           "required": true,
@@ -34,15 +34,18 @@
                 "properties": {
                   "client_id": {
                     "type": "string",
-                    "description": "Identificador do cliente."
+                    "description": "Identificador único do cliente.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente antes de executar a requisição.",
+                    "default": "38928381-409d-3eac-a791-ca8f11d7dde6"
                   },
                   "client_secret": {
                     "type": "string",
-                    "description": "Segredo do cliente para autenticação."
+                    "description": "Segredo do cliente utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nc016ad12-481e-3aea-8ae6-e8a1a6284596\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente antes de executar a requisição.",
+                    "default": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
                   }
                 },
                 "required": ["client_id", "client_secret"]
               },
+
               "example": {
                 "client_id": "string",
                 "client_secret": "string"
@@ -55,17 +58,18 @@
             "name": "Content-Type",
             "in": "header",
             "required": true,
-            "description": "Define o formato da requisição.",
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente.",
             "schema": {
               "type": "string",
-              "example": "application/json"
+              "example": "application/json",
+              "default": "application/json"
             }
           },
           {
             "name": "Authorization",
             "in": "header",
             "required": true,
-            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).",
+            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).\n\n🔹 **Valor padrão:**\n```\nBasic Mzg5MjgzODEtNDA5ZC0zZWFjLWE3OTEtY2E4ZjExZDdkZGU2OmMwMTZhZDEyLTQ4MWUtM2FlYS04YWU2LWU4YTFhNjI4NDU5Ng==\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente.",
             "schema": {
               "type": "string",
               "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
@@ -95,10 +99,11 @@
             "name": "realm",
             "in": "header",
             "required": true,
-            "description": "Domínio de autenticação do Keycloak.",
+            "description": "Domínio de autenticação do Keycloak.\n\n🔹 **Valor padrão:**\n```\n0d5a3954\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente.",
             "schema": {
               "type": "string",
-              "example": "algar-telecom"
+              "example": "algar-telecom",
+              "default": "0d5a3954"
             }
           }
         ],
@@ -1434,6 +1439,266 @@
         }
       }
     },
+    "/broker/reset-network": {
+      "get": {
+        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "required": true,
+            "description": "Usuário que criou a ação",
+            "schema": {
+              "type": "string",
+              "example": "teste.user"
+            }
+          },
+          {
+            "name": "statusCode",
+            "in": "query",
+            "required": true,
+            "description": "Status da ação",
+            "schema": {
+              "type": "string",
+              "example": "0"
+            }
+          },
+          {
+            "name": "startDateCreated",
+            "in": "query",
+            "description": "Data inicio da criaçao da ação",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-01-01"
+            }
+          },
+          {
+            "name": "endDateCreated",
+            "in": "query",
+            "description": "Data fim da criacao da ação",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-12-31"
+            }
+          },
+          {
+            "name": "operationProtocol",
+            "in": "query",
+            "required": true,
+            "description": "Protocolo da operação",
+            "schema": {
+              "type": "string",
+              "example": "213132132"
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "required": true,
+            "description": "Msisdn",
+            "schema": {
+              "type": "string",
+              "example": "213132132"
+            }
+          },
+          {
+            "name": "operationProtocolo",
+            "in": "query",
+            "required": true,
+            "description": "Protocolo da integração",
+            "schema": {
+              "type": "string",
+              "example": "326598-8"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações do dispositivo encontradas com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "createdAt": "2021-03-10 09:11:42",
+                    "customerId": 12586,
+                    "iccid": "19440266",
+                    "imsi": "5465565456465456",
+                    "msisdn": "0349665655897",
+                    "processingDate": "",
+                    "statusCode": 0,
+                    "statusMessage": "Processo finalizado com sucesso ",
+                    "processData": "2018-12-01 14:00:00",
+                    "actionType": "RESET HLR ou RESET OTA ou SUSPENSÃO PROVISORIA",
+                    "createdBy": "teste@gmail.com"
+                  }
+                ]
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor."
+          }
+        }
+      },
+      "post": {
+        "summary": "Solicita o reset de Rede",
+        "description": "Solicita o bloqueio de rede (via radius).",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações do dispositivo a receber o reset.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msisdn": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "5534991023333"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "207": {
+            "description": "Error and sucess"
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado"
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/lorawan/broker/activation": {
       "post": {
         "summary": "Realiza uma nova ação de ativação com dispositivos",
@@ -1483,22 +1748,61 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "description": { "type": "string", "description": "Descrição do dispositivo." },
-                        "devEui": { "type": "string", "description": "Identificador devEui do dispositivo." },
-                        "appEui": { "type": "string", "description": "Identificador appEui do dispositivo." },
-                        "activation": { "type": "string", "description": "Modo de ativação do dispositivo." },
-                        "encryption": { "type": "string", "description": "Tipo de criptografia do dispositivo." },
-                        "devAddr": { "type": "string", "description": "Endereço devAddr do dispositivo." },
-                        "nwksKey": { "type": "string", "description": "Chave de rede do dispositivo." },
-                        "appsKey": { "type": "string", "description": "Chave de aplicação do dispositivo." },
-                        "devClass": { "type": "string", "description": "Classe do dispositivo." },
-                        "countersSize": { "type": "integer", "description": "Tamanho dos contadores." },
+                        "description": {
+                          "type": "string",
+                          "description": "Descrição do dispositivo."
+                        },
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador devEui do dispositivo."
+                        },
+                        "appEui": {
+                          "type": "string",
+                          "description": "Identificador appEui do dispositivo."
+                        },
+                        "activation": {
+                          "type": "string",
+                          "description": "Modo de ativação do dispositivo."
+                        },
+                        "encryption": {
+                          "type": "string",
+                          "description": "Tipo de criptografia do dispositivo."
+                        },
+                        "devAddr": {
+                          "type": "string",
+                          "description": "Endereço devAddr do dispositivo."
+                        },
+                        "nwksKey": {
+                          "type": "string",
+                          "description": "Chave de rede do dispositivo."
+                        },
+                        "appsKey": {
+                          "type": "string",
+                          "description": "Chave de aplicação do dispositivo."
+                        },
+                        "devClass": {
+                          "type": "string",
+                          "description": "Classe do dispositivo."
+                        },
+                        "countersSize": {
+                          "type": "integer",
+                          "description": "Tamanho dos contadores."
+                        },
                         "adr": {
                           "type": "object",
                           "properties": {
-                            "txPower": { "type": "string", "description": "Potência de transmissão." },
-                            "datarate": { "type": "string", "description": "Taxa de dados." },
-                            "mode": { "type": "string", "description": "Modo de transmissão." }
+                            "txPower": {
+                              "type": "string",
+                              "description": "Potência de transmissão."
+                            },
+                            "datarate": {
+                              "type": "string",
+                              "description": "Taxa de dados."
+                            },
+                            "mode": {
+                              "type": "string",
+                              "description": "Modo de transmissão."
+                            }
                           }
                         },
                         "tags": {
@@ -1506,7 +1810,10 @@
                           "items": { "type": "string" },
                           "description": "Tags associadas ao dispositivo."
                         },
-                        "band": { "type": "string", "description": "Banda do dispositivo." }
+                        "band": {
+                          "type": "string",
+                          "description": "Banda do dispositivo."
+                        }
                       }
                     }
                   }
@@ -2096,9 +2403,7 @@
                 "devices": [
                   {
                     "devEui": "sdf1s1dfs15s1df5s",
-                    "tags": [
-                      "string"
-                    ]
+                    "tags": ["string"]
                   }
                 ]
               }
@@ -2214,9 +2519,7 @@
                 "devices": [
                   {
                     "devEui": "sdf1s1dfs15s1df5s",
-                    "description": [
-                      "string"
-                    ]
+                    "description": ["string"]
                   }
                 ]
               }
@@ -3147,13 +3450,11 @@
           }
         }
       }
-    }      
+    }
   },
   "components": {},
   "x-mintlify": {
     "group": "Autentificação",
-    "pages": [
-      "api-reference/endpoint/autentificacao/auth"
-    ]
+    "pages": ["api-reference/endpoint/autentificacao/auth"]
   }
 }
