@@ -49,7 +49,8 @@
         "api-reference/endpoint/mot/block-network-get",
         "api-reference/endpoint/mot/block-network-post",
         "api-reference/endpoint/mot/reset-network-get",
-        "api-reference/endpoint/mot/reset-network-post"
+        "api-reference/endpoint/mot/reset-network-post",
+        "api-reference/endpoint/mot/actions-queue-get"
       ]
     },
     {
