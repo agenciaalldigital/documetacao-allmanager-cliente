@@ -34,12 +34,12 @@
                 "properties": {
                   "client_id": {
                     "type": "string",
-                    "description": "Identificador único do cliente.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente antes de executar a requisição.",
+                    "description": "Identificador único do cliente.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
                     "default": "38928381-409d-3eac-a791-ca8f11d7dde6"
                   },
                   "client_secret": {
                     "type": "string",
-                    "description": "Segredo do cliente utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nc016ad12-481e-3aea-8ae6-e8a1a6284596\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente antes de executar a requisição.",
+                    "description": "Segredo do cliente utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nc016ad12-481e-3aea-8ae6-e8a1a6284596\n```\n📌 **Dica:** Copie e cole esse valor no campo client_secret antes de executar a requisição.",
                     "default": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
                   }
                 },
@@ -47,8 +47,8 @@
               },
 
               "example": {
-                "client_id": "string",
-                "client_secret": "string"
+                "client_id": "38928381-409d-3eac-a791-ca8f11d7dde6",
+                "client_secret": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
               }
             }
           }
@@ -58,7 +58,7 @@
             "name": "Content-Type",
             "in": "header",
             "required": true,
-            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente.",
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
             "schema": {
               "type": "string",
               "example": "application/json",
@@ -69,7 +69,7 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
-            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).\n\n🔹 **Valor padrão:**\n```\nBasic Mzg5MjgzODEtNDA5ZC0zZWFjLWE3OTEtY2E4ZjExZDdkZGU2OmMwMTZhZDEyLTQ4MWUtM2FlYS04YWU2LWU4YTFhNjI4NDU5Ng==\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente.",
+            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).\n\n🔹 **Valor padrão:**\n```\nBasic Mzg5MjgzODEtNDA5ZC0zZWFjLWE3OTEtY2E4ZjExZDdkZGU2OmMwMTZhZDEyLTQ4MWUtM2FlYS04YWU2LWU4YTFhNjI4NDU5Ng==\n```\n📌 **Dica:** Copie e cole esse valor no campo Authorization.",
             "schema": {
               "type": "string",
               "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
@@ -99,7 +99,7 @@
             "name": "realm",
             "in": "header",
             "required": true,
-            "description": "Domínio de autenticação do Keycloak.\n\n🔹 **Valor padrão:**\n```\n0d5a3954\n```\n📌 **Dica:** Copie e cole esse valor no campo correspondente.",
+            "description": "Domínio de autenticação do Keycloak.\n\n🔹 **Valor padrão:**\n```\n0d5a3954\n```\n📌 **Dica:** Copie e cole esse valor no campo realm.",
             "schema": {
               "type": "string",
               "example": "algar-telecom",
@@ -167,7 +167,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -366,7 +366,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -514,7 +514,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -642,7 +642,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -800,7 +800,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -910,7 +910,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -998,7 +998,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1093,7 +1093,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1173,7 +1173,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1245,7 +1245,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string",
@@ -1364,7 +1364,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string",
@@ -1447,7 +1447,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1624,7 +1624,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string",
@@ -1699,6 +1699,197 @@
         }
       }
     },
+    "/broker/actions/queue": {
+      "get": {
+        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "required": true,
+            "description": "Usuário que criou a ação",
+            "schema": {
+              "type": "string",
+              "example": "teste.user"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "description": "Status da ação",
+            "schema": {
+              "type": "string",
+              "example": "0"
+            }
+          },
+          {
+            "name": "startDateCreated",
+            "in": "query",
+            "description": "Data inicio da criaçao da ação",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-01-01"
+            }
+          },
+          {
+            "name": "endDateCreated",
+            "in": "query",
+            "description": "Data fim da criacao da ação",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-12-31"
+            }
+          },
+          {
+            "name": "operationProtocol",
+            "in": "query",
+            "required": true,
+            "description": "Protocolo da operação",
+            "schema": {
+              "type": "string",
+              "example": "213132132"
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "required": true,
+            "description": "Msisdn",
+            "schema": {
+              "type": "string",
+              "example": "213132132"
+            }
+          },
+          {
+            "name": "statusAutoServices",
+            "in": "query",
+            "required": true,
+            "description": "Status do auto serviço",
+            "schema": {
+              "type": "string",
+              "example": "326598-8"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "description": "Id da ação(identificado pode ser buscado na API /actions - parametro: ```actionType```)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 65456456,
+              "example": 65456456
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações do dispositivo encontradas com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "createdAt": "2021-03-10 09:11:42",
+                    "customerId": 12586,
+                    "iccid": "19440266",
+                    "imsi": "5465565456465456",
+                    "msisdn": "0349665655897",
+                    "processingDate": "",
+                    "statusCode": 0,
+                    "statusMessage": "Processo finalizado com sucesso ",
+                    "processData": "2018-12-01 14:00:00",
+                    "actionType": "RESET HLR ou RESET OTA ou SUSPENSÃO PROVISORIA",
+                    "createdBy": "teste@gmail.com"
+                  }
+                ]
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor."
+          }
+        }
+      }
+    },
     "/lorawan/broker/activation": {
       "post": {
         "summary": "Realiza uma nova ação de ativação com dispositivos",
@@ -1708,7 +1899,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1893,7 +2084,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1970,7 +2161,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -2346,7 +2537,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2462,7 +2653,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2578,7 +2769,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string",
@@ -2715,7 +2906,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string",
@@ -2777,7 +2968,7 @@
           {
             "name": "client_id",
             "in": "header",
-            "description": "Identificador do client id do Sensedia.",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
             "required": true,
             "schema": {
               "type": "string",
