@@ -24,7 +24,7 @@ Antes de começar, certifique-se de ter instalado:
 
 3. **Execute o contêiner em modo desenvolvimento com hot-reload**:
    ```sh
-   docker run -p 3000:3000 -v $(pwd):/app --name allmanager-docs allmanager-client-docs
+    docker run -p 3000:3000 -v $(pwd):/app --name allmanager-docs allmanager-client-docs -d allmanager-docs
    ```
 
 4. **Acesse o site em http://localhost:3000**
