@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1"
+      "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1"
     }
   ],
   "security": [],
@@ -3356,7 +3356,7 @@
                             },
                             "url": {
                               "type": "string",
-                              "example": "http://teste.teste"
+                              "example": "https://teste.teste"
                             },
                             "type": {
                               "type": "string",
