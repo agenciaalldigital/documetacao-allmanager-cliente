@@ -1701,7 +1701,7 @@
     },
     "/broker/actions/queue": {
       "get": {
-        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "description": "Recupera o status da fila de ações, retornando dados da última semana até o dia atual. Para consultar um período diferente, utilize os parâmetros `startDate` e `endDate`",
         "parameters": [
           {
             "name": "client_id",
@@ -1820,7 +1820,7 @@
           {
             "name": "action",
             "in": "query",
-            "description": "Id da ação(identificado pode ser buscado na API /actions - parametro: ```actionType```)",
+            "description": "ID da ação.\n\n🔹 **Detalhes:** O identificador pode ser obtido na API `/actions`, utilizando o parâmetro `actionType`",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1837,17 +1837,38 @@
               "application/json": {
                 "example": [
                   {
+                    "id": 897654,
+                    "actionType": 49,
                     "createdAt": "2021-03-10 09:11:42",
-                    "customerId": 12586,
-                    "iccid": "19440266",
+                    "contractId": "6545656",
+                    "iccId": "19440266",
                     "imsi": "5465565456465456",
                     "msisdn": "0349665655897",
+                    "customer": {
+                      "id": 65454546,
+                      "name": "Teste cliente",
+                      "documentNumber": "20325698000178"
+                    },
+                    "customerId": 12586,
                     "processingDate": "",
-                    "statusCode": 0,
-                    "statusMessage": "Processo finalizado com sucesso ",
-                    "processData": "2018-12-01 14:00:00",
-                    "actionType": "RESET HLR ou RESET OTA ou SUSPENSÃO PROVISORIA",
-                    "createdBy": "teste@gmail.com"
+                    "processed": 0,
+                    "processedLog": "Processo finalizado com sucesso ",
+                    "protocol": "20325687978-7",
+                    "createdDate": "2025-01-29T13:18:11.000+00:00",
+                    "createdBy": "teste@gmail.com",
+                    "vendor": "TIM",
+                    "retry": 1,
+                    "customerDest": "string",
+                    "customerIdDest": 5456454,
+                    "virtualAccountDest": {
+                      "id": 65454546,
+                      "name": "Pedido Teste"
+                    },
+                    "virtualAccountIdDest": 654545,
+                    "virtualContractDest": {
+                      "id": 65454546,
+                      "planDesc": "Contrato Teste"
+                    }
                   }
                 ]
               }
@@ -1886,6 +1907,477 @@
           },
           "500": {
             "description": "Erro Interno do servidor."
+          }
+        }
+      }
+    },
+    "/broker/bait-renewall": {
+      "post": {
+        "summary": "Solicita a renovação de ISCA",
+        "description": "Solicita a renovaçõa de ISCA (processo envia a lista de Simcards para o MS procesar as renovações).",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações do dispositivo a receber o reset.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msisdn": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "5534991025544"
+                  },
+                  "iccid": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "9485349328492"
+                  },
+                  "imei": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "7678"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "207": {
+            "description": "Error and sucess"
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado"
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/franchise-renewall": {
+      "post": {
+        "summary": "Solicita a renovação do plano fraqnuia",
+        "description": "Solicita a aprovação do plano franquia (processo envia a lista de Simcards para o MS procesar as renovações).",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Informações do dispositivo a receber o reset.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msisdn": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "5534991025544"
+                  },
+                  "iccid": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "9485349328492"
+                  },
+                  "imei": {
+                    "type": "string",
+                    "description": "Número do MSISDN do dispositivo.",
+                    "example": "7678"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "207": {
+            "description": "Error and sucess"
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado"
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/alerts": {
+      "get": {
+        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "required": true,
+            "description": "Msisdn",
+            "schema": {
+              "type": "string",
+              "example": "213132132"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "description": "Status da ação.\n\n🔹 **Valores disponíveis:** `0`, `1`, `99`, `98`, `97`\n\n📌 **Dica:** Escolha um dos valores acima ao executar a requisição.",
+            "schema": {
+              "type": "integer",
+              "enum": [0, 1, 99, 98, 97],
+              "example": "0"
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "required": true,
+            "description": "Usuário que criou a ação",
+            "schema": {
+              "type": "string",
+              "example": "teste.user"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Data inicio da criaçao da ação",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-01-01"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Data fim da criacao da ação",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2022-12-31"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": true,
+            "description": "Protocolo da operação",
+            "schema": {
+              "type": "string",
+              "example": "213132132"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações do dispositivo encontradas com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 308,
+                    "customerId": 10000,
+                    "terminalId": null,
+                    "contractId": null,
+                    "msisdn": null,
+                    "eventType": "CONSUMPTION",
+                    "field": "consumptionCurrentDay",
+                    "operator": ">",
+                    "thresholdValue": 31457280,
+                    "name": "Teste",
+                    "active": true,
+                    "createdAt": "2025-01-02T19:10:16.354",
+                    "createdBy": "vanilson_etica",
+                    "updatedAt": null,
+                    "updatedBy": null
+                  }
+                ]
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor."
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um alerta de consumo",
+        "description": "Cria um alerta de consumo",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do Sensedia.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string",
+                    "description": "Nome do campo associado ao evento ou métrica monitorada.\n\n🔹 **Exemplo de uso:**\n```\nconsumptionCurrentDay\n```",
+                    "example": "consumptionCurrentDay"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Nome do alerta ou regra definida para monitoramento.\n\n🔹 **Exemplo de uso:**\n```\nTeste\n```",
+                    "example": "Teste"
+                  },
+                  "thresholdValue": {
+                    "type": "string",
+                    "description": "Valor limite que aciona o evento ou alerta.\n\n🔹 **Exemplo de uso:**\n```\n31457280.000\n```",
+                    "example": "31457280.000"
+                  },
+                  "eventType": {
+                    "type": "string",
+                    "description": "Tipo do evento associado ao monitoramento.\n\n🔹 **Exemplo de uso:**\n```\nCONSUMPTION\n```",
+                    "example": "CONSUMPTION"
+                  },
+                  "operator": {
+                    "type": "string",
+                    "description": "Operador lógico utilizado na comparação do valor monitorado com o limite definido.\n\n🔹 **Exemplo de uso:**\n```\n>\n```",
+                    "example": ">"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "207": {
+            "description": "Error and sucess"
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado"
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Parameter not found"
+                }
+              }
+            }
           }
         }
       }
