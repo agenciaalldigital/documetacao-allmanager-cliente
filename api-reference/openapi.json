@@ -41,6 +41,11 @@
                     "type": "string",
                     "description": "Segredo do cliente utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nc016ad12-481e-3aea-8ae6-e8a1a6284596\n```\n📌 **Dica:** Copie e cole esse valor no campo client_secret antes de executar a requisição.",
                     "default": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
+                  },
+                  "grant_type": {
+                    "type": "string",
+                    "description": "Segredo do cliente utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\ncclient_credentials\n```\n📌 **Dica:** Copie e cole esse valor no campo client_secret antes de executar a requisição.",
+                    "default": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
                   }
                 },
                 "required": ["client_id", "client_secret"]
