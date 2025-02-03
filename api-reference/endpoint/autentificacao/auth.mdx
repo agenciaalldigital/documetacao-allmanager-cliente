@@ -1,4 +1,78 @@
 ---
-title: 'token'
-openapi: 'POST /access-token'
+title: "Autenticação com Access Token no Postman e Insomnia"
+description: "Guia para configurar e enviar requisições de autenticação no Postman e Insomnia."
 ---
+
+## Como obter um Access Token no Postman e Insomnia
+
+Este guia explica como configurar uma requisição no **Postman** e no **Insomnia** para obter um Access Token utilizando o endpoint:
+
+```
+https://apicorp.algartelecom.com.br/oauth-portal/access-token
+```
+
+### 1. Configurando a Requisição
+
+#### **Método HTTP:**
+**POST**
+
+#### **URL:**
+```
+https://apicorp.algartelecom.com.br/oauth-portal/access-token
+```
+
+### 2. Configurando os Headers
+
+Adicione os seguintes headers na requisição:
+
+| Nome         | Valor                                                           | Descrição |
+|-------------|-----------------------------------------------------------------|------------|
+| Content-Type | `application/json` | Define o formato da requisição. |
+| Authorization | `Basic <base64(client_id:client_secret)>` | Credenciais convertidas para Base64. |
+| username | `seu-email@example.com` | O usuário recebido por e-mail. |
+| password | `sua-senha` | A senha de acesso recebida por e-mail. |
+| realm | `0d5a3954` | Domínio de autenticação do Keycloak. |
+
+### 3. Configurando o Body
+
+No **Postman**, selecione **raw** como tipo de body e insira o seguinte JSON:
+
+```json
+{
+  "client_id": "38928381-409d-3eac-a791-ca8f11d7dde6",
+  "client_secret": "c016ad12-481e-3aea-8ae6-e8a1a6284596",
+  "grant_type": "client_credentials"
+}
+```
+
+No **Insomnia**, escolha **JSON** como o tipo de body e insira os mesmos dados.
+
+### 4. Enviando a Requisição
+
+Após configurar os headers e o body, clique em **Send** no Postman ou Insomnia.
+
+### 5. Respostas Esperadas
+
+Se a requisição for bem-sucedida, a resposta terá o seguinte formato:
+
+```json
+{
+  "access_token": "string",
+  "token_type": "string",
+  "expires_in": 3600
+}
+```
+
+Caso haja um erro, as mensagens podem ser:
+
+- **400 Bad Request:** Erro inesperado ao criar o token.
+- **401 Unauthorized:** Credenciais inválidas ou token expirado.
+
+### 6. Dicas Úteis
+
+- O **Authorization** deve ser enviado no formato **Basic** e conter o **client_id** e **client_secret** concatenados com `:` e convertidos para Base64.
+- O campo **realm** deve ser preenchido corretamente para autenticação via Keycloak.
+- O **grant_type** deve ser `client_credentials`.
+
+Agora você pode utilizar o **Access Token** gerado para autenticar suas próximas requisições!
+
