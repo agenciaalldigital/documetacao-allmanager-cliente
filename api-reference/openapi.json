@@ -558,9 +558,10 @@
             "name": "status",
             "in": "query",
             "required": true,
-            "description": "Número de identificação do dispositivo.",
+            "description": "Status do dispositivo",
             "schema": {
               "type": "string",
+              "enum": ["ACTIVE", "CANCELED"],
               "example": "status"
             }
           },
