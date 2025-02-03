@@ -1,4 +1,10 @@
 ---
+title: Executa a criação de um token de acesso.
+openapi: "POST /access-token"
+---
+
+
+{/* ---
 title: "Autenticação com Access Token no Postman e Insomnia"
 description: "Guia para configurar e enviar requisições de autenticação no Postman e Insomnia."
 ---
@@ -25,19 +31,19 @@ https://apicorp.algartelecom.com.br/oauth-portal/access-token
 
 Adicione os seguintes headers na requisição:
 
-| Nome         | Valor                                                           | Descrição |
-|-------------|-----------------------------------------------------------------|------------|
-| Content-Type | `application/json` | Define o formato da requisição. |
-| Authorization | `Basic <base64(client_id:client_secret)>` | Credenciais convertidas para Base64. |
-| username | `seu-email@example.com` | O usuário recebido por e-mail. |
-| password | `sua-senha` | A senha de acesso recebida por e-mail. |
-| realm | `0d5a3954` | Domínio de autenticação do Keycloak. |
+```
+Content-Type: application/json
+Authorization: Basic Mzg5MjgzODEtNDA5ZC0zZWFjLWE3OTEtY2E4ZjExZDdkZGU2OmMwMTZhZDEyLTQ4MWUtM2FlYS04YWU2LWU4YTFhNjI4NDU5Ng==
+username: usuario@example.com
+password: senha123
+realm: 0d5a3954
+```
 
 ### 3. Configurando o Body
 
 No **Postman**, selecione **raw** como tipo de body e insira o seguinte JSON:
 
-```json
+```
 {
   "client_id": "38928381-409d-3eac-a791-ca8f11d7dde6",
   "client_secret": "c016ad12-481e-3aea-8ae6-e8a1a6284596",
@@ -55,7 +61,7 @@ Após configurar os headers e o body, clique em **Send** no Postman ou Insomnia.
 
 Se a requisição for bem-sucedida, a resposta terá o seguinte formato:
 
-```json
+```
 {
   "access_token": "string",
   "token_type": "string",
@@ -75,4 +81,5 @@ Caso haja um erro, as mensagens podem ser:
 - O **grant_type** deve ser `client_credentials`.
 
 Agora você pode utilizar o **Access Token** gerado para autenticar suas próximas requisições!
+ */}
 

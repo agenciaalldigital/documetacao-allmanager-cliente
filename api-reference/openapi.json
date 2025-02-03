@@ -15,6 +15,174 @@
   ],
   "security": [],
   "paths": {
+    "/access-token": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/oauth-portal",
+          "description": "Servidor de autenticação para rota de token"
+        }
+      ],
+      "post": {
+        "description": "Executa a criação de um token de acesso. Copie e cole os valores padrões (default) nos respectivos campos antes de executar a requisição.",
+        "requestBody": {
+          "description": "Informações necessárias para criar o token.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client_id": {
+                    "type": "string",
+                    "description": "Identificador único do cliente.\n\n🔹 **Valor padrão:**\n```\n38928381-409d-3eac-a791-ca8f11d7dde6\n```\n📌 **Dica:** Copie e cole esse valor no campo client_id antes de executar a requisição.",
+                    "default": "38928381-409d-3eac-a791-ca8f11d7dde6"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "description": "Segredo do cliente utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nc016ad12-481e-3aea-8ae6-e8a1a6284596\n```\n📌 **Dica:** Copie e cole esse valor no campo client_secret antes de executar a requisição.",
+                    "default": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
+                  },
+                  "grant_type": {
+                    "type": "string",
+                    "description": "Tipo de concessão utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nclient_credentials\n```\n📌 **Dica:** Copie e cole esse valor no campo grant_type antes de executar a requisição.",
+                    "default": "client_credentials"
+                  }
+                },
+                "required": ["client_id", "client_secret"]
+              },
+
+              "example": {
+                "client_id": "38928381-409d-3eac-a791-ca8f11d7dde6",
+                "client_secret": "c016ad12-481e-3aea-8ae6-e8a1a6284596"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).\n\n🔹 **Valor padrão:**\n```\nBasic Mzg5MjgzODEtNDA5ZC0zZWFjLWE3OTEtY2E4ZjExZDdkZGU2OmMwMTZhZDEyLTQ4MWUtM2FlYS04YWU2LWU4YTFhNjI4NDU5Ng==\n```\n📌 **Dica:** Copie e cole esse valor no campo Authorization.",
+            "schema": {
+              "type": "string",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "username",
+            "in": "header",
+            "required": true,
+            "description": "Username recebido por email.",
+            "schema": {
+              "type": "string",
+              "example": "usuario@example.com"
+            }
+          },
+          {
+            "name": "password",
+            "in": "header",
+            "required": true,
+            "description": "Senha de acesso recebida por email.",
+            "schema": {
+              "type": "string",
+              "example": "senha123"
+            }
+          },
+          {
+            "name": "realm",
+            "in": "header",
+            "required": true,
+            "description": "Domínio de autenticação do Keycloak.\n\n🔹 **Valor padrão:**\n```\n0d5a3954\n```\n📌 **Dica:** Copie e cole esse valor no campo realm.",
+            "schema": {
+              "type": "string",
+              "example": "algar-telecom",
+              "default": "0d5a3954"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Token criado com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "Token de acesso gerado."
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "description": "Tipo do token gerado."
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "description": "Tempo de expiração do token em segundos."
+                    }
+                  }
+                },
+                "example": {
+                  "access_token": "string",
+                  "token_type": "string",
+                  "expires_in": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro inesperado ao criar token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Descrição do erro."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid credentials"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. Credenciais inválidas ou token expirado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Descrição do erro."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unauthorized: Invalid token or expired session"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/broker/{customerId}/invoices": {
       "get": {
         "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
