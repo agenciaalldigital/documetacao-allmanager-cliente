@@ -3801,6 +3801,793 @@
         }
       }
     },
+    "/lorawan/broker/report/messages": {
+      "get": {
+        "summary": "Busca relatório de histórico de mensagens",
+        "description": "Retorna um relatório de histórico de mensagens com base nos filtros fornecidos.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "description": "Filtro pelo ID do cliente.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 12345
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filtro pelo status da ativação.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "PENDING"
+            }
+          },
+          {
+            "name": "devEui",
+            "in": "query",
+            "description": "Filtro pelo devEui do dispositivo.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ABCDEF1234567890"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Filtro de localidade.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "en-US"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Filtro pela data de início (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Filtro pela data de fim (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-31T23:59:59Z"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de histórico de mensagens retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "actionType": "string",
+                    "idContract": "string",
+                    "devEui": "string",
+                    "customer": {
+                      "id": 0,
+                      "name": "string",
+                      "email": "string"
+                    },
+                    "customerId": 0,
+                    "status": "PENDING",
+                    "processLog": "string",
+                    "processingDate": "2025-02-18T15:15:48.190Z",
+                    "createdAt": "2025-02-18T15:15:48.190Z",
+                    "createdBy": "string",
+                    "updatedAt": "2025-02-18T15:15:48.190Z",
+                    "updatedBy": "string",
+                    "processData": "string"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/report/device": {
+      "get": {
+        "summary": "Busca relatório de histórico de dispositivos",
+        "description": "Retorna um relatório de histórico de dispositivos com base nos filtros fornecidos.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "description": "Filtro pelo ID do cliente.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 12345
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filtro pelo status da ativação.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "PENDING"
+            }
+          },
+          {
+            "name": "devEui",
+            "in": "query",
+            "description": "Filtro pelo devEui do dispositivo.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ABCDEF1234567890"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Filtro de localidade.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "en-US"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Filtro pela data de início (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Filtro pela data de fim (ISO 8601).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-01-31T23:59:59Z"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Relatório de histórico de mensagens retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "totalDevices": 0,
+                    "activeDownlinkDevices": 0,
+                    "activeUplinkDevices": 0
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/report/topCustomerByDeviceCount": {
+      "get": {
+        "summary": "Gera informações para Dashboard relacionadas dos clientes LoRaWAN",
+        "description": "Gera informações para dashboard dos clientes Lorawan.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "linesPerPage",
+            "in": "query",
+            "description": "Quantidade de registros por página.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  [
+                    {
+                      "devEui": 12345678,
+                      "value": "example_value_1"
+                    },
+                    {
+                      "devEui": 87654321,
+                      "value": "example_value_2"
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/report/topDownlinks": {
+      "get": {
+        "summary": "Gera informações para Dashboard relacionados aos Downlinks Lorawan",
+        "description": "Gera informações para Dashboard relacionados aos Downlinks Lorawan",
+        "parameters": [
+          {
+            "name": "linesPerPage",
+            "in": "query",
+            "description": "Quantidade de registros por página.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  [
+                    {
+                      "devEui": 12345678,
+                      "value": "example_value_1"
+                    },
+                    {
+                      "devEui": 87654321,
+                      "value": "example_value_2"
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/report/topUplinks": {
+      "get": {
+        "summary": "Gera informações para Dashboard relacionados aos Uplinks Lorawan",
+        "description": "Gera informações para Dashboard relacionados aos Uplinks Lorawan",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "linesPerPage",
+            "in": "query",
+            "description": "Quantidade de registros por página.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  [
+                    {
+                      "devEui": 12345678,
+                      "value": "example_value_1"
+                    },
+                    {
+                      "devEui": 87654321,
+                      "value": "example_value_2"
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/report/status": {
+      "get": {
+        "summary": "Busca relatório de histórico de dispositivos",
+        "description": "Retorna um relatório de histórico de dispositivos com base nos filtros fornecidos.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 12345
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "actionType": "string",
+                    "idContract": "string",
+                    "devEui": "string",
+                    "customer": {
+                      "id": 0,
+                      "name": "string",
+                      "email": "string"
+                    },
+                    "customerId": 0,
+                    "status": "PENDING",
+                    "processLog": "string",
+                    "processingDate": "2025-02-18T15:20:35.576Z",
+                    "createdAt": "2025-02-18T15:20:35.576Z",
+                    "createdBy": "string",
+                    "updatedAt": "2025-02-18T15:20:35.576Z",
+                    "updatedBy": "string",
+                    "processData": "string"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/lorawan/broker/topDownlinks": {
       "get": {
         "summary": "Gera informações para Dashboard relacionadas aos Downlinks LoRaWAN",
