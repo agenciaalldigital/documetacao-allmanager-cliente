@@ -1705,7 +1705,7 @@
                 "type": "object",
                 "properties": {
                   "msisdns": {
-                    "type": "string",
+                    "type": "array",
                     "description": "Número do MSISDNS do dispositivo.",
                     "example": "5534991023333"
                   }
@@ -2364,7 +2364,7 @@
                     "description": "Código da ação.",
                     "example": 0
                   },
-                  "contractId": {
+                  "accountId": {
                     "type": "string",
                     "description": "Identificador do contrato.",
                     "example": "A213215454"
