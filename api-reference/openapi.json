@@ -467,7 +467,7 @@
                       "lastUpdate": "2024-12-30T17:39:32.727Z",
                       "loyaltyType": 1,
                       "mbExcPrice": 2.0,
-                      "msisdns": "5510000004818",
+                      "msisdn": "5510000004818",
                       "networkBlockEndDate": "2024-12-30T17:39:32.727Z",
                       "networkBlockStartDate": "2024-12-30T17:39:32.727Z",
                       "networkBlockStatus": "NONE",
@@ -733,7 +733,7 @@
             }
           },
           {
-            "name": "msisdns",
+            "name": "msisdn",
             "in": "query",
             "description": "Número do MSISDNS do dispositivo",
             "schema": {
@@ -798,7 +798,7 @@
                     "customerId": 12586,
                     "iccid": "19440266",
                     "imsi": "546545646546546",
-                    "msisdns": "034965655897",
+                    "msisdn": "034965655897",
                     "processingDate": "",
                     "statusCode": 0,
                     "statusMessage": "Processo finalizado com sucesso",
@@ -884,7 +884,7 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "msisdns": {
+                        "msisdn": {
                           "type": "string",
                           "description": "Número do MSISDNS do dispositivo.",
                           "example": "5534991025544"
@@ -907,7 +907,7 @@
               "example": {
                 "devices": [
                   {
-                    "msisdns": "5534991025544",
+                    "msisdn": "5534991025544",
                     "iccid": "9485349328492",
                     "imei": "7678"
                   }
@@ -1001,7 +1001,7 @@
             }
           },
           {
-            "name": "msisdns",
+            "name": "msisdn",
             "in": "query",
             "description": "Número do MSISDNS do dispositivo",
             "schema": {
@@ -1019,7 +1019,7 @@
                   {
                     "createdAt": "2021-03-10 09:11:42",
                     "customerId": 12586,
-                    "msisdns": "5534991026676",
+                    "msisdn": "5534991026676",
                     "statusCode": 0,
                     "statusMessage": "Desbloqueio realizado com sucesso"
                   }
@@ -1082,7 +1082,7 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "msisdns": {
+                        "msisdn": {
                           "type": "string",
                           "description": "Número do MSISDNS do dispositivo.",
                           "example": "5534991025544"
@@ -1095,7 +1095,7 @@
               "example": {
                 "devices": [
                   {
-                    "msisdns": "5534991025544"
+                    "msisdn": "5534991025544"
                   }
                 ]
               }
@@ -1182,7 +1182,7 @@
             }
           },
           {
-            "name": "msisdns",
+            "name": "msisdn",
             "in": "query",
             "description": "Número do MSISDNS.",
             "schema": {
@@ -1198,7 +1198,7 @@
               "application/json": {
                 "example": [
                   {
-                    "msisdns": "5534991023333",
+                    "msisdn": "5534991023333",
                     "actionType": "UNLOCK_NETWORK",
                     "status": "COMPLETED",
                     "createdBy": "admin",
@@ -1252,7 +1252,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "msisdns": {
+                  "msisdn": {
                     "type": "string",
                     "description": "Número do MSISDNS a ser desbloqueado.",
                     "example": "5534991023333"
@@ -1337,7 +1337,7 @@
             }
           },
           {
-            "name": "msisdns",
+            "name": "msisdn",
             "in": "query",
             "description": "Número do MSISDNS do dispositivo",
             "schema": {
@@ -1391,7 +1391,7 @@
                   {
                     "createdAt": "2021-03-10 09:11:42",
                     "customerId": 12586,
-                    "msisdns": "034965655897",
+                    "msisdn": "034965655897",
                     "statusCode": 0,
                     "statusMessage": "Processo finalizado com sucesso"
                   }
@@ -1444,7 +1444,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "msisdns": {
+                  "msisdn": {
                     "type": "string",
                     "description": "Número do MSISDNS do dispositivo.",
                     "example": "5534991023333"
@@ -1568,10 +1568,10 @@
             }
           },
           {
-            "name": "msisdns",
+            "name": "msisdn",
             "in": "query",
             "required": true,
-            "description": "Msisdns",
+            "description": "Msisdn",
             "schema": {
               "type": "string",
               "example": "213132132"
@@ -1623,7 +1623,7 @@
                     "customerId": 12586,
                     "iccid": "19440266",
                     "imsi": "5465565456465456",
-                    "msisdns": "0349665655897",
+                    "msisdn": "0349665655897",
                     "processingDate": "",
                     "statusCode": 0,
                     "statusMessage": "Processo finalizado com sucesso ",
@@ -1704,7 +1704,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "msisdns": {
+                  "msisdn": {
                     "type": "array",
                     "description": "Número do MSISDNS do dispositivo.",
                     "example": "5534991023333"
@@ -1828,10 +1828,10 @@
             }
           },
           {
-            "name": "msisdns",
+            "name": "msisdn",
             "in": "query",
             "required": true,
-            "description": "Msisdns",
+            "description": "Msisdn",
             "schema": {
               "type": "string",
               "example": "213132132"
@@ -1897,7 +1897,7 @@
                     "contractId": "6545656",
                     "iccId": "19440266",
                     "imsi": "5465565456465456",
-                    "msisdns": "0349665655897",
+                    "msisdn": "0349665655897",
                     "customer": {
                       "id": 65454546,
                       "name": "Teste cliente",
@@ -1999,7 +1999,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "msisdns": {
+                  "msisdn": {
                     "type": "string",
                     "description": "Número do MSISDNS do dispositivo.",
                     "example": "5534991025544"
@@ -2092,7 +2092,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "msisdns": {
+                  "msisdn": {
                     "type": "string",
                     "description": "Número do MSISDNS do dispositivo.",
                     "example": "5534991025544"
@@ -2272,7 +2272,7 @@
                     "customerId": 10000,
                     "terminalId": null,
                     "contractId": null,
-                    "msisdns": null,
+                    "msisdn": null,
                     "eventType": "CONSUMPTION",
                     "field": "consumptionCurrentDay",
                     "operator": ">",
