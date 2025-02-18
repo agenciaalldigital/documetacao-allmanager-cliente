@@ -3801,7 +3801,7 @@
         }
       }
     },
-    "/lorawan/broker/report/messages": {
+    "/lorawan/broker/report/message": {
       "get": {
         "summary": "Busca relatório de histórico de mensagens",
         "description": "Retorna um relatório de histórico de mensagens com base nos filtros fornecidos.",
