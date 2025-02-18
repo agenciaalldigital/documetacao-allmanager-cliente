@@ -2447,7 +2447,7 @@
               },
               "example": {
                 "action": 0,
-                "contractId": "A213215454",
+                "accountId": "A213215454",
                 "devices": [
                   {
                     "description": "string",
