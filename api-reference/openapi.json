@@ -1704,7 +1704,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "msisdn": {
+                  "msisdns": {
                     "type": "array",
                     "description": "Número do MSISDNS do dispositivo.",
                     "example": "5534991023333"
