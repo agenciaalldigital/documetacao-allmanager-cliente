@@ -65,7 +65,7 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
-            "description": "Autorização convertida em base64 do client_id e client_secret (separados por dois pontos).\n\n🔹 **Valor padrão:**\n```\nBasic Mzg5MjgzODEtNDA5ZC0zZWFjLWE3OTEtY2E4ZjExZDdkZGU2OmMwMTZhZDEyLTQ4MWUtM2FlYS04YWU2LWU4YTFhNjI4NDU5Ng==\n```\n📌 **Dica:** Copie e cole esse valor no campo Authorization.",
+            
             "schema": {
               "type": "string",
               "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
