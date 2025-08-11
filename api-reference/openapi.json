@@ -179,6 +179,17 @@
         "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -378,6 +389,17 @@
         "description": "Retornar a lista de dispositivos de um cliente MoT. A lista em questão está pginada com filtros. (Possui dados sensíveis).",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -555,6 +577,17 @@
         "description": "Busca a quantidade de dispositivos do cliente.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -683,6 +716,17 @@
         "summary": "Busca as ações de bloqueio de IMEI",
         "description": "Retorna uma lista paginada das ações de bloqueio de IMEI com base nos filtros fornecidos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -842,6 +886,17 @@
         "description": "Permite criar um bloqueio de IMEI com os dados fornecidos no corpo da requisição.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -952,6 +1007,17 @@
         "description": "Busca as ações de desbloqueio de IMEI.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -1039,6 +1105,17 @@
       "post": {
         "description": "Realiza o desbloqueio de IMEI.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -1135,6 +1212,17 @@
         "description": "Busca as ações de desbloqueio de rede.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -1215,6 +1303,17 @@
         "description": "Solicita o desbloqueio de rede.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -1287,6 +1386,17 @@
         "summary": "Busca as ações de bloqueio de rede",
         "description": "Busca as ações de bloqueio de rede (via radius).",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -1407,6 +1517,17 @@
         "description": "Solicita o bloqueio de rede (via radius).",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             
@@ -1488,6 +1609,17 @@
       "get": {
         "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -1667,6 +1799,17 @@
         "description": "Solicita o bloqueio de rede (via radius).",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             
@@ -1748,6 +1891,17 @@
       "get": {
         "description": "Recupera o status da fila de ações, retornando dados da última semana até o dia atual. Para consultar um período diferente, utilize os parâmetros `startDate` e `endDate`",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -1962,6 +2116,17 @@
         "description": "Solicita a renovaçõa de ISCA (processo envia a lista de Simcards para o MS procesar as renovações).",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             
@@ -2055,6 +2220,17 @@
         "description": "Solicita a aprovação do plano franquia (processo envia a lista de Simcards para o MS procesar as renovações).",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             
@@ -2142,145 +2318,177 @@
         }
       }
     },
-    "/broker/alerts": {
+    "/report": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Solicita o reelatório de um inventário Satelital"
+        }
+      ],
       "get": {
-        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "description": "Visualiza qual é o status da solicitação de um relatório",
         "parameters": [
           {
             "name": "client_id",
             "in": "header",
             "required": true,
-            
             "schema": {
               "type": "string",
-              "example": "client_id"
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
             }
           },
           {
             "name": "access_token",
             "in": "header",
             "required": true,
-            "description": "Token gerado.",
             "schema": {
               "type": "string",
-              "example": "access_token"
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "CustomerId",
+            "in": "query",
+            "required": true,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "string",
+              "example": "1234"
+            }
+          },
+          {
+            "name": "cpfCnpj",
+            "in": "query",
+            "required": false,
+            "description": "CPF ou CNPJ",
+            "schema": {
+              "type": "string",
+              "example": "63579806989"
+            }
+          },
+          {
+            "name": "flagExecuted",
+            "in": "query",
+            "required": false,
+            "description": "Status da geração do relatório",
+            "schema": {
+              "type": "string",
+              "example": "T(true) ou F(false)"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Tipo do relatório",
+            "schema": {
+              "type": "string",
+              "enum": ["MOT_INVENTORY", "MANAGEMENT", "CONNECTONE_INVENTORY", "REQUEST_CONSUMERS", "LORAWAN_DEVICE", "SATELLITE_DEVICE_REPORT"]
+            }
+          },
+          {
+            "name": "costumerName",
+            "in": "query",
+            "required": false,
+            "description": "Nome do cliente",
+            "schema": {
+              "type": "string",
+              "example": "Teste cliente"
+            }
+          },
+          {
+            "name": "initialDate",
+            "in": "query",
+            "required": false,
+            "description": "Data inicio da geração do arquivo",
+            "schema": {
+              "type": "string",
+              "example": "2021-12-01T00:00:00.000Z"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do relatório",
+            "schema": {
+              "type": "integer",
+              "example": "524"
             }
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Número da página para paginação.",
-            "required": false,
+            "required": true,
+            "description": "Número da página",
             "schema": {
               "type": "integer",
-              "format": "int32",
-              "default": 0,
-              "example": 0
+              "example": "0"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Tamanho da página para paginação.",
-            "required": false,
+            "required": true,
+            "description": "Tamanho da página",
             "schema": {
               "type": "integer",
-              "format": "int32",
-              "default": 24,
-              "example": 24
-            }
-          },
-          {
-            "name": "msisdns",
-            "in": "query",
-            "required": true,
-            "description": "Msisdns",
-            "schema": {
-              "type": "string",
-              "example": "213132132"
-            }
-          },
-          {
-            "name": "status",
-            "in": "query",
-            "required": true,
-            "description": "Status da ação.\n\n🔹 **Valores disponíveis:** `0`, `1`, `99`, `98`, `97`\n\n📌 **Dica:** Escolha um dos valores acima ao executar a requisição.",
-            "schema": {
-              "type": "integer",
-              "enum": [0, 1, 99, 98, 97],
-              "example": "0"
-            }
-          },
-          {
-            "name": "createdBy",
-            "in": "query",
-            "required": true,
-            "description": "Usuário que criou a ação",
-            "schema": {
-              "type": "string",
-              "example": "teste.user"
-            }
-          },
-          {
-            "name": "startDate",
-            "in": "query",
-            "description": "Data inicio da criaçao da ação",
-            "schema": {
-              "type": "string",
-              "format": "date",
-              "example": "2022-01-01"
-            }
-          },
-          {
-            "name": "endDate",
-            "in": "query",
-            "description": "Data fim da criacao da ação",
-            "schema": {
-              "type": "string",
-              "format": "date",
-              "example": "2022-12-31"
-            }
-          },
-          {
-            "name": "customerId",
-            "in": "query",
-            "required": true,
-            "description": "Protocolo da operação",
-            "schema": {
-              "type": "string",
-              "example": "213132132"
+              "example": "10"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Informações do dispositivo encontradas com sucesso.",
+            "description": "Success",
             "content": {
               "application/json": {
-                "example": [
-                  {
-                    "id": 308,
-                    "customerId": 10000,
-                    "terminalId": null,
-                    "contractId": null,
-                    "msisdn": null,
-                    "eventType": "CONSUMPTION",
-                    "field": "consumptionCurrentDay",
-                    "operator": ">",
-                    "thresholdValue": 31457280,
-                    "name": "Teste",
-                    "active": true,
-                    "createdAt": "2025-01-02T19:10:16.354",
-                    "createdBy": "vanilson_etica",
-                    "updatedAt": null,
-                    "updatedBy": null
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "OK": {
+                      "type": "string",
+                      "example":{
+                        "id": 20,
+                        "customerId": 12000,
+                        "customerName": "Teste nome",
+                        "cpfCnpj": "2073450500000187",
+                        "status": "Arquivo gerdo com sucesso",
+                        "initialDate": "2021-12-28 11:06:34.0",
+                        "finalDate": "2021-12-28 11:06:37.0",
+                        "type": "INVENTORY",
+                        "url": "https://iot.algartelecom.com.br/reports/I/Inventory_10000_2021-12-02T16:03:52.907.xls",
+                        "log": "string"
+                      }
+                    }
                   }
-                ]
+                },
+                "example": {
+                  "id": 20,
+                  "customerId": 12000,
+                  "customerName": "Teste nome",
+                  "cpfCnpj": "2073450500000187",
+                  "status": "Arquivo gerdo com sucesso",
+                  "initialDate": "2021-12-28 11:06:34.0",
+                  "finalDate": "2021-12-28 11:06:37.0",
+                  "type": "INVENTORY",
+                  "url": "https://iot.algartelecom.com.br/reports/I/Inventory_10000_2021-12-02T16:03:52.907.xls",
+                  "log": "string"
+                }
               }
             }
-          },
-          "204": {
-            "description": "No Content"
           },
           "400": {
             "description": "Requisição mal formada.",
@@ -2289,9 +2497,86 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "errors": {
+                    "error": {
                       "type": "string",
-                      "description": "Erro encontrado."
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
                     }
                   }
                 },
@@ -2300,18 +2585,1241 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/report/inventory": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Solicita a geração de um relatório do inventário"
+        }
+      ],
+      "post": {
+        "description": "Solicita a geração de um relatório do inventário",
+        "requestBody": {
+          "description": "Informações necessárias para fazer a solicitação do relatório.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "teste@gmail.com"
+                  },
+                  "locale": {
+                    "type": "string",
+                    "example": "pt"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "contractAssetNumber": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "showContracted": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "operator": {
+                    "type": "string",
+                    "example": "ALGAR TELECOM"
+                  },
+                  "connectedOperator": {
+                    "type": "string",
+                    "example": "TIM"
+                  },
+                  "subOperator": {
+                    "type": "string",
+                    "example": "ALGAR 3OP"
+                  },
+                  "nickname": {
+                    "type": "string",
+                    "example": "Device nickname"
+                  },
+                  "observation": {
+                    "type": "string",
+                    "example": "Observation about device"
+                  },
+                  "msisdn": {
+                    "type": "array",
+                    "example": ["5516981818181"]
+                  },
+                  "iccid": {
+                    "type": "array",
+                    "example": ["89553203000003920000"]
+                  },
+                  "imsi": {
+                    "type": "array",
+                    "example": ["724373198034943"]
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "ACTIVE"
+                  },
+                  "stock": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "franchise": {
+                    "type": "integer",
+                    "example": 20
+                  },
+                  "customerName": {
+                    "type": "string",
+                    "example": "Customer name"
+                  },
+                  "customerDocumentNumber": {
+                    "type": "string",
+                    "example": "351316040684"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "example": 15010
+                  },
+                  "online": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "city": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "postalCode": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "lastConnectionFrom": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "lastConnectionTo": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "consumptionPercentFrom": {
+                    "type": "number",
+                    "example": 18.5
+                  },
+                  "consumptionPercentTo": {
+                    "type": "number",
+                    "example": 83.5
+                  },
+                  "consumptionFrom": {
+                    "type": "integer",
+                    "example": 18151355
+                  },
+                  "consumptionTo": {
+                    "type": "integer",
+                    "example": 83344468486
+                  },
+                  "automaticBlocking": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "networkBlockStatus": {
+                    "type": "string",
+                    "example": "NONE"
+                  },
+                  "blockedByDefault": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "accountId": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "accountDesc": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "loyaltyType": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "loyaltyTime": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "cancellationFeeFrom": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "cancellationFeeTo": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "activationPriceFrom": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "activationPriceTo": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "priceFrom": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "priceTo": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "megabyteExcPriceFrom": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "megabyteExcPriceTo": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "simcardCreditFrom": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "simcardCreditTo": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "tradeInMonths": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "preActivationDays": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "preActivationEndDateFrom": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "preActivationEndDateTo": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "sharingType": {
+                    "type": "string",
+                    "example": "NONE"
+                  },
+                  "brokerContractId": {
+                    "type": "integer",
+                    "example": 131351
+                  },
+                  "brokerContractDesc": {
+                    "type": "string",
+                    "example": "Shared contract ACDUEB123"
+                  },
+                  "sharedContractCreditFrom": {
+                    "type": "integer",
+                    "example": 5
+                  },
+                  "sharedContractCreditTo": {
+                    "type": "integer",
+                    "example": 20
+                  },
+                  "sharedContractFranchiseFrom": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "sharedContractFranchiseTo": {
+                    "type": "integer",
+                    "example": 20
+                  },
+                  "apn": {
+                    "type": "string",
+                    "example": "example.br"
+                  },
+                  "hostname": {
+                    "type": "string",
+                    "example": "172.217. 22.14"
+                  },
+                  "technology": {
+                    "type": "string",
+                    "example": "5G"
+                  },
+                  "imei": {
+                    "type": "string",
+                    "example": "516761813114869"
+                  },
+                  "imeiLocked": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "activationDateFrom": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "activationDateTo": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "cancellationDateFrom": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "cancellationDateTo": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "suspensionEligibility": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "suspensionStartDateFrom": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "suspensionStartDateTo": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "suspensionEndDateFrom": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.358Z"
+                  },
+                  "suspensionEndDateTo": {
+                    "type": "string",
+                    "example": "2025-08-11T17:33:27.359Z"
+                  }
+                },
+                "required": ["client_id", "client_secret"]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Request created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+
+                    "Accepted": {
+                      "type": "string",
+                      "example":{
+                        "id": 56865,
+                        "message": "Request created successfully! An email will be sent to: thiago.moreira@eticasolucoes.com.br with the download link"
+                      }
+                    }
+                  }
+                },
+                "example":{
+                  "id": 56865,
+                  "message": "Request created successfully! An email will be sent to: thiago.moreira@eticasolucoes.com.br with the download link"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
           },
           "401": {
-            "description": "Requisição requer autenticação."
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
           },
           "403": {
-            "description": "O acesso ao recurso foi negado."
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
           },
           "404": {
-            "description": "URI de API/Recurso inexiste para processamento."
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
           },
           "500": {
-            "description": "Erro Interno do servidor."
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/alert-events": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "faz uma busca por eventos"
+        }
+      ],
+      "get": {
+        "description": "faz uma busca por eventos",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Visão a ser contemplada",
+              "enum": ["true visão a pagar", "false visão a receber"]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Página",
+              "example": "1"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Tamanho da página",
+              "example": "30",
+              "default": "30"
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Numero do MSISDN do dispositivo",
+              "example": "5534991026676"
+            }
+          },
+          {
+            "name": "contractId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "ID do contrato",
+              "example": "65454546"
+            }
+          },
+          {
+            "name": "dateFrom",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Disparado em(inicio) - se preenchido a dateTo é obrigatória",
+              "example": "2025-02-05T10:51:08.073Z"
+            }
+          },
+          {
+            "name": "dateTo",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Disparado em(final) - se preenchido a dateFrom é obrigatória",
+              "example": "2025-02-05T10:51:08.073Z"
+            }
+          },
+          {
+            "name": "eventType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Tipo de evento",
+              "enum": ["CONSUMPTION(Consumo de simcards)", "CONTRACT_CONSUMPTION(Consumo de contrato)"]
+            }
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Tipo",
+              "enum": ["consumptionCurrentDay(Consumo do dia)", "consumptionTotal(Consumo total)", "consumptionPercent(Consumo percentual)", "consumptionCurrentDayAnomaly(Anomalia de consumo do dia)", "consumptionTotalAnomaly(Anomalia de consumo total)"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request report created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "OK": {
+                      "type": "string",
+                      "example":{
+                        "id": 29255,
+                        "alertId": 168,
+                        "customerId": 58987,
+                        "terminalId": 654556,
+                        "contractId": 45447,
+                        "msisdn": "5516998784563",
+                        "eventType": "CONTRACT_CONSUMPTION",
+                        "field": "consumptionPercent",
+                        "operator": ">",
+                        "thresholdValue": 150,
+                        "eventValue": 166.66666666666666,
+                        "name": "teste",
+                        "createdAt": "2025-01-30T16:10:04"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": 29255,
+                  "alertId": 168,
+                  "customerId": 58987,
+                  "terminalId": 654556,
+                  "contractId": 45447,
+                  "msisdn": "5516998784563",
+                  "eventType": "CONTRACT_CONSUMPTION",
+                  "field": "consumptionPercent",
+                  "operator": ">",
+                  "thresholdValue": 150,
+                  "eventValue": 166.66666666666666,
+                  "name": "teste",
+                  "createdAt": "2025-01-30T16:10:04"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/alert": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Faz a busca ou cria alertas de um cliente"
+        }
+      ],
+      "get": {
+        "description": "Faz a busca de alertas de um cliente",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Página",
+              "example": "1",
+              "default" : "1"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Tamanho da página",
+              "example": "30",
+              "default":"30"
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Numero do MSISDN do dispositivo",
+              "example": "5534991026676"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Status da ação",
+              "enum": ["0","1","99","98","97"]
+            }
+          },
+          {
+            "name": "cratedBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Usuário que criou a ação",
+              "example": "user.teste"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "description": "Data inicial para filtro",
+            "schema": {
+              "type": "string",
+              "example": "yyyy-MM-dd"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "description": "Data final para filtro",
+            "schema": {
+              "type": "string",
+              "example": "yyyy-MM-dd"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do cliente",
+            "schema": {
+              "type": "number",
+              "example": "546454"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Busca realizada com sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+
+                    "OK": {
+                      "type": "string",
+                      "example":{
+                        "id": 308,
+                        "customerId": 10000,
+                        "terminalId": null,
+                        "contractId": null,
+                        "msisdn": null,
+                        "eventType": "CONSUMPTION",
+                        "field": "consumptionCurrentDay",
+                        "operator": ">",
+                        "thresholdValue": 31457280,
+                        "name": "Teste",
+                        "active": true,
+                        "createdAt": "2025-01-02T19:10:16.354",
+                        "createdBy": "vanilson_etica",
+                        "updatedAt": null,
+                        "updatedBy": null
+                      }
+                    }
+                  }
+                },
+                "example":{
+                  "id": 308,
+                  "customerId": 10000,
+                  "terminalId": null,
+                  "contractId": null,
+                  "msisdn": null,
+                  "eventType": "CONSUMPTION",
+                  "field": "consumptionCurrentDay",
+                  "operator": ">",
+                  "thresholdValue": 31457280,
+                  "name": "Teste",
+                  "active": true,
+                  "createdAt": "2025-01-02T19:10:16.354",
+                  "createdBy": "vanilson_etica",
+                  "updatedAt": null,
+                  "updatedBy": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Faz a criação de alertas de um cliente",
+        "requestBody": {
+          "description": "Informações necessárias para fazer a criação de alertas de um cliente.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "field": {
+                    "type": "string",
+                    "example": "consumptionCurrentDay"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Teste"
+                  },
+                  "thresholdValue": {
+                    "type": "string",
+                    "example": "31457280.000"
+                  },
+                  "eventType": {
+                    "type": "string",
+                    "example": "CONSUMPTION"
+                  },
+                  "operator": {
+                    "type": "string",
+                    "example": ">"
+                  }
+
+                },
+                "required": ["client_id", "client_secret"]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Request report created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "OK": {
+                      "type": "string",
+                      "example": {
+                        "id": 308,
+                        "customerId": 10000,
+                        "terminalId": null,
+                        "contractId": null,
+                        "msisdn": null,
+                        "eventType": "CONSUMPTION",
+                        "field": "consumptionCurrentDay",
+                        "operator": ">",
+                        "thresholdValue": 31457280,
+                        "name": "Teste",
+                        "active": true,
+                        "createdAt": "2025-01-02T19:10:16.354",
+                        "createdBy": "vanilson_etica",
+                        "updatedAt": null,
+                        "updatedBy": null
+                      }
+                    }
+                  }
+                },
+                "example":  {
+                  "id": 308,
+                  "customerId": 10000,
+                  "terminalId": null,
+                  "contractId": null,
+                  "msisdn": null,
+                  "eventType": "CONSUMPTION",
+                  "field": "consumptionCurrentDay",
+                  "operator": ">",
+                  "thresholdValue": 31457280,
+                  "name": "Teste",
+                  "active": true,
+                  "createdAt": "2025-01-02T19:10:16.354",
+                  "createdBy": "vanilson_etica",
+                  "updatedAt": null,
+                  "updatedBy": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
           }
         }
       }
@@ -2321,6 +3829,17 @@
         "summary": "Realiza uma nova ação de ativação com dispositivos",
         "description": "Envia uma solicitação para realizar uma nova ação de ativação com dispositivos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -2507,6 +4026,17 @@
         "description": "Requisição para enviar uma ação de desativação com dispositivos.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "required": true,
@@ -2583,6 +4113,17 @@
         "summary": "Enviar uma ação de bloqueio uplink dos dispositivos",
         "description": "Requisição para enviar uma ação de bloqueio uplink dos dispositivos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -2662,6 +4203,17 @@
         "summary": "Envia uma ação de desbloqueio uplink dos dispositivos",
         "description": "Essa rota é utilizada para desbloquear o uplink dos dispositivos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -2744,6 +4296,17 @@
         "summary": "Envie uma ação de bloqueio downlink dos dispositivos",
         "description": "Envie uma ação para bloquear downlink dos dispositivos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -2853,6 +4416,17 @@
         "description": "Envie uma ação para desbloquear downlink dos dispositivos.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             "description": "Identificador do client id do Sensedia",
@@ -2960,6 +4534,17 @@
         "summary": "Envie uma ação de mudança de tags nos dispositivos",
         "description": "Envie uma ação para alterar as tags associadas aos dispositivos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -3077,6 +4662,17 @@
         "description": "Envie uma ação para alterar as descrições associadas aos dispositivos.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             
@@ -3192,6 +4788,17 @@
         "summary": "Envia uma ação de encaminhamento dos dispositivos",
         "description": "Cria uma ação para encaminhamento de dispositivos no sistema LoRaWAN.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -3330,6 +4937,17 @@
         "description": "Remove ações de encaminhamento dos dispositivos LoRaWAN.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "client_id",
             "in": "header",
             
@@ -3391,6 +5009,17 @@
         "summary": "Busca os encaminhamentos LoRaWAN",
         "description": "Lista todos os encaminhamentos de dispositivos LoRaWAN cadastrados.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "client_id",
             "in": "header",
@@ -3476,6 +5105,17 @@
         "summary": "Obtém ativações com base nos filtros fornecidos",
         "description": "Retorna uma lista de ativações com base nos filtros fornecidos.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "customerIdFilter",
             "in": "query",
@@ -4585,6 +6225,17 @@
         "description": "Obtém informações para alimentar o Dashboard com dados relacionados aos Downlinks no sistema LoRaWAN.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "linesPerPage",
             "in": "query",
             "description": "Quantidade de registros por página.",
@@ -4681,6 +6332,17 @@
         "summary": "Gera informações para Dashboard relacionadas aos Uplinks LoRaWAN",
         "description": "Obtém informações para alimentar o Dashboard com dados relacionados aos Uplinks no sistema LoRaWAN.",
         "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
           {
             "name": "linesPerPage",
             "in": "query",
@@ -4779,6 +6441,17 @@
         "description": "Obtém informações para alimentar o Dashboard com dados relacionados ao status dos dispositivos no sistema LoRaWAN.",
         "parameters": [
           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
             "name": "product",
             "in": "query",
             "description": "Produto a ser selecionado.",
@@ -4848,6 +6521,1439 @@
               "application/json": {
                 "example": {
                   "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/action-queue": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Consultor de fila de ações"
+        }
+      ],
+      "get": {
+        "description": "Consultor de fila de ações.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado",
+            "schema": {
+              "type": "string",
+              "example": "123A456b789c"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": false,
+            "description": "ID do cliente a ser filtrado",
+            "schema": {
+              "type": "integer",
+              "example": "123"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Status a ser filtrado",
+            "schema": {
+              "type": "string",
+              "enum": [
+                    "SUCCESS",
+                    "PROCESSING_QUEUE",
+                    "PROCESSING",
+                    "UNEXPECTED_ERROR",
+                    "ERR_MS_ALREADY_SUSPENDED",
+                    "ERR_MS_NOT_SUSPENDED",
+                    "ERR_MS_ACTION_ID_NOT_FOUND",
+                    "ERR_MS_DEVICE_ID_IN_PROCESS",
+                    "ERR_MS_PERMISSION_DENIED",
+                    "ERR_MS_VIRTUAL_ACCOUNT_NOT_FOUND",
+                    "ERR_MS_CUSTOMER_INFORMATION_NOT_FOUND",
+                    "ERR_MS_ASSET_NUMBER_NOT_FOUND",
+                    "ERR_MS_INVALID_ACTIVATION_PARAMS",
+                    "ERR_MS_CONTRACT_ID_REQUIRED",
+                    "ERR_MS_UNEXPECTED_ACTIVATION_TYPE",
+                    "ERR_MS_DEVICE_ALREADY_ACTIVE",
+                    "ERR_MS_VIRTUAL_ACCOUNT_NOT_FOUND_IN_HIERARCHY",
+                    "ERR_MS_INVALID_CUSTOMER_PARENT_ID",
+                    "ERR_MS_INVALID_CONTRACT_TYPE",
+                    "ERR_MS_INVALID_VIRTUAL_ACCOUNT_STATUS",
+                    "ERR_MS_INVALID_CUSTOMER_HIERARCHY",
+                    "ERR_MS_CUSTOMER_NOT_FOUND",
+                    "ERR_MS_DEVICE_NOT_FOUND",
+                    "ERR_SATELLITE",
+                    "ERR_RMS"
+                  ]
+                }
+          },
+          {
+            "name": "serialNumber",
+            "in": "query",
+            "required": false,
+            "description": "Número de série do dispositivo",
+            "schema": {
+              "type": "string",
+              "example": "321"
+            }
+          },
+          {
+            "name": "actionType",
+            "in": "query",
+            "required": false,
+            "description": "Tipo de ação. Essas ações podem ser listadas no endpoint /satellite/actions",
+            "schema": {
+              "type": "integer",
+              "example": "0 = Ativação, 1 = Desativação"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "description": "Data inicial para filtro",
+            "schema": {
+              "type": "string",
+              "example": "yyyy-MM-dd"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "description": "Data final para filtro",
+            "schema": {
+              "type": "string",
+              "example": "yyyy-MM-dd"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Número da página",
+            "schema": {
+              "type": "integer",
+              "example": "0"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "description": "Tamanho da página de resultados",
+            "schema": {
+              "type": "integer",
+              "example": "24"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ações encontradas",
+            "content": {
+              "application/json": {
+                "example":  {
+                  "id": 123,
+                  "actionType": 0,
+                  "idContract": "12345",
+                  "serialNumber": "123456789876543",
+                  "customerId": 54321,
+                  "status": "PROCESSING_QUEUE",
+                  "processLog": "Ação criada, pronta para processar",
+                  "processingDate": "2025-08-04T17:24:58.610Z",
+                  "processData": "{\"contractIdMOT\":12345,\"device\":{\"deviceId\":\"123456789876543\"}}",
+                  "createdAt": "2025-05-06T10:11:27",
+                  "createdBy": "teste",
+                  "updatedAt": "2025-08-04T17:24:58.610Z",
+                  "updatedBy": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Parameter not found"
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Parameter not found"
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Cria as ações que possuem relação com Satelital",
+        "requestBody": {
+          "description": "Informações necessárias para criar a ação.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                 "action": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "contractIdMOT": {
+                    "type": "integer",
+                    "example": 31516
+                  },
+                  "accountId": {
+                    "type": "integer",
+                    "example": 4988789
+                  },
+                  "devices": {
+                    "type": "array",
+                    "example": [
+                      {
+                        "deviceId": "01097628SKY1C49"
+                      }
+                    ]
+                  }
+
+                },
+                "required": ["client_id", "client_secret"]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado",
+            "schema": {
+              "type": "string",
+              "example": "123A456b789c"
+            }
+          }
+         
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Parameter not found"
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Parameter not found"
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/actions": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Listagem dos tipos de ações que estão disponíveis"
+        }
+      ],
+      "get": {
+        "description": "Listagem dos tipos de ações que estão disponíveis",
+        "parameters": [
+           {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description":"Token gerado",
+            "schema": {
+              "type": "string",
+              "example": "12e345A987U65I43210"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Tipo do conteúdo",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default":"application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de tipos de ações",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "EXEMPLE_SATELLITE"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "0"
+                    }
+                  }
+                },
+                "example": {
+                  "access_token": "string",
+                  "token_type": "string",
+                  "expires_in": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid credentials"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                },
+                "example": {
+                  "error": "Unauthorized: Invalid token or expired session"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                },
+                "example": {
+                  "error": "Unauthorized: Invalid token or expired session"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                },
+                "example": {
+                  "error": "Unauthorized: Invalid token or expired session"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid credentials"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/devices/{id}/details": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Detalha as características e informações de um dispositivo satelital"
+        }
+      ],
+      "get": {
+        "description": "Detalha as características e informações de um dispositivo satelital",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Identificador da tabela de dispositivos (parâmetro encontrado na API /satellite/devices campo responde id) id",
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detalhes do dispositivo satélite",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "string",
+                      "description": "Token de acesso gerado.",
+                      "example": {
+                        "id": 0,
+                        "idTerminal": 0,
+                        "virtualAccountId": 0,
+                        "deviceId": "string",
+                        "status": "PRE_ACTIVE",
+                        "syncId": 0,
+                        "description": "string",
+                        "enabled": true,
+                        "state": "string",
+                        "gatewayAccountId": 0,
+                        "sourceGatewayAccountId": 0,
+                        "ipServiceAddress": "string",
+                        "activationDate": "2025-08-06T16:57:41.978Z",
+                        "cancellationDate": "2025-08-06T16:57:41.978Z",
+                        "statusCode": 0,
+                        "statusMessage": "string",
+                        "timestamp": "2025-08-06T16:57:41.978Z",
+                        "serviceProviderId": 0,
+                        "serialNumber": "string",
+                        "imei": "string",
+                        "macAddress": "string",
+                        "meid": "string",
+                        "pairedTo": "string",
+                        "termBalance": 0,
+                        "iig": true,
+                        "autoActivation": true,
+                        "productFamily": "string",
+                        "partNumber": "string",
+                        "hardwareVersion": "string",
+                        "firmwarePackageVersion": "string",
+                        "modemSoftwareVersion": "string",
+                        "unitId": "string",
+                        "actualOwnerId": 0,
+                        "updatedAt": "2025-08-06T16:57:41.978Z",
+                        "updatedBy": "string",
+                        "consumptionDaily": 0,
+                        "consumptionValidated": 0
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": 0,
+                  "idTerminal": 0,
+                  "virtualAccountId": 0,
+                  "deviceId": "string",
+                  "status": "PRE_ACTIVE",
+                  "syncId": 0,
+                  "description": "string",
+                  "enabled": true,
+                  "state": "string",
+                  "gatewayAccountId": 0,
+                  "sourceGatewayAccountId": 0,
+                  "ipServiceAddress": "string",
+                  "activationDate": "2025-08-06T16:57:41.978Z",
+                  "cancellationDate": "2025-08-06T16:57:41.978Z",
+                  "statusCode": 0,
+                  "statusMessage": "string",
+                  "timestamp": "2025-08-06T16:57:41.978Z",
+                  "serviceProviderId": 0,
+                  "serialNumber": "string",
+                  "imei": "string",
+                  "macAddress": "string",
+                  "meid": "string",
+                  "pairedTo": "string",
+                  "termBalance": 0,
+                  "iig": true,
+                  "autoActivation": true,
+                  "productFamily": "string",
+                  "partNumber": "string",
+                  "hardwareVersion": "string",
+                  "firmwarePackageVersion": "string",
+                  "modemSoftwareVersion": "string",
+                  "unitId": "string",
+                  "actualOwnerId": 0,
+                  "updatedAt": "2025-08-06T16:57:41.978Z",
+                  "updatedBy": "string",
+                  "consumptionDaily": 0,
+                  "consumptionValidated": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Erro Interno do servidor."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/devices": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Faz a listagem de dispositivos do tipo satelital"
+        }
+      ],
+      "get": {
+        "description": "Faz a listagem de dispositivos do tipo satelital",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Tipo do conteúdo",
+            "schema": {
+              "type": "string",
+              "example": "algar-telecom",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "123"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "customerId"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "deviceId"
+            }
+          },
+          {
+            "name": "activationDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "activationDate"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["ACTIVE", "CANCELED", "SUSPENDED", "PRE_ACTIVE"]
+            }
+          },
+          {
+            "name": "serialNumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "serialNumber"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": "true",
+              "default": "false"
+            }
+          },
+          {
+            "name": "stock",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": "stock"
+            }
+          },
+          {
+            "name": "consumptionGte",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "consumptionGte"
+            }
+          },
+          {
+            "name": "consumptionLte",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "consumptionLte"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "0",
+              "default": "0"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "20",
+              "default": "20"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "id": 0,
+                        "customer": {
+                          "id": 0,
+                          "name": "string"
+                        },
+                        "virtualAccount": {
+                          "id": 0,
+                          "name": "string",
+                          "virtualPlan": {
+                            "id": 0,
+                            "description": "string",
+                            "sharingType": 0
+                          },
+                          "value": "string",
+                          "activationPrice": "string",
+                          "kilobyteExcPrice": "string",
+                          "loyaltyType": 0,
+                          "loyaltyTime": 0,
+                          "nbPreActivationDays": 0,
+                          "franchise": 0
+                        },
+                        "deviceId": "string",
+                        "status": "ACTIVE",
+                        "enabled": true,
+                        "activationDate": "2025-08-06T17:25:50.248Z",
+                        "statusCode": 0,
+                        "statusMessage": "string",
+                        "serialNumber": "string",
+                        "autoActivation": true,
+                        "actualOwnerId": 0,
+                        "consumptionPercent": 0,
+                        "productFamily": "string",
+                        "partNumber": "string",
+                        "hardwareVersion": "string",
+                        "firmwarePackageVersion": "string",
+                        "modemSoftwareVersion": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                    "id": 0,
+                    "customer": { "id": 0, "name": "string" },
+                    "virtualAccount": {
+                      "id": 0,
+                      "name": "string",
+                      "virtualPlan": {
+                        "id": 0,
+                        "description": "string",
+                        "sharingType": 0
+                      },
+                      "value": "string",
+                      "activationPrice": "string",
+                      "kilobyteExcPrice": "string",
+                      "loyaltyType": 0,
+                      "loyaltyTime": 0,
+                      "nbPreActivationDays": 0,
+                      "franchise": 0
+                    },
+                    "deviceId": "string",
+                    "status": "ACTIVE",
+                    "enabled": true,
+                    "activationDate": "2025-08-06T17:25:50.248Z",
+                    "statusCode": 0,
+                    "statusMessage": "string",
+                    "serialNumber": "string",
+                    "autoActivation": true,
+                    "actualOwnerId": 0,
+                    "consumptionPercent": 0,
+                    "productFamily": "string",
+                    "partNumber": "string",
+                    "hardwareVersion": "string",
+                    "firmwarePackageVersion": "string",
+                    "modemSoftwareVersion": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Erro Interno do servidor."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/devices/report": {
+      "servers": [
+        {
+          "url": "https://apicorp.algartelecom.com.br/telecom/product-Inventory-management/management/v1",
+          "description": "Solicita o reelatório de um inventário Satelital"
+        }
+      ],
+      "post": {
+        "description": "Faz a solicitação do relatório do inventário satelital",
+        "requestBody": {
+          "description": "Informações necessárias para fazer a solicitação do relatório.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "id": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "deviceId": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "activationDate": {
+                    "type": "string",
+                    "example": "2025-08-11"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "ACTIVE"
+                  },
+                  "serialNumber": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "showContracted": {
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "stock": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "consumptionGte": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "consumptionLte": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "page": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "example": 20
+                  }
+
+                },
+                "required": ["client_id", "client_secret"]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identificador do client id do sensedia",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Token gerado",
+              "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request report created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "OK": {
+                      "type": "string",
+                      "example":{
+                        "id": 77614,
+                        "message": "Request report created successfully!"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": 77614,
+                  "message": "Request report created successfully!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição mal formada."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "URI de API/Recurso inexiste para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Parameter not found"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
                 }
               }
             }
