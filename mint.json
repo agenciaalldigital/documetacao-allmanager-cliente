@@ -17,12 +17,16 @@
   },
   "tabs": [
     {
-      "name": "APIs Allmanager",
-      "url": "api-reference/endpoint"
+      "name": "Allmanager",
+      "url": "api-reference/endpoint/allmanager"
     },
     {
       "name": "Orbcomm",
-      "url": "api-reference/orbcomm"
+      "url": "api-reference/endpoint/orbcomm"
+    },
+    {
+      "name": "Tags",
+      "url": "api-reference/endpoint/tags"
     }
   ],
   "navigation": [
@@ -35,85 +39,138 @@
     {
       "group": "Autentificação",
       "pages": [
-        "api-reference/endpoint/autentificacao/auth"
-      ]
-    },
-    {
-      "group": "Teste orbcomm",
-      "pages": [
-        "api-reference/orbcomm/teste"
+        "api-reference/endpoint/allmanager/autentificacao/auth"
       ]
     },
     {
       "group": "MoT",
       "pages": [
-        "api-reference/endpoint/mot/invoices",
-        "api-reference/endpoint/mot/devices",
-        "api-reference/endpoint/mot/devices-quantity",
-        "api-reference/endpoint/mot/imei-lock-get",
-        "api-reference/endpoint/mot/imei-lock-post",
-        "api-reference/endpoint/mot/imei-unlock-get",
-        "api-reference/endpoint/mot/imei-unlock-post",
-        "api-reference/endpoint/mot/unlock-network-get",
-        "api-reference/endpoint/mot/unlock-network-post",
-        "api-reference/endpoint/mot/block-network-get",
-        "api-reference/endpoint/mot/block-network-post",
-        "api-reference/endpoint/mot/reset-network-get",
-        "api-reference/endpoint/mot/reset-network-post",
-        "api-reference/endpoint/mot/actions-queue-get",
-        "api-reference/endpoint/mot/bait-renewall-post",
-        "api-reference/endpoint/mot/franchise-renewall-post"
+        "api-reference/endpoint/allmanager/mot/invoices",
+        "api-reference/endpoint/allmanager/mot/devices",
+        "api-reference/endpoint/allmanager/mot/devices-quantity",
+        "api-reference/endpoint/allmanager/mot/imei-lock-get",
+        "api-reference/endpoint/allmanager/mot/imei-lock-post",
+        "api-reference/endpoint/allmanager/mot/imei-unlock-get",
+        "api-reference/endpoint/allmanager/mot/imei-unlock-post",
+        "api-reference/endpoint/allmanager/mot/unlock-network-get",
+        "api-reference/endpoint/allmanager/mot/unlock-network-post",
+        "api-reference/endpoint/allmanager/mot/block-network-get",
+        "api-reference/endpoint/allmanager/mot/block-network-post",
+        "api-reference/endpoint/allmanager/mot/reset-network-get",
+        "api-reference/endpoint/allmanager/mot/reset-network-post",
+        "api-reference/endpoint/allmanager/mot/actions-queue-get",
+        "api-reference/endpoint/allmanager/mot/bait-renewall-post",
+        "api-reference/endpoint/allmanager/mot/franchise-renewall-post"
       ]
     },
     {
       "group": "Report",
       "pages": [
-        "api-reference/endpoint/report/report",
-        "api-reference/endpoint/report/report-inventory"
+        "api-reference/endpoint/allmanager/report/report",
+        "api-reference/endpoint/allmanager/report/report-inventory"
       ]
     },
     {
       "group": "Broker",
       "pages": [
-        "api-reference/endpoint/broker/alert-get",
-        "api-reference/endpoint/broker/alert-post",
-        "api-reference/endpoint/broker/alert-events"
+        "api-reference/endpoint/allmanager/broker/alert-get",
+        "api-reference/endpoint/allmanager/broker/alert-post",
+        "api-reference/endpoint/allmanager/broker/alert-events"
       ]
     },
     {
       "group": "Lorawan",
       "pages": [
-        "api-reference/endpoint/lorawan/activation",
-        "api-reference/endpoint/lorawan/actions",
-        "api-reference/endpoint/lorawan/change-description",
-        "api-reference/endpoint/lorawan/change-tag",
-        "api-reference/endpoint/lorawan/deactivation",
-        "api-reference/endpoint/lorawan/device-status",
-        "api-reference/endpoint/lorawan/downlink-block",
-        "api-reference/endpoint/lorawan/downlink-unlock",
-        "api-reference/endpoint/lorawan/messages",
-        "api-reference/endpoint/lorawan/report-device",
-        "api-reference/endpoint/lorawan/report-status",
-        "api-reference/endpoint/lorawan/report-top-customer-by-device-count",
-        "api-reference/endpoint/lorawan/report-top-messages",
-        "api-reference/endpoint/lorawan/referrals-delete",
-        "api-reference/endpoint/lorawan/referrals-get",
-        "api-reference/endpoint/lorawan/referrals-post",
-        "api-reference/endpoint/lorawan/top-downlinks",
-        "api-reference/endpoint/lorawan/top-uplinks",
-        "api-reference/endpoint/lorawan/uplink-block",
-        "api-reference/endpoint/lorawan/uplink-unlock"
+        "api-reference/endpoint/allmanager/lorawan/activation",
+        "api-reference/endpoint/allmanager/lorawan/actions",
+        "api-reference/endpoint/allmanager/lorawan/change-description",
+        "api-reference/endpoint/allmanager/lorawan/change-tag",
+        "api-reference/endpoint/allmanager/lorawan/deactivation",
+        "api-reference/endpoint/allmanager/lorawan/device-status",
+        "api-reference/endpoint/allmanager/lorawan/downlink-block",
+        "api-reference/endpoint/allmanager/lorawan/downlink-unlock",
+        "api-reference/endpoint/allmanager/lorawan/messages",
+        "api-reference/endpoint/allmanager/lorawan/report-device",
+        "api-reference/endpoint/allmanager/lorawan/report-status",
+        "api-reference/endpoint/allmanager/lorawan/report-top-customer-by-device-count",
+        "api-reference/endpoint/allmanager/lorawan/report-top-messages",
+        "api-reference/endpoint/allmanager/lorawan/referrals-delete",
+        "api-reference/endpoint/allmanager/lorawan/referrals-get",
+        "api-reference/endpoint/allmanager/lorawan/referrals-post",
+        "api-reference/endpoint/allmanager/lorawan/top-downlinks",
+        "api-reference/endpoint/allmanager/lorawan/top-uplinks",
+        "api-reference/endpoint/allmanager/lorawan/uplink-block",
+        "api-reference/endpoint/allmanager/lorawan/uplink-unlock"
       ]
     },
     {
       "group": "Satellital",
       "pages": [
-        "api-reference/endpoint/satellite/action-queue-post",
-        "api-reference/endpoint/satellite/action-queue-get",        
-        "api-reference/endpoint/satellite/devices-get",
-        "api-reference/endpoint/satellite/actions-get",
-        "api-reference/endpoint/satellite/devices-details-get",
-        "api-reference/endpoint/satellite/devices-report"
+        "api-reference/endpoint/allmanager/satellite/action-queue-post",
+        "api-reference/endpoint/allmanager/satellite/action-queue-get",        
+        "api-reference/endpoint/allmanager/satellite/devices-get",
+        "api-reference/endpoint/allmanager/satellite/actions-get",
+        "api-reference/endpoint/allmanager/satellite/devices-details-get",
+        "api-reference/endpoint/allmanager/satellite/devices-report"
+      ]
+    },
+
+    {
+      "group": "Auth",
+      "pages": [
+        "api-reference/endpoint/orbcomm/auth/api-v-version-auth-token",
+        "api-reference/endpoint/orbcomm/auth/api-v-version-auth-invalidate-tokens"
+      ]
+    },
+    {
+      "group": "Get",
+      "pages": [
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-fw_messages",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-fw_statuses",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-fw_status_updates",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-subaccount-fw_status_updates",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-subaccounts-fw_status_updates",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-re_messages",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-subaccount-re_messages",
+        "api-reference/endpoint/orbcomm/get/api-v-version-get-subaccounts-re_messages"
+      ]
+    },
+    {
+      "group": "Info",
+      "pages": [
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-service",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-terminals",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-terminal_updates",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-terminal",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-broadcast",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-subaccount-list",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-subaccount-terminals",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-subaccount-terminal_updates",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-subaccount-terminal",
+        "api-reference/endpoint/orbcomm/info/api-v-version-info-subaccount-broadcast"
+      ]
+    },
+    {
+      "group": "Submit",
+      "pages": [
+        "api-reference/endpoint/orbcomm/submit/api-v-version-submit-messages",
+        "api-reference/endpoint/orbcomm/submit/api-v-version-submit-to_multiple",
+        "api-reference/endpoint/orbcomm/submit/api-v-version-submit-cancellations"
+      ]
+    },
+    {
+      "group": "Terminal",
+      "pages": [
+        "api-reference/endpoint/orbcomm/terminal/api-version-terminal-reset",
+        "api-reference/endpoint/orbcomm/terminal/api-v-version-terminal-sysreset",
+        "api-reference/endpoint/orbcomm/terminal/api-v-version-terminal-mode",
+        "api-reference/endpoint/orbcomm/terminal/api-v-version-terminal-mute"
+      ]
+    },
+    {
+      "group": "Teste",
+      "pages": [
+        "api-reference/endpoint/tags/teste/tags-teste"
       ]
     }
   ],
