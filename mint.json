@@ -32,15 +32,11 @@
   "navigation": [
     {
       "group": "Vamos começar",
-      "pages": [
-        "introduction"
-      ]
+      "pages": ["introduction"]
     },
     {
       "group": "Autentificação",
-      "pages": [
-        "api-reference/endpoint/allmanager/autentificacao/auth"
-      ]
+      "pages": ["api-reference/endpoint/allmanager/autentificacao/auth"]
     },
     {
       "group": "MoT",
@@ -107,7 +103,7 @@
       "group": "Satellital",
       "pages": [
         "api-reference/endpoint/allmanager/satellite/action-queue-post",
-        "api-reference/endpoint/allmanager/satellite/action-queue-get",        
+        "api-reference/endpoint/allmanager/satellite/action-queue-get",
         "api-reference/endpoint/allmanager/satellite/devices-get",
         "api-reference/endpoint/allmanager/satellite/actions-get",
         "api-reference/endpoint/allmanager/satellite/devices-details-get",
@@ -168,9 +164,30 @@
       ]
     },
     {
-      "group": "Teste",
+      "group": "Auth",
       "pages": [
-        "api-reference/endpoint/tags/teste/tags-teste"
+        "api-reference/endpoint/tags/auth/auth-account",
+        "api-reference/endpoint/tags/auth/auth-user",
+        "api-reference/endpoint/tags/auth/auth"
+      ]
+    },
+    {
+      "group": "Costummer",
+      "pages": [
+        "api-reference/endpoint/tags/costummer/costummer-id-get",
+        "api-reference/endpoint/tags/costummer/costummer-id-put",
+        "api-reference/endpoint/tags/costummer/costummer-tag",
+        "api-reference/endpoint/tags/costummer/costummer-get",
+        "api-reference/endpoint/tags/costummer/costummer-post"
+      ]
+    },
+    {
+      "group": "Tag",
+      "pages": [
+        "api-reference/endpoint/tags/tag/tag-devices",
+        "api-reference/endpoint/tags/tag/tag-history",
+        "api-reference/endpoint/tags/tag/tag-link_costummer",
+        "api-reference/endpoint/tags/tag/tag-qualcomm-config-qts110"
       ]
     }
   ],

@@ -65,7 +65,7 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "Basic MzQ4OSozNDMyLTMOMzItMTIz"
@@ -193,7 +193,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -403,7 +403,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -591,7 +591,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -731,7 +731,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -900,7 +900,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1021,7 +1021,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1120,7 +1120,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1226,7 +1226,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1317,7 +1317,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1400,7 +1400,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -1530,7 +1530,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -1624,7 +1624,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -1812,7 +1812,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -1906,7 +1906,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -2129,7 +2129,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -2233,7 +2233,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -2396,7 +2396,14 @@
             "description": "Tipo do relatório",
             "schema": {
               "type": "string",
-              "enum": ["MOT_INVENTORY", "MANAGEMENT", "CONNECTONE_INVENTORY", "REQUEST_CONSUMERS", "LORAWAN_DEVICE", "SATELLITE_DEVICE_REPORT"]
+              "enum": [
+                "MOT_INVENTORY",
+                "MANAGEMENT",
+                "CONNECTONE_INVENTORY",
+                "REQUEST_CONSUMERS",
+                "LORAWAN_DEVICE",
+                "SATELLITE_DEVICE_REPORT"
+              ]
             }
           },
           {
@@ -2460,7 +2467,7 @@
                   "properties": {
                     "OK": {
                       "type": "string",
-                      "example":{
+                      "example": {
                         "id": 20,
                         "customerId": 12000,
                         "customerName": "Teste nome",
@@ -2937,17 +2944,16 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-
                     "Accepted": {
                       "type": "string",
-                      "example":{
+                      "example": {
                         "id": 56865,
                         "message": "Request created successfully! An email will be sent to: thiago.moreira@eticasolucoes.com.br with the download link"
                       }
                     }
                   }
                 },
-                "example":{
+                "example": {
                   "id": 56865,
                   "message": "Request created successfully! An email will be sent to: thiago.moreira@eticasolucoes.com.br with the download link"
                 }
@@ -3172,7 +3178,10 @@
             "schema": {
               "type": "string",
               "description": "Tipo de evento",
-              "enum": ["CONSUMPTION(Consumo de simcards)", "CONTRACT_CONSUMPTION(Consumo de contrato)"]
+              "enum": [
+                "CONSUMPTION(Consumo de simcards)",
+                "CONTRACT_CONSUMPTION(Consumo de contrato)"
+              ]
             }
           },
           {
@@ -3182,7 +3191,13 @@
             "schema": {
               "type": "string",
               "description": "Tipo",
-              "enum": ["consumptionCurrentDay(Consumo do dia)", "consumptionTotal(Consumo total)", "consumptionPercent(Consumo percentual)", "consumptionCurrentDayAnomaly(Anomalia de consumo do dia)", "consumptionTotalAnomaly(Anomalia de consumo total)"]
+              "enum": [
+                "consumptionCurrentDay(Consumo do dia)",
+                "consumptionTotal(Consumo total)",
+                "consumptionPercent(Consumo percentual)",
+                "consumptionCurrentDayAnomaly(Anomalia de consumo do dia)",
+                "consumptionTotalAnomaly(Anomalia de consumo total)"
+              ]
             }
           }
         ],
@@ -3196,7 +3211,7 @@
                   "properties": {
                     "OK": {
                       "type": "string",
-                      "example":{
+                      "example": {
                         "id": 29255,
                         "alertId": 168,
                         "customerId": 58987,
@@ -3380,7 +3395,7 @@
               "type": "integer",
               "description": "Página",
               "example": "1",
-              "default" : "1"
+              "default": "1"
             }
           },
           {
@@ -3391,7 +3406,7 @@
               "type": "integer",
               "description": "Tamanho da página",
               "example": "30",
-              "default":"30"
+              "default": "30"
             }
           },
           {
@@ -3411,7 +3426,7 @@
             "schema": {
               "type": "string",
               "description": "Status da ação",
-              "enum": ["0","1","99","98","97"]
+              "enum": ["0", "1", "99", "98", "97"]
             }
           },
           {
@@ -3463,10 +3478,9 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-
                     "OK": {
                       "type": "string",
-                      "example":{
+                      "example": {
                         "id": 308,
                         "customerId": 10000,
                         "terminalId": null,
@@ -3486,7 +3500,7 @@
                     }
                   }
                 },
-                "example":{
+                "example": {
                   "id": 308,
                   "customerId": 10000,
                   "terminalId": null,
@@ -3614,7 +3628,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "field": {
                     "type": "string",
                     "example": "consumptionCurrentDay"
@@ -3635,7 +3648,6 @@
                     "type": "string",
                     "example": ">"
                   }
-
                 },
                 "required": ["client_id", "client_secret"]
               }
@@ -3705,7 +3717,7 @@
                     }
                   }
                 },
-                "example":  {
+                "example": {
                   "id": 308,
                   "customerId": 10000,
                   "terminalId": null,
@@ -3844,7 +3856,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -4040,7 +4052,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -4128,7 +4140,7 @@
             "name": "client_id",
             "in": "header",
             "required": true,
-            
+
             "schema": {
               "type": "string",
               "example": "client_id"
@@ -4548,7 +4560,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string"
@@ -4675,7 +4687,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string"
@@ -4802,7 +4814,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -4950,7 +4962,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -5023,7 +5035,7 @@
           {
             "name": "client_id",
             "in": "header",
-            
+
             "required": true,
             "schema": {
               "type": "string",
@@ -6587,33 +6599,33 @@
             "schema": {
               "type": "string",
               "enum": [
-                    "SUCCESS",
-                    "PROCESSING_QUEUE",
-                    "PROCESSING",
-                    "UNEXPECTED_ERROR",
-                    "ERR_MS_ALREADY_SUSPENDED",
-                    "ERR_MS_NOT_SUSPENDED",
-                    "ERR_MS_ACTION_ID_NOT_FOUND",
-                    "ERR_MS_DEVICE_ID_IN_PROCESS",
-                    "ERR_MS_PERMISSION_DENIED",
-                    "ERR_MS_VIRTUAL_ACCOUNT_NOT_FOUND",
-                    "ERR_MS_CUSTOMER_INFORMATION_NOT_FOUND",
-                    "ERR_MS_ASSET_NUMBER_NOT_FOUND",
-                    "ERR_MS_INVALID_ACTIVATION_PARAMS",
-                    "ERR_MS_CONTRACT_ID_REQUIRED",
-                    "ERR_MS_UNEXPECTED_ACTIVATION_TYPE",
-                    "ERR_MS_DEVICE_ALREADY_ACTIVE",
-                    "ERR_MS_VIRTUAL_ACCOUNT_NOT_FOUND_IN_HIERARCHY",
-                    "ERR_MS_INVALID_CUSTOMER_PARENT_ID",
-                    "ERR_MS_INVALID_CONTRACT_TYPE",
-                    "ERR_MS_INVALID_VIRTUAL_ACCOUNT_STATUS",
-                    "ERR_MS_INVALID_CUSTOMER_HIERARCHY",
-                    "ERR_MS_CUSTOMER_NOT_FOUND",
-                    "ERR_MS_DEVICE_NOT_FOUND",
-                    "ERR_SATELLITE",
-                    "ERR_RMS"
-                  ]
-                }
+                "SUCCESS",
+                "PROCESSING_QUEUE",
+                "PROCESSING",
+                "UNEXPECTED_ERROR",
+                "ERR_MS_ALREADY_SUSPENDED",
+                "ERR_MS_NOT_SUSPENDED",
+                "ERR_MS_ACTION_ID_NOT_FOUND",
+                "ERR_MS_DEVICE_ID_IN_PROCESS",
+                "ERR_MS_PERMISSION_DENIED",
+                "ERR_MS_VIRTUAL_ACCOUNT_NOT_FOUND",
+                "ERR_MS_CUSTOMER_INFORMATION_NOT_FOUND",
+                "ERR_MS_ASSET_NUMBER_NOT_FOUND",
+                "ERR_MS_INVALID_ACTIVATION_PARAMS",
+                "ERR_MS_CONTRACT_ID_REQUIRED",
+                "ERR_MS_UNEXPECTED_ACTIVATION_TYPE",
+                "ERR_MS_DEVICE_ALREADY_ACTIVE",
+                "ERR_MS_VIRTUAL_ACCOUNT_NOT_FOUND_IN_HIERARCHY",
+                "ERR_MS_INVALID_CUSTOMER_PARENT_ID",
+                "ERR_MS_INVALID_CONTRACT_TYPE",
+                "ERR_MS_INVALID_VIRTUAL_ACCOUNT_STATUS",
+                "ERR_MS_INVALID_CUSTOMER_HIERARCHY",
+                "ERR_MS_CUSTOMER_NOT_FOUND",
+                "ERR_MS_DEVICE_NOT_FOUND",
+                "ERR_SATELLITE",
+                "ERR_RMS"
+              ]
+            }
           },
           {
             "name": "serialNumber",
@@ -6681,7 +6693,7 @@
             "description": "Lista de ações encontradas",
             "content": {
               "application/json": {
-                "example":  {
+                "example": {
                   "id": 123,
                   "actionType": 0,
                   "idContract": "12345",
@@ -6803,8 +6815,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
-                 "action": {
+                  "action": {
                     "type": "integer",
                     "example": 0
                   },
@@ -6824,7 +6835,6 @@
                       }
                     ]
                   }
-
                 },
                 "required": ["client_id", "client_secret"]
               }
@@ -6863,7 +6873,6 @@
               "example": "123A456b789c"
             }
           }
-         
         ],
         "responses": {
           "201": {
@@ -6984,7 +6993,7 @@
       "get": {
         "description": "Listagem dos tipos de ações que estão disponíveis",
         "parameters": [
-           {
+          {
             "name": "Content-Type",
             "in": "header",
             "required": true,
@@ -7009,7 +7018,7 @@
             "name": "access_token",
             "in": "header",
             "required": true,
-            "description":"Token gerado",
+            "description": "Token gerado",
             "schema": {
               "type": "string",
               "example": "12e345A987U65I43210"
@@ -7023,7 +7032,7 @@
             "schema": {
               "type": "string",
               "example": "application/json",
-              "default":"application/json"
+              "default": "application/json"
             }
           }
         ],
@@ -7078,8 +7087,7 @@
             "description": "Requisição requer autenticação.",
             "content": {
               "application/json": {
-                "schema": {
-                },
+                "schema": {},
                 "example": {
                   "error": "Unauthorized: Invalid token or expired session"
                 }
@@ -7090,8 +7098,7 @@
             "description": "O acesso ao recurso foi negado.",
             "content": {
               "application/json": {
-                "schema": {
-                },
+                "schema": {},
                 "example": {
                   "error": "Unauthorized: Invalid token or expired session"
                 }
@@ -7102,8 +7109,7 @@
             "description": "URI de API/Recurso inexiste para processamento.",
             "content": {
               "application/json": {
-                "schema": {
-                },
+                "schema": {},
                 "example": {
                   "error": "Unauthorized: Invalid token or expired session"
                 }
@@ -7596,39 +7602,39 @@
                   }
                 },
                 "example": {
+                  "id": 0,
+                  "customer": { "id": 0, "name": "string" },
+                  "virtualAccount": {
                     "id": 0,
-                    "customer": { "id": 0, "name": "string" },
-                    "virtualAccount": {
+                    "name": "string",
+                    "virtualPlan": {
                       "id": 0,
-                      "name": "string",
-                      "virtualPlan": {
-                        "id": 0,
-                        "description": "string",
-                        "sharingType": 0
-                      },
-                      "value": "string",
-                      "activationPrice": "string",
-                      "kilobyteExcPrice": "string",
-                      "loyaltyType": 0,
-                      "loyaltyTime": 0,
-                      "nbPreActivationDays": 0,
-                      "franchise": 0
+                      "description": "string",
+                      "sharingType": 0
                     },
-                    "deviceId": "string",
-                    "status": "ACTIVE",
-                    "enabled": true,
-                    "activationDate": "2025-08-06T17:25:50.248Z",
-                    "statusCode": 0,
-                    "statusMessage": "string",
-                    "serialNumber": "string",
-                    "autoActivation": true,
-                    "actualOwnerId": 0,
-                    "consumptionPercent": 0,
-                    "productFamily": "string",
-                    "partNumber": "string",
-                    "hardwareVersion": "string",
-                    "firmwarePackageVersion": "string",
-                    "modemSoftwareVersion": "string"
+                    "value": "string",
+                    "activationPrice": "string",
+                    "kilobyteExcPrice": "string",
+                    "loyaltyType": 0,
+                    "loyaltyTime": 0,
+                    "nbPreActivationDays": 0,
+                    "franchise": 0
+                  },
+                  "deviceId": "string",
+                  "status": "ACTIVE",
+                  "enabled": true,
+                  "activationDate": "2025-08-06T17:25:50.248Z",
+                  "statusCode": 0,
+                  "statusMessage": "string",
+                  "serialNumber": "string",
+                  "autoActivation": true,
+                  "actualOwnerId": 0,
+                  "consumptionPercent": 0,
+                  "productFamily": "string",
+                  "partNumber": "string",
+                  "hardwareVersion": "string",
+                  "firmwarePackageVersion": "string",
+                  "modemSoftwareVersion": "string"
                 }
               }
             }
@@ -7749,7 +7755,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "id": {
                     "type": "integer",
                     "example": 0
@@ -7798,7 +7803,6 @@
                     "type": "integer",
                     "example": 20
                   }
-
                 },
                 "required": ["client_id", "client_secret"]
               }
@@ -7848,7 +7852,7 @@
                   "properties": {
                     "OK": {
                       "type": "string",
-                      "example":{
+                      "example": {
                         "id": 77614,
                         "message": "Request report created successfully!"
                       }
@@ -7962,138 +7966,128 @@
       }
     },
     "/api/v{version}/auth/token": {
-  "post": {
-    "tags": [
-      "Auth"
-    ],
-    "summary": "Cria token bearer de autenticação",
-    "parameters": [
-      {
-        "name": "version",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      }
-    ],
-    "requestBody": {
-      "content": {
-        "application/x-www-form-urlencoded": {
-          "schema": {
-            "required": [
-              "client_id",
-              "client_secret",
-              "grant_type"
-            ],
-            "type": "object",
-            "properties": {
-              "grant_type": {
-                "type": "string",
-                "description": "Deve ser definido como client_credentials",
-                "example": "client_credentials"
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Cria token bearer de autenticação",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": ["client_id", "client_secret", "grant_type"],
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "description": "Deve ser definido como client_credentials",
+                    "example": "client_credentials"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "description": "ID de acesso do usuário",
+                    "example": "70000006"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "description": "Senha do usuário",
+                    "example": "password"
+                  },
+                  "expires_in": {
+                    "type": "integer",
+                    "description": "Tempo de expiração do token em segundos. Se não informado, o serviço web usará o valor padrão de 7 dias.",
+                    "format": "int32",
+                    "example": 100
+                  }
+                }
               },
-              "client_id": {
-                "type": "string",
-                "description": "ID de acesso do usuário",
-                "example": "70000006"
-              },
-              "client_secret": {
-                "type": "string",
-                "description": "Senha do usuário",
-                "example": "password"
-              },
-              "expires_in": {
-                "type": "integer",
-                "description": "Tempo de expiração do token em segundos. Se não informado, o serviço web usará o valor padrão de 7 dias.",
-                "format": "int32",
-                "example": 100
+              "encoding": {
+                "grant_type": {
+                  "style": "form"
+                },
+                "client_id": {
+                  "style": "form"
+                },
+                "client_secret": {
+                  "style": "form"
+                },
+                "expires_in": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token bearer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTokenResponse"
+                },
+                "example": {
+                  "token_type": "bearer",
+                  "expires_in": 604800,
+                  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                }
               }
             }
           },
-          "encoding": {
-            "grant_type": {
-              "style": "form"
-            },
-            "client_id": {
-              "style": "form"
-            },
-            "client_secret": {
-              "style": "form"
-            },
-            "expires_in": {
-              "style": "form"
-            }
+          "401": {
+            "description": "Quando falha autenticação e autorização"
           }
         }
       }
-    },
-    "responses": {
-      "200": {
-        "description": "Token bearer",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/GetTokenResponse"
-            },
-            "example": {
-              "token_type": "bearer",
-              "expires_in": 604800,
-              "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-            }
-          }
-        }
-      },
-      "401": {
-        "description": "Quando falha autenticação e autorização"
-      }
-    }
-  }
     },
     "/api/v{version}/auth/invalidate_tokens": {
-    "get": {
-      "tags": [
-        "Auth"
-      ],
-      "summary": "Este método revoga todos os tokens previamente emitidos. (Auth)",
-      "parameters": [
-        {
-          "name": "version",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Chama tokenInvalidateSuccess. Verifique o valor retornado para erros.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
+      "get": {
+        "tags": ["Auth"],
+        "summary": "Este método revoga todos os tokens previamente emitidos. (Auth)",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
-        "401": {
-          "description": "Quando falha autenticação e autorização"
-        },
-        "429": {
-          "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”"
+        ],
+        "responses": {
+          "200": {
+            "description": "Chama tokenInvalidateSuccess. Verifique o valor retornado para erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Quando falha autenticação e autorização"
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”"
+          }
         }
       }
-    }
     },
     "/api/v{version}/get/fw_messages": {
       "get": {
-        "tags": [
-          "Get"
-        ],
+        "tags": ["Get"],
         "summary": "Recupera registros de mensagens to-mobile definidos por uma lista de IDs de mensagens to-mobile (IDList). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada (ou uma de suas subcontas imediatas) serão recuperadas. (Autenticação)",
-        "description":"Recupera registros de mensagens to-mobile definidos por uma lista de IDs de mensagens to-mobile (IDList). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada (ou uma de suas subcontas imediatas) serão recuperadas. (Autenticação)",
+        "description": "Recupera registros de mensagens to-mobile definidos por uma lista de IDs de mensagens to-mobile (IDList). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada (ou uma de suas subcontas imediatas) serão recuperadas. (Autenticação)",
         "parameters": [
           {
             "name": "IDList",
@@ -8197,9 +8191,7 @@
     },
     "/api/v{version}/get/fw_statuses": {
       "get": {
-        "tags": [
-          "Get"
-        ],
+        "tags": ["Get"],
         "summary": "Recupera os status das mensagens to-mobile submetidas, definidas pelos IDs das mensagens atribuídos pelo OGWS.\r\nSomente mensagens pertencentes à conta que está fazendo a chamada (ou uma de suas subcontas imediatas) serão recuperadas. (Autenticação)",
         "description": "Recupera os status das mensagens to-mobile submetidas, definidas pelos IDs das mensagens atribuídos pelo OGWS.\r\nSomente mensagens pertencentes à conta que está fazendo a chamada (ou uma de suas subcontas imediatas) serão recuperadas. (Autenticação)",
         "parameters": [
@@ -8278,191 +8270,185 @@
       }
     },
     "/api/v{version}/get/fw_status_updates": {
-    "get": {
-      "tags": [
-        "Get"
-      ],
-      "summary": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada serão recuperadas. Status de mensagens de subcontas não serão recuperados. (Autenticação)",
-      "description": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada serão recuperadas. Status de mensagens de subcontas não serão recuperados. (Autenticação)",
-      "parameters": [
-        {
-          "name": "FromUTC",
-          "in": "query",
-          "description": "Recupera registros de status das mensagens atualizados após FromUTC. O formato do 'FromUTC': 'yyyy-MM-dd HH24:mm:ss'",
-          "schema": {
-            "type": "string"
+      "get": {
+        "tags": ["Get"],
+        "summary": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada serão recuperadas. Status de mensagens de subcontas não serão recuperados. (Autenticação)",
+        "description": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada serão recuperadas. Status de mensagens de subcontas não serão recuperados. (Autenticação)",
+        "parameters": [
+          {
+            "name": "FromUTC",
+            "in": "query",
+            "description": "Recupera registros de status das mensagens atualizados após FromUTC. O formato do 'FromUTC': 'yyyy-MM-dd HH24:mm:ss'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
-        },
-        {
-          "name": "version",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Chamada realizada com sucesso. Verifique o ErrorID para possíveis erros.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GetForwardStatusesResponse"
-              },
-              "example": {
-                "Statuses": [
-                  {
-                    "ID": 10844864715,
-                    "IsClosed": true,
-                    "State": 1,
-                    "CreateUTC": "2022-11-25 12:00:20",
-                    "StatusUTC": "2022-11-25 12:00:23",
-                    "Transport": 1,
-                    "RegionName": "AMERRB8",
-                    "ReferenceNumber": 41
-                  },
-                  {
-                    "ID": 10844864716,
-                    "IsClosed": false,
-                    "State": 0,
-                    "CreateUTC": "2022-11-25 12:00:00",
-                    "StatusUTC": "2022-11-25 12:00:15",
-                    "Transport": 1,
-                    "ReferenceNumber": 20
-                  },
-                  {
-                    "ID": 10844864806,
-                    "ErrorID": 14
-                  }
-                ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Chamada realizada com sucesso. Verifique o ErrorID para possíveis erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetForwardStatusesResponse"
+                },
+                "example": {
+                  "Statuses": [
+                    {
+                      "ID": 10844864715,
+                      "IsClosed": true,
+                      "State": 1,
+                      "CreateUTC": "2022-11-25 12:00:20",
+                      "StatusUTC": "2022-11-25 12:00:23",
+                      "Transport": 1,
+                      "RegionName": "AMERRB8",
+                      "ReferenceNumber": 41
+                    },
+                    {
+                      "ID": 10844864716,
+                      "IsClosed": false,
+                      "State": 0,
+                      "CreateUTC": "2022-11-25 12:00:00",
+                      "StatusUTC": "2022-11-25 12:00:15",
+                      "Transport": 1,
+                      "ReferenceNumber": 20
+                    },
+                    {
+                      "ID": 10844864806,
+                      "ErrorID": 14
+                    }
+                  ]
+                }
               }
             }
-          }
-        },
-        "401": {
-          "description": "Falha na autenticação e autorização",
-          "content": {
-            "application/json": {
-              "example": "Falha na autenticação e autorização"
+          },
+          "401": {
+            "description": "Falha na autenticação e autorização",
+            "content": {
+              "application/json": {
+                "example": "Falha na autenticação e autorização"
+              }
             }
-          }
-        },
-        "429": {
-          "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
-          "content": {
-            "application/json": {
-              "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
+          },
+          "429": {
+            "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
+            "content": {
+              "application/json": {
+                "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
+              }
             }
           }
         }
       }
-    }
     },
     "/api/v{version}/get/subaccount/fw_status_updates": {
-    "get": {
-      "tags": [
-        "Get"
-      ],
-      "summary": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente atualizações das mensagens to-mobile pertencentes à subconta especificada da conta que está fazendo a chamada serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
-      "description": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente atualizações das mensagens to-mobile pertencentes à subconta especificada da conta que está fazendo a chamada serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
-      "parameters": [
-        {
-          "name": "SubAccountID",
-          "in": "query",
-          "description": "ID da subconta (número começando com 6.........)",
-          "schema": {
-            "type": "integer",
-            "format": "int32"
+      "get": {
+        "tags": ["Get"],
+        "summary": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente atualizações das mensagens to-mobile pertencentes à subconta especificada da conta que está fazendo a chamada serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
+        "description": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSomente atualizações das mensagens to-mobile pertencentes à subconta especificada da conta que está fazendo a chamada serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
+        "parameters": [
+          {
+            "name": "SubAccountID",
+            "in": "query",
+            "description": "ID da subconta (número começando com 6.........)",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromUTC",
+            "in": "query",
+            "description": "Recupera registros de status das mensagens da subconta atualizados após FromUTC. O formato do 'FromUTC': 'yyyy-MM-dd HH24:mm:ss'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
-        },
-        {
-          "name": "FromUTC",
-          "in": "query",
-          "description": "Recupera registros de status das mensagens da subconta atualizados após FromUTC. O formato do 'FromUTC': 'yyyy-MM-dd HH24:mm:ss'",
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "version",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Chamada realizada com sucesso. Verifique o ErrorID para possíveis erros.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GetForwardStatusesResponse"
-              },
-              "example": {
-                "Statuses": [
-                  {
-                    "ID": 10844864715,
-                    "IsClosed": true,
-                    "State": 1,
-                    "CreateUTC": "2022-11-25 12:00:20",
-                    "StatusUTC": "2022-11-25 12:00:23",
-                    "Transport": 1,
-                    "RegionName": "AMERRB8",
-                    "ReferenceNumber": 41
-                  },
-                  {
-                    "ID": 10844864716,
-                    "IsClosed": false,
-                    "State": 0,
-                    "CreateUTC": "2022-11-25 12:00:00",
-                    "StatusUTC": "2022-11-25 12:00:15",
-                    "Transport": 1,
-                    "ReferenceNumber": 20
-                  },
-                  {
-                    "ID": 10844864806,
-                    "ErrorID": 14
-                  }
-                ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Chamada realizada com sucesso. Verifique o ErrorID para possíveis erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetForwardStatusesResponse"
+                },
+                "example": {
+                  "Statuses": [
+                    {
+                      "ID": 10844864715,
+                      "IsClosed": true,
+                      "State": 1,
+                      "CreateUTC": "2022-11-25 12:00:20",
+                      "StatusUTC": "2022-11-25 12:00:23",
+                      "Transport": 1,
+                      "RegionName": "AMERRB8",
+                      "ReferenceNumber": 41
+                    },
+                    {
+                      "ID": 10844864716,
+                      "IsClosed": false,
+                      "State": 0,
+                      "CreateUTC": "2022-11-25 12:00:00",
+                      "StatusUTC": "2022-11-25 12:00:15",
+                      "Transport": 1,
+                      "ReferenceNumber": 20
+                    },
+                    {
+                      "ID": 10844864806,
+                      "ErrorID": 14
+                    }
+                  ]
+                }
               }
             }
-          }
-        },
-        "401": {
-          "description": "Falha na autenticação e autorização",
-          "content": {
-            "application/json": {
-              "example": "Falha na autenticação e autorização"
+          },
+          "401": {
+            "description": "Falha na autenticação e autorização",
+            "content": {
+              "application/json": {
+                "example": "Falha na autenticação e autorização"
+              }
             }
-          }
-        },
-        "403": {
-          "description": "Quando o usuário não for um SuperAccountUser, a API retornará o código HTTP 403 “Proibido”",
-          "content": {
-            "application/json": {
-              "example": "Quando o usuário não for um SuperAccountUser, a API retornará o código HTTP 403 “Proibido”"
+          },
+          "403": {
+            "description": "Quando o usuário não for um SuperAccountUser, a API retornará o código HTTP 403 “Proibido”",
+            "content": {
+              "application/json": {
+                "example": "Quando o usuário não for um SuperAccountUser, a API retornará o código HTTP 403 “Proibido”"
+              }
             }
-          }
-        },
-        "429": {
-          "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
-          "content": {
-            "application/json": {
-              "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
+          },
+          "429": {
+            "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
+            "content": {
+              "application/json": {
+                "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
+              }
             }
           }
         }
       }
-    }
     },
     "/api/v{version}/get/subaccounts/fw_status_updates": {
       "get": {
-        "tags": [
-          "Get"
-        ],
+        "tags": ["Get"],
         "summary": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSerão recuperadas atualizações das mensagens to-mobile pertencentes à conta que está fazendo a chamada e TODAS as suas subcontas. (Autenticação roles: SuperAccountUser, Provisioning)",
         "description": "Recupera atualizações nos status das mensagens to-mobile submetidas desde o horário especificado (UTC). \r\nSerão recuperadas atualizações das mensagens to-mobile pertencentes à conta que está fazendo a chamada e TODAS as suas subcontas. (Autenticação roles: SuperAccountUser, Provisioning)",
         "parameters": [
@@ -8550,9 +8536,7 @@
     },
     "/api/v{version}/get/re_messages": {
       "get": {
-        "tags": [
-          "Get"
-        ],
+        "tags": ["Get"],
         "summary": "Recupera mensagens de retorno (from-mobile) recebidas pelo OGx Gateway após o horário especificado (UTC). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada serão recuperadas. Status de mensagens de subcontas não serão recuperados. (Autenticação)",
         "description": "Recupera mensagens de retorno (from-mobile) recebidas pelo OGx Gateway após o horário especificado (UTC). \r\nSomente mensagens pertencentes à conta que está fazendo a chamada serão recuperadas. Status de mensagens de subcontas não serão recuperados. (Autenticação)",
         "parameters": [
@@ -8651,9 +8635,7 @@
     },
     "/api/v{version}/get/subaccount/re_messages": {
       "get": {
-        "tags": [
-          "Get"
-        ],
+        "tags": ["Get"],
         "summary": "Recupera mensagens de retorno (from-mobile) recebidas pelo OGx Gateway após o horário especificado (UTC). \r\nSomente mensagens pertencentes à subconta especificada serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
         "description": "Recupera mensagens de retorno (from-mobile) recebidas pelo OGx Gateway após o horário especificado (UTC). \r\nSomente mensagens pertencentes à subconta especificada serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
         "parameters": [
@@ -8768,9 +8750,7 @@
     },
     "/api/v{version}/get/subaccounts/re_messages": {
       "get": {
-        "tags": [
-          "Get"
-        ],
+        "tags": ["Get"],
         "summary": "Recupera mensagens de retorno (from-mobile) recebidas pelo OGx Gateway após o horário especificado (UTC). \r\nMensagens pertencentes à conta que está fazendo a chamada (super-conta) e todas as suas subcontas serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
         "description": "Recupera mensagens de retorno (from-mobile) recebidas pelo OGx Gateway após o horário especificado (UTC). \r\nMensagens pertencentes à conta que está fazendo a chamada (super-conta) e todas as suas subcontas serão recuperadas. (Autenticação roles: SuperAccountUser, Provisioning)",
         "parameters": [
@@ -8876,9 +8856,7 @@
     },
     "/api/v{version}/info/service": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Retorna informações do serviço web (versão, lista de códigos de erro, ...) (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -8937,7 +8915,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -8946,16 +8923,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/terminals": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de informações dos terminais pertencentes à conta do chamador (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário\r\n\r\nA chamada retorna no máximo PageSize registros TerminalInfo.\r\nOs registros retornados são ordenados pelo ID principal do terminal.\r\nA primeira chamada ao GetTerminalsInfo deve definir o parâmetro SinceID como uma string vazia, e todas as chamadas subsequentes devem passar o ID principal do terminal do final do resultado da chamada anterior.",
         "parameters": [
@@ -9042,7 +9016,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9051,16 +9024,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/terminal_updates": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de informações dos terminais pertencentes à conta do chamador. Somente registros atualizados após FromUTC serão retornados. (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário\r\n\r\nOs registros retornados são ordenados pela data/hora de atualização do terminal (Update UTC).",
         "parameters": [
@@ -9138,7 +9108,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9147,16 +9116,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/terminal": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera as informações de um terminal específico (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário\r\n\r\nA chamada retorna um registro TerminalInfo relacionado a um terminal especificado pelo seu ID principal (PrimeID).",
         "parameters": [
@@ -9210,7 +9176,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9219,16 +9184,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/broadcast": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de informações de broadcasts pertencentes à conta do chamador (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -9267,7 +9229,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9276,16 +9237,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/subaccount/list": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de subcontas vinculadas à conta do chamador (Papéis de autenticação: SuperAccountUser, Provisioning)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Usuário super-conta",
         "parameters": [
@@ -9328,7 +9286,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "403": {
             "description": "Quando o chamador não for um usuário de super conta, a API retornará o código HTTP 403 “Proibido”",
@@ -9337,7 +9294,6 @@
                 "example": "Quando o chamador não for um usuário de super conta, a API retornará o código HTTP 403 “Proibido”"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9346,16 +9302,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/subaccount/terminals": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de informações dos terminais pertencentes à subconta do chamador (Papéis de autenticação: SuperAccountUser, Provisioning)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)\r\n\r\nAutorização: Usuário super-conta\r\n\r\n\r\nA chamada retorna no máximo PageSize registros do tipo TerminalInfo.\r\nOs registros resultantes são ordenados pelo prime ID do terminal.\r\nA primeira chamada para GetTerminalsInfo deve definir o parâmetro SinceID como string vazia, e todas as chamadas subsequentes devem usar o prime ID do terminal do final do resultado da chamada anterior.",
         "parameters": [
@@ -9451,7 +9404,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "403": {
             "description": "Quando o chamador não for um usuário de super conta, a API retornará o código HTTP 403 “Proibido”",
@@ -9460,7 +9412,6 @@
                 "example": "Quando o chamador não for um usuário de super conta, a API retornará o código HTTP 403 “Proibido”"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9469,16 +9420,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/subaccount/terminal_updates": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de informações dos terminais pertencentes à subconta do chamador. Apenas registros atualizados após FromUTC serão recuperados. (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)\r\n\r\nAutorização: Conta de usuário\r\n\r\n\r\nOs registros retornados são ordenados pelo UTC de atualização do terminal.",
         "parameters": [
@@ -9565,7 +9513,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9574,16 +9521,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/subaccount/terminal": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera a informação de um único terminal pertencente à subconta do chamador (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)\r\n\r\nAutorização: Conta de usuário\r\n\r\n\r\nA chamada retorna um registro TerminalInfo relacionado a um terminal especificado pelo seu prime ID.",
         "parameters": [
@@ -9646,7 +9590,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9655,16 +9598,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/info/subaccount/broadcast": {
       "get": {
-        "tags": [
-          "Info"
-        ],
+        "tags": ["Info"],
         "summary": "Recupera uma lista de informações de broadcast pertencentes à subconta do chamador (Papéis de autenticação: SuperAccountUser, Provisioning)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)\r\n\r\nAutorização: Usuário super-conta",
         "parameters": [
@@ -9712,7 +9652,6 @@
                 "example": "Quando falha a autenticação e autorização"
               }
             }
-
           },
           "403": {
             "description": "Quando o chamador não for um usuário de super conta, a API retornará o código HTTP 403 “Proibido”",
@@ -9721,7 +9660,6 @@
                 "example": "Quando o chamador não for um usuário de super conta, a API retornará o código HTTP 403 “Proibido”"
               }
             }
-
           },
           "429": {
             "description": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”",
@@ -9730,16 +9668,13 @@
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”"
               }
             }
-
           }
         }
       }
     },
     "/api/v{version}/submit/messages": {
       "post": {
-        "tags": [
-          "Submit"
-        ],
+        "tags": ["Submit"],
         "summary": "Permite que usuários enviem uma ou mais mensagens to-mobile para seus terminais. (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -9849,9 +9784,7 @@
     },
     "/api/v{version}/submit/to_multiple": {
       "post": {
-        "tags": [
-          "Submit"
-        ],
+        "tags": ["Submit"],
         "summary": "Permite que usuários enviem uma mensagem to-mobile para múltiplos terminais de destino. (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -9874,10 +9807,7 @@
                 "Message": {
                   "RawPayload": "B401323032322D30322D31372031363A34303A34352034392D305F3136343034355F315F3136343034355F325F3136343034355F335F3136343034355F345F3136343034355F355F3136343034355F365F3136343034355F375F3136343034355F385F3136343034355F395F3136343034355F31305F3136343034355F31315F31363430342D31333w=="
                 },
-                "Destinations": [
-                  "01008988SKY5909",
-                  "01008989SKY5900"
-                ]
+                "Destinations": ["01008988SKY5909", "01008989SKY5900"]
               }
             }
           }
@@ -9932,9 +9862,7 @@
     },
     "/api/v{version}/submit/cancellations": {
       "post": {
-        "tags": [
-          "Submit"
-        ],
+        "tags": ["Submit"],
         "summary": "Envia pedidos de cancelamento para mensagens to-mobile selecionadas. (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -10022,9 +9950,7 @@
     },
     "/api/v{version}/terminal/reset": {
       "post": {
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "summary": "Envia uma mensagem de 'reset' para terminais de destino (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -10148,9 +10074,7 @@
     },
     "/api/v{version}/terminal/sysreset": {
       "post": {
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "summary": "Envia uma mensagem de 'reset' do sistema para terminais de destino (Autenticação: Provisionamento)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -10241,9 +10165,7 @@
     },
     "/api/v{version}/terminal/mode": {
       "post": {
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "summary": "Envia uma mensagem de 'modo' para terminais de destino (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -10363,9 +10285,7 @@
     },
     "/api/v{version}/terminal/mute": {
       "post": {
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "summary": "Envia uma mensagem de 'silenciar' para terminais de destino (Autenticação)",
         "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo SEND de métodos)\r\n\r\nAutorização: Conta de usuário",
         "parameters": [
@@ -10474,6 +10394,3050 @@
             "content": {
               "application/json": {
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”."
+
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/account": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Traz informações de uma conta"
+        }
+      ],
+      "get": {
+        "description": "Traz informações de uma conta",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "created_at": "now",
+                        "company_name": "string",
+                        "fantasy_name": "string",
+                        "tax_id": "string",
+                        "occupation": "Rastreamento",
+                        "webhook": "string",
+                        "idAllmanager": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "created_at": "now",
+                  "company_name": "string",
+                  "fantasy_name": "string",
+                  "tax_id": "string",
+                  "occupation": "Rastreamento",
+                  "webhook": "string",
+                  "idAllmanager": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/user": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Traz as informações de um usuário específico"
+        }
+      ],
+      "get": {
+        "description": "Traz as informações de um usuário específico",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "name": "string",
+                        "email": "user@example.com",
+                        "username": "string",
+                        "role": "string",
+                        "lastSeen": 0,
+                        "ativo": true,
+                        "tokenAllmanager": "string",
+                        "token_expire": 0
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "created_at": "now",
+                  "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "name": "string",
+                  "email": "user@example.com",
+                  "username": "string",
+                  "role": "string",
+                  "lastSeen": 0,
+                  "ativo": true,
+                  "tokenAllmanager": "string",
+                  "token_expire": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Faz a autenticação dos dados do usuário"
+        }
+      ],
+      "post": {
+        "description": "Faz a autenticação dos dados do usuário",
+        "requestBody": {
+          "description": "Informações necessárias para efetuar o login.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "username.123"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "senha.123"
+                  }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "200": {
+            "description": "Login efetuado com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Success": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "Success": "Login efetuado com sucesso"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/costummer/id": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Rota que busca e/ou edita um cliente específico"
+        }
+      ],
+      "get": {
+        "description": "Rota que busca por um cliente específico",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Success!": {
+                      "type": "string",
+                      "example": {
+                        "id": 0,
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "company_name": "string",
+                        "fantasy_name": "string",
+                        "tax_id": "string",
+                        "api_token": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "webhook": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": 0,
+                  "created_at": "now",
+                  "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "company_name": "string",
+                  "fantasy_name": "string",
+                  "tax_id": "string",
+                  "api_token": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "webhook": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Faz a edição de um cliente",
+        "requestBody": {
+          "description": "Informações necessárias para editar o usuário.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "token": {
+                    "type": "string",
+                    "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+                  },
+                  "page": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "per_page": {
+                    "type": "string",
+                    "example": "25"
+                  },
+                  "offset": {
+                    "type": "string",
+                    "example": "offset"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "example": "company_name"
+                  },
+                  "fantasy_name": {
+                    "type": "string",
+                    "example": "fantasy_name"
+                  },    
+                  "tax_id": {
+                    "type": "string",
+                    "example": "tax_id"
+                  },
+                  "id": {
+                    "type": "string",
+                    "example": "id"
+                  },    
+                  "webhook": {
+                    "type": "string",
+                    "example": "webhook"
+                  }              
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cliente editado com sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "id": 0,
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "company_name": "string",
+                        "fantasy_name": "string",
+                        "tax_id": "string",
+                        "api_token": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "webhook": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": 0,
+                  "created_at": "now",
+                  "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "company_name": "string",
+                  "fantasy_name": "string",
+                  "tax_id": "string",
+                  "api_token": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "webhook": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/costummer/tag": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Rota que faz uma listagem das tags de um cliente"
+        }
+      ],
+      "get": {
+        "description": "Rota que faz uma listagem das tags de um cliente",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Success!": {
+                      "type": "string",
+                      "example": {
+                        "itemsReceived": 0,
+                        "curPage": 0,
+                        "nextPage": 0,
+                        "prevPage": 0,
+                        "offset": 0,
+                        "perPage": 0,
+                        "items": [
+                          {
+                            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "created_at": "now",
+                            "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "device_name": "string",
+                            "serial_number": "string",
+                            "operational_status": "string",
+                            "battery": 0,
+                            "last_connected": 0,
+                            "lastConfiguration": {},
+                            "lastReport": {},
+                            "isTag": true,
+                            "address": {},
+                            "icone": "string",
+                            "nextTo": "string",
+                            "PontoREF": false,
+                            "geo_point": "string",
+                            "image": {
+                              "access": "public",
+                              "path": "string",
+                              "name": "string",
+                              "type": "string",
+                              "size": 0,
+                              "mime": "string",
+                              "meta": {},
+                              "url": "string"
+                            },
+                            "groups": {
+                              "id": 0,
+                              "created_at": "now",
+                              "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                              "title": "string",
+                              "color": "string"
+                            },
+                            "products": {
+                              "id": 0,
+                              "created_at": "now",
+                              "deviceBrand": "string",
+                              "deviceType": "string",
+                              "productName": "string",
+                              "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "itemsReceived": 0,
+                  "curPage": 0,
+                  "nextPage": 0,
+                  "prevPage": 0,
+                  "offset": 0,
+                  "perPage": 0,
+                  "items": [
+                    {
+                      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "created_at": "now",
+                      "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "device_name": "string",
+                      "serial_number": "string",
+                      "operational_status": "string",
+                      "battery": 0,
+                      "last_connected": 0,
+                      "lastConfiguration": {},
+                      "lastReport": {},
+                      "isTag": true,
+                      "address": {},
+                      "icone": "string",
+                      "nextTo": "string",
+                      "PontoREF": false,
+                      "geo_point": "string",
+                      "image": {
+                        "access": "public",
+                        "path": "string",
+                        "name": "string",
+                        "type": "string",
+                        "size": 0,
+                        "mime": "string",
+                        "meta": {},
+                        "url": "string"
+                      },
+                      "groups": {
+                        "id": 0,
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "title": "string",
+                        "color": "string"
+                      },
+                      "products": {
+                        "id": 0,
+                        "created_at": "now",
+                        "deviceBrand": "string",
+                        "deviceType": "string",
+                        "productName": "string",
+                        "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/costummer": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Faz a listagem de dispositivos de um usuário"
+        }
+      ],
+      "get": {
+        "description": "Faz a listagem de tags de um usuário",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "itemsReceived": 0,
+                        "curPage": 0,
+                        "nextPage": 0,
+                        "prevPage": 0,
+                        "offset": 0,
+                        "perPage": 0,
+                        "items": [
+                          {
+                            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "created_at": "now",
+                            "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "device_name": "string",
+                            "serial_number": "string",
+                            "operational_status": "string",
+                            "battery": 0,
+                            "last_connected": 0,
+                            "lastConfiguration": {},
+                            "lastReport": {},
+                            "isTag": true,
+                            "address": {},
+                            "icone": "string",
+                            "nextTo": "string",
+                            "PontoREF": false,
+                            "geo_point": "string",
+                            "image": {
+                              "access": "public",
+                              "path": "string",
+                              "name": "string",
+                              "type": "string",
+                              "size": 0,
+                              "mime": "string",
+                              "meta": {},
+                              "url": "string"
+                            },
+                            "groups": {
+                              "id": 0,
+                              "created_at": "now",
+                              "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                              "title": "string",
+                              "color": "string"
+                            },
+                            "products": {
+                              "id": 0,
+                              "created_at": "now",
+                              "deviceBrand": "string",
+                              "deviceType": "string",
+                              "productName": "string",
+                              "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "itemsReceived": 0,
+                  "curPage": 0,
+                  "nextPage": 0,
+                  "prevPage": 0,
+                  "offset": 0,
+                  "perPage": 0,
+                  "items": [
+                    {
+                      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "created_at": "now",
+                      "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "device_name": "string",
+                      "serial_number": "string",
+                      "operational_status": "string",
+                      "battery": 0,
+                      "last_connected": 0,
+                      "lastConfiguration": {},
+                      "lastReport": {},
+                      "isTag": true,
+                      "address": {},
+                      "icone": "string",
+                      "nextTo": "string",
+                      "PontoREF": false,
+                      "geo_point": "string",
+                      "image": {
+                        "access": "public",
+                        "path": "string",
+                        "name": "string",
+                        "type": "string",
+                        "size": 0,
+                        "mime": "string",
+                        "meta": {},
+                        "url": "string"
+                      },
+                      "groups": {
+                        "id": 0,
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "title": "string",
+                        "color": "string"
+                      },
+                      "products": {
+                        "id": 0,
+                        "created_at": "now",
+                        "deviceBrand": "string",
+                        "deviceType": "string",
+                        "productName": "string",
+                        "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Faz a criação de novos clientes",
+        "requestBody": {
+          "description": "Informações necessárias para criar o novo usuário.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "token": {
+                    "type": "string",
+                    "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+                  },
+                  "page": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "per_page": {
+                    "type": "string",
+                    "example": "25"
+                  },
+                  "offset": {
+                    "type": "string",
+                    "example": "offset"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "example": "company_name"
+                  },
+                  "fantasy_name": {
+                    "type": "string",
+                    "example": "fantasy_name"
+                  },    
+                  "tax_id": {
+                    "type": "string",
+                    "example": "tax_id"
+                  }            
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cliente criado com sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example":{
+
+                        "id": 0,
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "company_name": "string",
+                        "fantasy_name": "string",
+                        "tax_id": "string",
+                        "webhook": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": 0,
+                  "created_at": "now",
+                  "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "company_name": "string",
+                  "fantasy_name": "string",
+                  "tax_id": "string",
+                  "webhook": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tag/devices": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Faz a listagem de dispositivos de um usuário"
+        }
+      ],
+      "get": {
+        "description": "Faz a listagem de dispositivos de um usuário",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Success": {
+                      "type": "string",
+                      "example": {
+                        "itemsReceived": 0,
+                        "curPage": 0,
+                        "nextPage": 0,
+                        "prevPage": 0,
+                        "offset": 0,
+                        "perPage": 0,
+                        "items": {
+                          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                          "created_at": "now",
+                          "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                          "groups_id": 0,
+                          "device_name": "string",
+                          "serial_number": "string",
+                          "products_id": 0,
+                          "operational_status": "string",
+                          "battery": 0,
+                          "last_connected": 0,
+                          "lastConfiguration": {},
+                          "lastReport": {},
+                          "isTag": true,
+                          "address": {},
+                          "icone": "string",
+                          "nextTo": "string",
+                          "PontoREF": false,
+                          "geo_point": "string",
+                          "image": {
+                            "access": "public",
+                            "path": "string",
+                            "name": "string",
+                            "type": "string",
+                            "size": 0,
+                            "mime": "string",
+                            "meta": {},
+                            "url": "string"
+                          },
+                          "groups": {
+                            "id": 0,
+                            "created_at": "now",
+                            "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "title": "string",
+                            "color": "string"
+                          },
+                          "products": {
+                            "id": 0,
+                            "created_at": "now",
+                            "deviceBrand": "string",
+                            "deviceType": "string",
+                            "productName": "string",
+                            "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "itemsReceived": 0,
+                  "curPage": 0,
+                  "nextPage": 0,
+                  "prevPage": 0,
+                  "offset": 0,
+                  "perPage": 0,
+                  "items": {
+                    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "created_at": "now",
+                    "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "groups_id": 0,
+                    "device_name": "string",
+                    "serial_number": "string",
+                    "products_id": 0,
+                    "operational_status": "string",
+                    "battery": 0,
+                    "last_connected": 0,
+                    "lastConfiguration": {},
+                    "lastReport": {},
+                    "isTag": true,
+                    "address": {},
+                    "icone": "string",
+                    "nextTo": "string",
+                    "PontoREF": false,
+                    "geo_point": "string",
+                    "image": {
+                      "access": "public",
+                      "path": "string",
+                      "name": "string",
+                      "type": "string",
+                      "size": 0,
+                      "mime": "string",
+                      "meta": {},
+                      "url": "string"
+                    },
+                    "groups": {
+                      "id": 0,
+                      "created_at": "now",
+                      "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "title": "string",
+                      "color": "string"
+                    },
+                    "products": {
+                      "id": 0,
+                      "created_at": "now",
+                      "deviceBrand": "string",
+                      "deviceType": "string",
+                      "productName": "string",
+                      "account_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tag/history": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Faz a busca pelo histórico de uma tag específica"
+        }
+      ],
+      "get": {
+        "description": "Faz a listagem do histórico de uma tag específica",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          },
+          {
+            "name": "tag_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "tag_id"
+            }
+          },
+          {
+            "name": "data_inicial",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-12-28"
+            }
+          },
+          {
+            "name": "data_final",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2025-12-28"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "itemsReceived": 0,
+                        "curPage": 0,
+                        "nextPage": 0,
+                        "prevPage": 0,
+                        "offset": 0,
+                        "perPage": 0,
+                        "items": [
+                          {
+                            "id": 0,
+                            "created_at": "now",
+                            "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "deviceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                            "messageType": "string",
+                            "device": "string",
+                            "productType": "string",
+                            "battery": 0,
+                            "location": {},
+                            "humidity": {},
+                            "pressure": {},
+                            "temperature": {},
+                            "alert": {},
+                            "serverTimeStamp": 0,
+                            "deviceTimeStamp": 0,
+                            "week_day": "string",
+                            "tag_status": "string",
+                            "signal_strength": "string",
+                            "device_status": "string",
+                            "is_live": true,
+                            "isTag": false,
+                            "rawData": {},
+                            "geography": "string"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "itemsReceived": 0,
+                  "curPage": 0,
+                  "nextPage": 0,
+                  "prevPage": 0,
+                  "offset": 0,
+                  "perPage": 0,
+                  "items": [
+                    {
+                      "id": 0,
+                      "created_at": "now",
+                      "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "deviceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                      "messageType": "string",
+                      "device": "string",
+                      "productType": "string",
+                      "battery": 0,
+                      "location": {},
+                      "humidity": {},
+                      "pressure": {},
+                      "temperature": {},
+                      "alert": {},
+                      "serverTimeStamp": 0,
+                      "deviceTimeStamp": 0,
+                      "week_day": "string",
+                      "tag_status": "string",
+                      "signal_strength": "string",
+                      "device_status": "string",
+                      "is_live": true,
+                      "isTag": false,
+                      "rawData": {},
+                      "geography": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tag/link_costummer": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Cria um vínculo entre uma tag e um usuário"
+        }
+      ],
+      "post": {
+        "description": "Cria um vínculo entre uma tag e um usuário",
+        "requestBody": {
+          "description": "Informações necessárias para vincular uma tag a um cliente.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "token": {
+                    "type": "string",
+                    "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+                  },
+                  "page": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "per_page": {
+                    "type": "string",
+                    "example": "25"
+                  },
+                  "offset": {
+                    "type": "string",
+                    "example": "offset"
+                  },
+                  "tag_id": {
+                    "type": "string",
+                    "example": "tag_id"
+                  },
+                  "tag_account": {
+                    "type": "string",
+                    "example": "tag_account"
+                  }         
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Vínculo criado com sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "created_at": "now",
+                        "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "tagaccounts_id": 0,
+                        "device_name": "string",
+                        "serial_number": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "created_at": "now",
+                  "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                  "tagaccounts_id": 0,
+                  "device_name": "string",
+                  "serial_number": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tag/quallcomm/config/QTS110": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Envia uma nova configuração Qualcomm QTS110"
+        }
+      ],
+      "post": {
+        "description": "Envia uma nova configuração qualcomm",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          },
+          {
+            "name": "tag_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "tag_id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Configurações retornadas com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                      }
+                    }
+                  }
+                },
+                "example": {
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tag/quallcomm/config": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Traz todas as configurações de uma tag qualcomm"
+        }
+      ],
+      "get": {
+        "description": "Traz todas as configurações de uma tag qualcomm",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "default": "1"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "25",
+              "default": "25"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "offset",
+              "default": "null"
+            }
+          },
+          {
+            "name": "tag_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "tag_id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Configurações retornadas com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                      }
+                    }
+                  }
+                },
+                "example": {
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
               }
             }
           }
@@ -10483,21 +13447,21 @@
   },
   "components": {
     "schemas": {
-     "BroadcastInfo": {
-  "description": "Registro de informações do terminal",
-  "properties": {
-    "ID": {
-      "description": "ID da transmissão",
-      "example": "16775830GRP2B2B"
-    },
-    "Description": {
-      "description": "Descrição do ID da transmissão.\r\nEste campo pode ser omitido na resposta caso nenhum valor válido esteja disponível ou seja necessário.",
-      "example": "ID de transmissão de teste"
-    },
-    "SatelliteNetwork": {
-      "description": "Rede de satélite na qual este grupo de transmissão está:\r\n0 - IDP\r\n1 - OGx\r\nEste campo pode ser omitido na resposta caso nenhum valor válido esteja disponível ou seja necessário."
-    }
-  }
+      "BroadcastInfo": {
+        "description": "Registro de informações do terminal",
+        "properties": {
+          "ID": {
+            "description": "ID da transmissão",
+            "example": "16775830GRP2B2B"
+          },
+          "Description": {
+            "description": "Descrição do ID da transmissão.\r\nEste campo pode ser omitido na resposta caso nenhum valor válido esteja disponível ou seja necessário.",
+            "example": "ID de transmissão de teste"
+          },
+          "SatelliteNetwork": {
+            "description": "Rede de satélite na qual este grupo de transmissão está:\r\n0 - IDP\r\n1 - OGx\r\nEste campo pode ser omitido na resposta caso nenhum valor válido esteja disponível ou seja necessário."
+          }
+        }
       },
       "ErrorInfo": {
         "description": "Informações de erro da API",
@@ -10590,19 +13554,19 @@
         }
       },
       "GetForwardStatusesResponse": {
-  "description": "Contém uma lista dos status das Mensagens encaminhadas (to-mobile) solicitadas.",
-  "properties": {
-    "ErrorID": {
-      "description": "Presente somente em caso de falha. O valor ErrorID serve como referência para entender a causa do erro.",
-      "example": 0
-    },
-    "NextFromUTC": {
-      "description": "Para 'fw_status_updates', o parâmetro 'fromUTC' da próxima requisição deve ser definido com este valor.\r\nSe você faz polling regular para mudanças de status das mensagens to-mobile, deve usar essa marcação retornada (high-water mark) nas requisições seguintes.\r\nReusar valores de marcação (FromUTC) enquanto obtém um grande número de registros pode resultar em limitação (throttling) das suas próximas requisições."
-    },
-    "Statuses": {
-      "description": "Array de registros de status das Mensagens FW (to-mobile) solicitadas."
-    }
-  }
+        "description": "Contém uma lista dos status das Mensagens encaminhadas (to-mobile) solicitadas.",
+        "properties": {
+          "ErrorID": {
+            "description": "Presente somente em caso de falha. O valor ErrorID serve como referência para entender a causa do erro.",
+            "example": 0
+          },
+          "NextFromUTC": {
+            "description": "Para 'fw_status_updates', o parâmetro 'fromUTC' da próxima requisição deve ser definido com este valor.\r\nSe você faz polling regular para mudanças de status das mensagens to-mobile, deve usar essa marcação retornada (high-water mark) nas requisições seguintes.\r\nReusar valores de marcação (FromUTC) enquanto obtém um grande número de registros pode resultar em limitação (throttling) das suas próximas requisições."
+          },
+          "Statuses": {
+            "description": "Array de registros de status das Mensagens FW (to-mobile) solicitadas."
+          }
+        }
       },
       "GetReturnMessagesResponse": {
         "description": "Contém uma lista de registros das Mensagens from-mobile.",
@@ -10814,9 +13778,7 @@
         }
       },
       "SatelliteDelayedSendOptions": {
-        "required": [
-          "DelayedSend"
-        ],
+        "required": ["DelayedSend"],
         "type": "object",
         "properties": {
           "DelayedSend": {
@@ -11081,10 +14043,7 @@
         "description": "Informações sobre uma mensagem enviada retornadas pelo serviço.\nCada objeto contém informações de uma mensagem to-mobile submetida.\nEm caso de erro (ErrorID > 0), o ID da mensagem não será definido. Contudo, NetworkID e UserMessageID, se definidos, são retornados."
       },
       "SubmitMessageToDestinationsRequest": {
-        "required": [
-          "Destinations",
-          "Message"
-        ],
+        "required": ["Destinations", "Message"],
         "type": "object",
         "properties": {
           "Message": {
@@ -11335,7 +14294,7 @@
         "description": "Registro de informações do terminal."
       }
     },
-      "securitySchemes": {
+    "securitySchemes": {
       "Bearer": {
         "type": "http",
         "description": "Coloque **_APENAS_** seu token JWT Bearer no campo abaixo!",
@@ -11343,7 +14302,6 @@
         "bearerFormat": "JWT"
       }
     }
-
   },
   "x-mintlify": {
     "group": "Autentificação",
