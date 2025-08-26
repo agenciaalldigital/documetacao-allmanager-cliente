@@ -13035,61 +13035,105 @@
           "description": "Envia uma nova configuração Qualcomm QTS110"
         }
       ],
-      "post": {
+      "put": {
         "description": "Envia uma nova configuração qualcomm",
-        "parameters": [
-          {
-            "name": "token",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "1",
-              "default": "1"
-            }
-          },
-          {
-            "name": "per_page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "25",
-              "default": "25"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "offset",
-              "default": "null"
-            }
-          },
-          {
-            "name": "tag_id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "tag_id"
+
+        "requestBody": {
+          "description": "Informações necessárias para vincular uma tag a um cliente.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "token": {
+                    "type": "string",
+                    "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+                  },
+                  "config": {
+                    "type": "string",
+                    "example": {
+                      "deviceConfiguration": {
+                        "isTracking": false,
+                        "samplingFrequency": 10,
+                        "reportingFrequency": 10,
+                        "conditionalConfiguration": {
+                          "mcdPowerOptimization": {
+                            "active": true,
+                            "powerOptimizedReportingFrequency": 240
+                          }
+                        },
+                        "devicePropertyConfiguration": {
+                          "fmd": {
+                            "isEnabled": true
+                          },
+                          "mcd": {
+                            "isEnabled": false
+                          },
+                          "fall": {
+                            "isEnabled": true
+                          },
+                          "tilt": {
+                            "maxValue": 180,
+                            "isEnabled": false
+                          },
+                          "light": {
+                            "isEnabled": false
+                          },
+                          "shock": {
+                            "maxValue": 30,
+                            "isEnabled": true
+                          },
+                          "humidity": {
+                            "maxValue": 100,
+                            "minValue": 0,
+                            "isEnabled": true,
+                            "breachPersistenceTimeLimit": 5
+                          },
+                          "location": {
+                            "priority": {
+                              "level1": "GNSS",
+                              "level2": "WIFI",
+                              "level3": "CELL"
+                            },
+                            "isEnabled": true
+                          },
+                          "pressure": {
+                            "maxValue": 1260,
+                            "minValue": 260,
+                            "isEnabled": true,
+                            "breachPersistenceTimeLimit": 10
+                          },
+                          "temperature": {
+                            "maxValue": 60,
+                            "minValue": -20,
+                            "isEnabled": true,
+                            "breachPersistenceTimeLimit": 5
+                          },
+                          "lightExposure": {
+                            "type": "continuous",
+                            "isEnabled": true
+                          },
+                          "powerSavingWhileOutOfService": {
+                            "isEnabled": false
+                          }
+                        }
+                      }
+                  }
+                  },
+                  "tag_id": {
+                    "type": "string",
+                    "example": "f6b687e2-4231-4996-86db-adf7611dfcac"
+                  }       
+                }
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "Configurações retornadas com sucesso.",
+            "description": "Configurações enviadas com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -13098,12 +13142,537 @@
                     "Sucesso": {
                       "type": "string",
                       "example": {
+                        "serialNumber": "TRK000013414",
+                        "deviceConfiguration": {
+                          "isTracking": true,
+                          "samplingFrequency": 10,
+                          "reportingFrequency": 10,
+                          "conditionalConfiguration": {
+                            "mcdPowerOptimization": {
+                              "active": 1,
+                              "powerOptimizedReportingFrequency": 240
+                            }
+                          },
+                          "devicePropertyConfiguration": {
+                            "fmd": {
+                              "isEnabled": 1
+                            },
+                            "mcd": {
+                              "isEnabled": true
+                            },
+                            "fall": {
+                              "isEnabled": 1
+                            },
+                            "tilt": {
+                              "maxValue": 180,
+                              "isEnabled": true
+                            },
+                            "light": {
+                              "isEnabled": true
+                            },
+                            "shock": {
+                              "maxValue": 30,
+                              "isEnabled": 1
+                            },
+                            "humidity": {
+                              "maxValue": 100,
+                              "minValue": 0,
+                              "isEnabled": 1,
+                              "breachPersistenceTimeLimit": 5
+                            },
+                            "location": {
+                              "priority": {
+                                "level1": "GNSS",
+                                "level2": "WIFI",
+                                "level3": "CELL"
+                              },
+                              "isEnabled": 1
+                            },
+                            "pressure": {
+                              "maxValue": 1260,
+                              "minValue": 260,
+                              "isEnabled": 1,
+                              "breachPersistenceTimeLimit": 10
+                            },
+                            "temperature": {
+                              "maxValue": 60,
+                              "minValue": -20,
+                              "isEnabled": 1,
+                              "breachPersistenceTimeLimit": 5
+                            },
+                            "lightExposure": {
+                              "type": "continuous",
+                              "isEnabled": 1
+                            },
+                            "powerSavingWhileOutOfService": {
+                              "isEnabled": true
+                            }
+                          }
+                        }
                       }
                     }
                   }
                 },
                 "example": {
+                  "serialNumber": "TRK000013414",
+                  "deviceConfiguration": {
+                    "isTracking": true,
+                    "samplingFrequency": 10,
+                    "reportingFrequency": 10,
+                    "conditionalConfiguration": {
+                      "mcdPowerOptimization": {
+                        "active": 1,
+                        "powerOptimizedReportingFrequency": 240
+                      }
+                    },
+                    "devicePropertyConfiguration": {
+                      "fmd": {
+                        "isEnabled": 1
+                      },
+                      "mcd": {
+                        "isEnabled": true
+                      },
+                      "fall": {
+                        "isEnabled": 1
+                      },
+                      "tilt": {
+                        "maxValue": 180,
+                        "isEnabled": true
+                      },
+                      "light": {
+                        "isEnabled": true
+                      },
+                      "shock": {
+                        "maxValue": 30,
+                        "isEnabled": 1
+                      },
+                      "humidity": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "isEnabled": 1,
+                        "breachPersistenceTimeLimit": 5
+                      },
+                      "location": {
+                        "priority": {
+                          "level1": "GNSS",
+                          "level2": "WIFI",
+                          "level3": "CELL"
+                        },
+                        "isEnabled": 1
+                      },
+                      "pressure": {
+                        "maxValue": 1260,
+                        "minValue": 260,
+                        "isEnabled": 1,
+                        "breachPersistenceTimeLimit": 10
+                      },
+                      "temperature": {
+                        "maxValue": 60,
+                        "minValue": -20,
+                        "isEnabled": 1,
+                        "breachPersistenceTimeLimit": 5
+                      },
+                      "lightExposure": {
+                        "type": "continuous",
+                        "isEnabled": 1
+                      },
+                      "powerSavingWhileOutOfService": {
+                        "isEnabled": true
+                      }
+                    }
+                  }
                 }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Input Error. Check the request payload for issues."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Input Error. Check the request payload for issues."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unauthorized"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Access denied. Additional privileges are needed access the requested resource"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied. Additional privileges are needed access the requested resource"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Not Found. The requested resource does not exist."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Not Found. The requested resource does not exist."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quando um usuário ultrapassa os limites provisionados de requisições para determinado endpoint, a API retornará código HTTP 429 “Too Many Requests”",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Rate Limited. Too many requests."
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Rate Limited. Too many requests."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": {
+                        "errors": "Unexpected error"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Unexpected error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tag/quallcomm/config/QTS112": {
+      "servers": [
+        {
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "description": "Envia uma nova configuração Qualcomm QTS112"
+        }
+      ],
+      "put": {
+        "description": "Envia uma nova configuração qualcomm",
+        "requestBody": {
+          "description": "Informações necessárias para enviar uma nova configuração.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "token": {
+                    "type": "string",
+                    "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
+                  },
+                  "config": {
+                    "type": "string",
+                    "example": {
+                      "deviceConfiguration": {
+                        "isTracking": false,
+                        "samplingFrequency": 10,
+                        "reportingFrequency": 10,
+                        "conditionalConfiguration": {
+                          "mcdPowerOptimization": {
+                            "active": true,
+                            "powerOptimizedReportingFrequency": 240
+                          }
+                        },
+                        "devicePropertyConfiguration": {
+                          "fmd": {
+                            "isEnabled": true
+                          },
+                          "mcd": {
+                            "isEnabled": false
+                          },
+                          "fall": {
+                            "isEnabled": true
+                          },
+                          "tilt": {
+                            "maxValue": 180,
+                            "isEnabled": false
+                          },
+                          "light": {
+                            "isEnabled": false
+                          },
+                          "shock": {
+                            "maxValue": 30,
+                            "isEnabled": true
+                          },
+                          "humidity": {
+                            "maxValue": 100,
+                            "minValue": 0,
+                            "isEnabled": true,
+                            "breachPersistenceTimeLimit": 5
+                          },
+                          "location": {
+                            "priority": {
+                              "level1": "GNSS",
+                              "level2": "WIFI",
+                              "level3": "CELL"
+                            },
+                            "isEnabled": true
+                          },
+                          "pressure": {
+                            "maxValue": 1260,
+                            "minValue": 260,
+                            "isEnabled": true,
+                            "breachPersistenceTimeLimit": 10
+                          },
+                          "temperature": {
+                            "maxValue": 60,
+                            "minValue": -20,
+                            "isEnabled": true,
+                            "breachPersistenceTimeLimit": 5
+                          },
+                          "lightExposure": {
+                            "type": "continuous",
+                            "isEnabled": true
+                          },
+                          "powerSavingWhileOutOfService": {
+                            "isEnabled": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "tag_id": {
+                    "type": "string",
+                    "example": "f6b687e2-4231-4996-86db-adf7611dfcac"
+                  }    
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Configurações enviadas com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Sucesso": {
+                      "type": "string",
+                      "example": {
+                        "token": "80e345ed-0db8-4217-b820-61ffd3592741",
+                        "config": {
+                          "deviceConfiguration": {
+                            "isTracking": false,
+                            "samplingFrequency": 10,
+                            "reportingFrequency": 10,
+                            "conditionalConfiguration": {
+                              "mcdPowerOptimization": {
+                                "active": true,
+                                "powerOptimizedReportingFrequency": 240
+                              }
+                            },
+                            "devicePropertyConfiguration": {
+                              "fmd": {
+                                "isEnabled": true
+                              },
+                              "mcd": {
+                                "isEnabled": false
+                              },
+                              "fall": {
+                                "isEnabled": true
+                              },
+                              "tilt": {
+                                "maxValue": 180,
+                                "isEnabled": false
+                              },
+                              "light": {
+                                "isEnabled": false
+                              },
+                              "shock": {
+                                "maxValue": 30,
+                                "isEnabled": true
+                              },
+                              "humidity": {
+                                "maxValue": 100,
+                                "minValue": 0,
+                                "isEnabled": true,
+                                "breachPersistenceTimeLimit": 5
+                              },
+                              "location": {
+                                "priority": {
+                                  "level1": "GNSS",
+                                  "level2": "WIFI",
+                                  "level3": "CELL"
+                                },
+                                "isEnabled": true
+                              },
+                              "pressure": {
+                                "maxValue": 1260,
+                                "minValue": 260,
+                                "isEnabled": true,
+                                "breachPersistenceTimeLimit": 10
+                              },
+                              "temperature": {
+                                "maxValue": 60,
+                                "minValue": -20,
+                                "isEnabled": true,
+                                "breachPersistenceTimeLimit": 5
+                              },
+                              "lightExposure": {
+                                "type": "continuous",
+                                "isEnabled": true
+                              },
+                              "powerSavingWhileOutOfService": {
+                                "isEnabled": false
+                              }
+                            }
+                          }
+                        },
+                        "tag_id": "f6b687e2-4231-4996-86db-adf7611dfcac"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "token": "80e345ed-0db8-4217-b820-61ffd3592741",
+                  "config": {
+                    "deviceConfiguration": {
+                      "isTracking": false,
+                      "samplingFrequency": 10,
+                      "reportingFrequency": 10,
+                      "conditionalConfiguration": {
+                        "mcdPowerOptimization": {
+                          "active": true,
+                          "powerOptimizedReportingFrequency": 240
+                        }
+                      },
+                      "devicePropertyConfiguration": {
+                        "fmd": {
+                          "isEnabled": true
+                        },
+                        "mcd": {
+                          "isEnabled": false
+                        },
+                        "fall": {
+                          "isEnabled": true
+                        },
+                        "tilt": {
+                          "maxValue": 180,
+                          "isEnabled": false
+                        },
+                        "light": {
+                          "isEnabled": false
+                        },
+                        "shock": {
+                          "maxValue": 30,
+                          "isEnabled": true
+                        },
+                        "humidity": {
+                          "maxValue": 100,
+                          "minValue": 0,
+                          "isEnabled": true,
+                          "breachPersistenceTimeLimit": 5
+                        },
+                        "location": {
+                          "priority": {
+                            "level1": "GNSS",
+                            "level2": "WIFI",
+                            "level3": "CELL"
+                          },
+                          "isEnabled": true
+                        },
+                        "pressure": {
+                          "maxValue": 1260,
+                          "minValue": 260,
+                          "isEnabled": true,
+                          "breachPersistenceTimeLimit": 10
+                        },
+                        "temperature": {
+                          "maxValue": 60,
+                          "minValue": -20,
+                          "isEnabled": true,
+                          "breachPersistenceTimeLimit": 5
+                        },
+                        "lightExposure": {
+                          "type": "continuous",
+                          "isEnabled": true
+                        },
+                        "powerSavingWhileOutOfService": {
+                          "isEnabled": false
+                        }
+                      }
+                    }
+                  },
+                  "tag_id": "f6b687e2-4231-4996-86db-adf7611dfcac"
+                }       
               }
             }
           },

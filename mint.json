@@ -187,7 +187,9 @@
         "api-reference/endpoint/tags/tag/tag-devices",
         "api-reference/endpoint/tags/tag/tag-history",
         "api-reference/endpoint/tags/tag/tag-link_costummer",
-        "api-reference/endpoint/tags/tag/tag-qualcomm-config-qts110"
+        "api-reference/endpoint/tags/tag/tag-qualcomm-config-qts110",
+        "api-reference/endpoint/tags/tag/tag-qualcomm-config-qts112",
+        "api-reference/endpoint/tags/tag/tag-quallcomm-config"
       ]
     }
   ],
