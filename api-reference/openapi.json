@@ -12589,7 +12589,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "date-time",
+              "format": "date",
               "example": "2025-12-28"
             }
           },
@@ -12599,7 +12599,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "date-time",
+              "format": "date",
               "example": "2025-12-28"
             }
           }
