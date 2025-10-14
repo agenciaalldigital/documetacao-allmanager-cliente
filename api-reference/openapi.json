@@ -15,7 +15,7 @@
   ],
   "security": [],
   "paths": {
-    "/access-token": {
+    "/oauth-portal/access-token": {
       "servers": [
         {
           "url": "https://apicorp.algartelecom.com.br/oauth-portal",
@@ -37,11 +37,6 @@
                   },
                   "client_secret": {
                     "type": "string"
-                  },
-                  "grant_type": {
-                    "type": "string",
-                    "description": "Tipo de concessão utilizado para autenticação.\n\n🔹 **Valor padrão:**\n```\nclient_credentials\n```\n📌 **Dica:** Copie e cole esse valor no campo grant_type antes de executar a requisição.",
-                    "default": "client_credentials"
                   }
                 },
                 "required": ["client_id", "client_secret"]
@@ -244,6 +239,16 @@
             "schema": {
               "type": "string",
               "example": "YYYYmmdd"
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "description": "Unidade que deseja retorno, se não infomrado por default MB",
+            "schema": {
+              "type": "string",
+              "example": "MB",
+              "default": " B, MB, K, GB"
             }
           }
         ],
@@ -1887,7 +1892,7 @@
         }
       }
     },
-    "/broker/actions/queue": {
+    "/actions/queue": {
       "get": {
         "description": "Recupera o status da fila de ações, retornando dados da última semana até o dia atual. Para consultar um período diferente, utilize os parâmetros `startDate` e `endDate`",
         "parameters": [
@@ -1943,7 +1948,7 @@
             }
           },
           {
-            "name": "startDateCreated",
+            "name": "startDate",
             "in": "query",
             "description": "Data inicio da criaçao da ação",
             "schema": {
@@ -1953,7 +1958,7 @@
             }
           },
           {
-            "name": "endDateCreated",
+            "name": "endDate",
             "in": "query",
             "description": "Data fim da criacao da ação",
             "schema": {
@@ -1993,6 +1998,16 @@
             }
           },
           {
+            "name": "customerId",
+            "in": "query",
+            "required": true,
+            "description": "Identificador do Cliente",
+            "schema": {
+              "type": "number",
+              "example": "65456456"
+            }
+          },
+          {
             "name": "page",
             "in": "query",
             "description": "Número da página para paginação.",
@@ -2020,12 +2035,22 @@
             "name": "action",
             "in": "query",
             "description": "ID da ação.\n\n🔹 **Detalhes:** O identificador pode ser obtido na API `/actions`, utilizando o parâmetro `actionType`",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32",
               "default": 65456456,
               "example": 65456456
+            }
+          },
+          {
+            "name": "contract",
+            "in": "query",
+            "required": true,
+            "description": "Contrato",
+            "schema": {
+              "type": "string",
+              "example": "contract"
             }
           }
         ],
@@ -2110,10 +2135,10 @@
         }
       }
     },
-    "/broker/bait-renewall": {
+    "/broker/bait-renewal": {
       "post": {
         "summary": "Solicita a renovação de ISCA",
-        "description": "Solicita a renovaçõa de ISCA (processo envia a lista de Simcards para o MS procesar as renovações).",
+        "description": "Solicita a renovação de ISCA (processo envia a lista de Simcards para o MS procesar as renovações).",
         "parameters": [
           {
             "name": "Content-Type",
@@ -2214,7 +2239,7 @@
         }
       }
     },
-    "/broker/franchise-renewall": {
+    "/broker/franchise-renewal": {
       "post": {
         "summary": "Solicita a renovação do plano fraqnuia",
         "description": "Solicita a aprovação do plano franquia (processo envia a lista de Simcards para o MS procesar as renovações).",
@@ -2318,6 +2343,2972 @@
         }
       }
     },
+
+
+    "/broker/invoices/report/detailed": {
+      "post": {
+        "summary": "Solicitação para a geração do relatório detalhado de uma fatura",
+        "description": "Solicitação para a geração do relatório detalhado de uma fatura",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do sensedia",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+
+        "requestBody": {
+          "description": "Informações para formar a solicitação do relatório.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "teste@gmail.com"
+                  },
+                  "locale": {
+                    "type": "string",
+                    "example": "pt"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 1234,
+                  "message": "Request created successfully! An email will be sent to: {email }with the download link."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": "Requisição requer autenticação."
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": "O acesso ao recurso foi negado."
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento.",
+            "content": {
+              "application/json": {
+                "example": "URI de API/Recurso inexiste para processamento."
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/plans": {
+      "get": {
+        "description": "Lista todos os contratos de um cliente MoT",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do plano",
+            "schema": {
+              "type": "number",
+              "example": "id"
+            }
+          },
+          {
+            "name": "planDesc",
+            "in": "query",
+            "required": false,
+            "description": "Descrição do plano",
+            "schema": {
+              "type": "string",
+              "example": "planDesc"
+            }
+          },
+          {
+            "name": "lastAlertDateFrom",
+            "in": "query",
+            "description": "Filtro de alerta de consumo",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "lastAlertDateFrom"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "description": "Contratos a pagar e a receber",
+            "schema": {
+              "type": "boolean",
+              "example": " true (Contratos a pagar), false (Contrato a receber)"
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "required": false,
+            "description": "Unidade que deseja retorno",
+            "schema": {
+              "type": "string",
+              "example": "MB",
+              "default": "MB, B, KB, GB"
+            }
+          },
+
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 784,
+                    "customer": {
+                      "id": 45645,
+                      "name": "Cliente Teste",
+                      "type": "CUSTOMER"
+                    },
+                    "planDesc": "Silver plan",
+                    "franchise": 10,
+                    "price": 5.99,
+                    "operatorDiffChargeFlag": "T",
+                    "payPerUseFlag": "T",
+                    "sharingType": 1,
+                    "sharedFranchise": 0,
+                    "activationPrice": 2.01,
+                    "megabyteExcPrice": 0,
+                    "automaticBlocking": false,
+                    "loyaltyType": 0,
+                    "loyaltyTime": 1,
+                    "penalty": "0",
+                    "nbVirtualAccounts": 1,
+                    "automaticRenewal": true,
+                    "roaming": true,
+                    "motOperators": [
+                      {
+                        "name": "TESTE OPERADORA",
+                        "baseName": "BASE OPERADORA",
+                        "idOperator": 1
+                      }
+                    ],
+                    "planExpirationMonths": 12,
+                    "planType": "ALLOWANCE",
+                    "iscaDurationInDays": 0,
+                    "iscaMaxRenewal": 0,
+                    "chargeIscaOnTransfer": true,
+                    "motOperatorId": 1,
+                    "creditMB": 2,
+                    "externalId": 64564564
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/order": {
+      "get": {
+        "description": "Busca um pedido (uma lista) para o cliente do MoT",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "costumerId",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do pedido",
+            "schema": {
+              "type": "integer",
+              "example": "676543"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do plano",
+            "schema": {
+              "type": "number",
+              "example": "id"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Nome do pedido",
+            "schema": {
+              "type": "string",
+              "example": "name"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Identifica se a consulta é de pedidos a pagar ou receber (pay ou receive)",
+            "schema": {
+              "type": "string",
+              "example": "pay",
+              "default": "pay"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status do pedido. Available values : ACTIVE, PROCESSING, ERROR, ERROR_SENDING_KAFKA, ARCHIVED",
+            "schema": {
+              "type": "string",
+              "example": "status"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "description": "Contratos a pagar e a receber",
+            "schema": {
+              "type": "boolean",
+              "example": " true (Contratos a pagar), false (Contrato a receber)"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "required": false,
+            "description": "Unidade que deseja retorno",
+            "schema": {
+              "type": "string",
+              "example": "MB",
+              "default": "MB, B, KB, GB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 442,
+                    "name": "Teste Pedido",
+                    "customer": {
+                      "id": 567878,
+                      "name": "TESTE CLIENTES"
+                    },
+                    "customerId": 10258,
+                    "virtualContract": {
+                      "id": 784,
+                      "planDesc": "Silver plan",
+                      "franchise": 10,
+                      "operatorDiffChargeFlag": "T",
+                      "payPerUseFlag": "T",
+                      "sharingType": 1
+                    },
+                    "virtualPlanId": 3119,
+                    "createdAt": "2021-11-09T18:06:35.000Z",
+                    "cpfCnpj": "6357980698",
+                    "status": "ACTIVE",
+                    "value": "7.5",
+                    "activationPrice": "4.5",
+                    "createdBy": "teste@teste.com.br",
+                    "megabyteExcPrice": "12",
+                    "automaticBlocking": true,
+                    "loyaltyType": 1,
+                    "loyaltyTime": 12012021,
+                    "penalty": "125,00",
+                    "tradeInMonths": 2,
+                    "preActivationExemptTraffic": 8,
+                    "activationDate": "string",
+                    "nbSimcards": 2,
+                    "trackingNumbers": ["CODIGO_1,CODIGO_2,CODIGO_3"]
+                  }
+                ]
+              }
+            }
+          },
+          "204": {
+            "description": "No content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "No content"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexiste para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/{customerId}/invoices/{invoiceId}": {
+      "get": {
+        "description": "Listar as faturas das contas virtuais / Buscar os detalhes da fatura do MoT.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador da fatura.",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "required": false,
+            "description": "Unidade que deseja retorno, se não infomrado por default MB",
+            "schema": {
+              "type": "string",
+              "example": "MB",
+              "default": " B, MB, K, GB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "quantityItens": 3,
+                  "balanceData": {
+                    "totalFranchise": 2257,
+                    "totalConsumption": 235,
+                    "consumptionFranchise": 2322,
+                    "consumptionExceeded": "2",
+                    "usagePackage": 8938730496,
+                    "blConsumptionFranchise": 13019.5,
+                    "dateConsumptionUpdate": "01-09-2021"
+                  },
+                  "invoiceData": {
+                    "invoiceId": 6,
+                    "startDate": "01-09-2021",
+                    "endDate": "30-09-2021",
+                    "dueDate": "11-10-2021",
+                    "totalTraffic": 0,
+                    "invoiceAmount": 0,
+                    "terminals": 0,
+                    "useTerminals": 0,
+                    "subInvoiceQuantity": 0,
+                    "idStatusInvoice": "C",
+                    "synchronized": false
+                  },
+                  "itens": [
+                    {
+                      "id": 6,
+                      "item": "Description",
+                      "quantityItem": 2,
+                      "unitaryValue": 23.25,
+                      "totalValue": 32.56
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/{customerId}/invoices/{invoiceId}/usage": {
+      "get": {
+        "description": "Faz uma busca pelo uso da rede de faturas do MoT",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador da fatura.",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "subInvoiceId",
+            "in": "query",
+            "required": false,
+            "description": "id da SubFatura (nivel Account)",
+            "schema": {
+              "type": "number",
+              "example": "subInvoiceId"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "totalItens": 2,
+                  "totalPages": 5,
+                  "lastPage": 0,
+                  "listaItens": [
+                    {
+                      "msisdn": "34999991234",
+                      "consumoTotal": 12.3
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação."
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado."
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento."
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/{deviceId}/consumption/{virtualAccountId}": {
+      "get": {
+        "description": "Faz uma busca pelo consumo total (franquia)",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador do dispositivo (a informação vem do endpoint /broker/devices paramêtro id)",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "virtualAccountId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador da fatura virtual.",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "valueInBytes": 1235
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/invoices/items": {
+      "get": {
+        "description": "Retorna os itens adicionados manualmente do cliente ou de uma fatura específica",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "number",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "description": "Identificador da fatura.",
+            "schema": {
+              "type": "number",
+              "example": "123654"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "valueInBytes": 1235
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admins/quantities": {
+      "get": {
+        "description": "Retorna a quantidade de requisições dos recursos utilizados",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "customerIdRequest",
+            "in": "path",
+            "required": false,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "beginDateRequest",
+            "in": "query",
+            "required": false,
+            "description": "Data inicio da solicitação(yyyy-MM-dd)",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "endDateRequest",
+            "in": "query",
+            "required": false,
+            "description": "Data fim da solicitação(yyyy-MM-dd)",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "requestStatus",
+            "in": "query",
+            "required": false,
+            "description": "Status da solicitação",
+            "schema": {
+              "type": "string",
+              "example": "Available values : SUCCESS, REQUEST_ERROR"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "quantity": 12
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admins/details": {
+      "get": {
+        "description": "Requisição para retornar todos os detalhes dos recursos consumidos",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "customerIdRequest",
+            "in": "path",
+            "required": false,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "beginDateRequest",
+            "in": "query",
+            "required": false,
+            "description": "Data inicio da solicitação(yyyy-MM-dd)",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "endDateRequest",
+            "in": "query",
+            "required": false,
+            "description": "Data fim da solicitação(yyyy-MM-dd)",
+            "schema": {
+              "type": "string",
+              "example": "123654"
+            }
+          },
+          {
+            "name": "requestStatus",
+            "in": "query",
+            "required": false,
+            "description": "Status da solicitação",
+            "schema": {
+              "type": "string",
+              "example": "Available values : SUCCESS, REQUEST_ERROR"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example":   {
+                  "beginRequestDate": "2022-04-12 17-31-13",
+                  "contractId": "A789879",
+                  "createBy": "empresa x",
+                  "createDate": "2022-04-12T20:31:15.658Z",
+                  "customerId": 987456,
+                  "customerIdRequest": 123456,
+                  "customerName": "CLIENTE X",
+                  "customerNameRequest": "EMPRESA Y",
+                  "durationRequest": "0:00:01:1306",
+                  "endRequestDate": "2022-04-12 17-31-13",
+                  "httpCode": 200,
+                  "query": "/89890/devices",
+                  "realm": "algar-telecom",
+                  "requestStatus": "SUCCESS",
+                  "url": "http://0.0.0.0:8080/invoices/open",
+                  "verb": "GET"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/history": {
+      "get": {
+        "description": "Requisição para buscar o histórico de conexão de um sim card",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "operator",
+            "in": "query",
+            "required": false,
+            "description": "Operadora",
+            "schema": {
+              "type": "string",
+              "example": "ALGAR"
+            }
+          },
+          {
+            "name": "imsi",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do IMSI",
+            "schema": {
+              "type": "string",
+              "example": "30321515124185"
+            }
+          },
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "required": false,
+            "description": "Identificador do cliente.",
+            "schema": {
+              "type": "number",
+              "example": "359687"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": true,
+            "description": "Data do histórico",
+            "schema": {
+              "type": "string",
+              "example": "2024-01-01T00:00:00.000Z7"
+            }
+          },
+          {
+            "name": "msisdn",
+            "in": "query",
+            "required": true,
+            "description": "Número do SIMCARD",
+            "schema": {
+              "type": "string",
+              "example": "5516991556585"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example":     {
+                  "apn": "teste.br",
+                  "imsi": "878978978979879000",
+                  "uniqueId": "65456rer5er45ew6r4e5w64r6",
+                  "cep": "38415897",
+                  "city": "Teste",
+                  "imei": "8.6247605171275e+22",
+                  "inputBytes": 38415897,
+                  "ip": "20.258.54.140",
+                  "latitude": "45654.789",
+                  "longitude": "3841.5897",
+                  "msisdn": "5516989526578",
+                  "operator": "ALGAR",
+                  "outputBytes": 8989,
+                  "sessionTime": 1148,
+                  "startTime": "2024-02-16T18:09:07.000Z",
+                  "state": "MG",
+                  "stopTime": "2024-02-16T18:28:15.000Z",
+                  "technology": "3G",
+                  "updateTime": "2024-02-16T18:28:15.000Z",
+                  "antenna": "20969927f4200856180f34343jyu",
+                  "date": "2024-02-16T18:28:15.000Z"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "example": "No Content"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/orders": {
+      "get": {
+        "description": "Requisição para listar pedidos satelital de acordo com filtros opcionais",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": "customerId"
+            }
+          },
+          {
+            "name": "contractId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": "contractId"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": "false",
+              "example": "false"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example":{
+                  "id": 43,
+                  "idRMS": 86695,
+                  "name": "Teste Moreira",
+                  "customer": {
+                    "id": 47926,
+                    "name": "Broker 1"
+                  },
+                  "cnpj": "string",
+                  "virtualContract": {
+                    "id": 45496,
+                    "description": "Contrato Flat",
+                    "franchise": 1024,
+                    "sharingType": 1,
+                    "externalId": "string"
+                  },
+                  "createdAt": "2025-05-05T00:00:00",
+                  "status": "ACTIVE",
+                  "value": "1",
+                  "activationPrice": "1.5",
+                  "createdBy": "carla.amaral.novo",
+                  "kilobyteExcPrice": "0.25",
+                  "loyaltyType": 2,
+                  "loyaltyTime": 12,
+                  "penalty": "string",
+                  "tradeInMonths": 12,
+                  "preActivationExemptTraffic": 12,
+                  "activationDate": "2025-05-05T00:00:00",
+                  "nbPreActivationDays": 1,
+                  "chargeActivationFeeOnTransfer": true,
+                  "accountNotCharged": false,
+                  "franchise": 1024,
+                  "parentIdMOT": 31556,
+                  "parentIdAccount": 0,
+                  "parentIdCustomer": 10000,
+                  "processLog": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "example": "No Content"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/contracts": {
+      "get": {
+        "description": "Retorna uma lista de contratos satelitals com base em filtros opcionais como nome, ID do cliente, ID externo, data de alerta e paginação.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name"
+            }
+          },
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "description": "Filtro por ID do cliente",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "customerId"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "query",
+            "description": "Filtro por ID externo",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "contractId"
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "description": "Indica se deve mostrar apenas contratos já contratados",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": "false",
+              "example": "false"
+            }
+          },
+          {
+            "name": "alertDateFrom",
+            "in": "query",
+            "description": "Data inicial do alerta (formato ISO 8601)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "alertDateFrom"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example":{
+                  "id": 0,
+                  "customer": {
+                    "id": 0,
+                    "name": "string"
+                  },
+                  "description": "string",
+                  "franchise": 0,
+                  "price": "string",
+                  "sharingType": 0,
+                  "excMbPrice": "string",
+                  "externalId": "string",
+                  "createdAt": "2025-10-14T17:09:11.916Z",
+                  "createdBy": "string",
+                  "updatedAt": "2025-10-14T17:09:11.916Z",
+                  "updatedBy": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "example": "No Content"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/invoices/details/report": {
+      "post": {
+        "description": "Requisição para solicitar relatório de fatura detalhada satelital",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+
+        "requestBody": {
+          "description": "Informações para solicitar o relatório",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "planDesc": {
+                    "type": "string",
+                    "example": "Plano Satélite Gold"
+                  },
+                  "customerId": {
+                    "type": "number",
+                    "example": 47926
+                  },
+                  "externalId": {
+                    "type": "string",
+                    "example": "EXT-123"
+                  },
+                  "sharingType": {
+                    "type": "string",
+                    "example": "INDIVIDUAL"
+                  },
+                  "price": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "franchise": {
+                    "type": "number",
+                    "example": "1024"
+                  },
+                  "activationPrice": {
+                    "type": "string",
+                    "example": "1.50"
+                  },
+                  "kilobyteExcPrice": {
+                    "type": "string",
+                    "example": "0.25"
+                  },
+                  "loyaltyType": {
+                    "type": "number",
+                    "example": "2"
+                  },
+                  "loyaltyTime": {
+                    "type": "number",
+                    "example": "12"
+                  },
+                  "penalty": {
+                    "type": "string",
+                    "example": "50.00"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "teste@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 77614,
+                  "message": "Request report created successfully!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/satellite/solution-providers": {
+      "get": {
+        "description": "Retorna uma lista com os provedores de soluções",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example":  {
+                  "companyName": "TESTE X",
+                  "spid": 321
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "example": "No Content"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sms": {
+      "get": {
+        "description": "Requisição para consultar SMS individual por número (MSISDN)",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 0,
+                  "sendSmsRequestId": 352,
+                  "msisdn": "5534991026676",
+                  "status": "REJECTED",
+                  "statusDetailed": "REJECTED_DESTINATION_NOT_REGISTERED",
+                  "sentAt": "2024-05-03T12:44:43.121Z",
+                  "createdBy": "teste",
+                  "createdAt": "2024-05-03T12:44:43.121Z"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "example": "No Content"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sms/request": {
+      "get": {
+        "description": "Requisição para consultar SMS enviados por lote/solicitação",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Id do cliente",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example":  {
+                  "sendSmsRequest": {
+                    "id": 354,
+                    "from": "teste",
+                    "message": "Teste Horário Requisição",
+                    "status": "PROCESSED",
+                    "errorLog": "teste error",
+                    "flash": false,
+                    "sendAt": "2024-05-03T19:56:44.671Z",
+                    "processedAt": "2024-05-03T19:56:44.671Z",
+                    "validityMinutes": 0,
+                    "deliveryTimeWindowDays": 0,
+                    "deliveryTimeWindowFrom": 0,
+                    "deliveryTimeWindowTo": 0,
+                    "createdBy": "teste user",
+                    "createdAt": "2024-05-03T19:56:43.158Z"
+                  },
+                  "successCount": 1,
+                  "errorCount": 0,
+                  "pendingCount": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Capacidade de enviar mensagens de texto para os destinatários desejados",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+
+        "requestBody": {
+          "description": "Informações para formar o request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "flash": {
+                    "type": "boolean",
+                    "example": "true"
+                  },
+                  "text": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "sendAt": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "msisdns": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "example": "Created"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "valueInBytes": 1235
+                }                   
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "O acesso ao recurso foi negado."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "errors": "URI de API/Recurso inexistente para processamento."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "description": "Erro encontrado."
+                    }
+                  }
+                },
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+
+    
+
+    
     "/report": {
       "servers": [
         {
@@ -4032,6 +7023,523 @@
         }
       }
     },
+    "/lorawan/broker/contract": {
+      "post": {
+        "summary": "Realiza requisição para criar contratos Lorawan.",
+        "description": "Envia uma requisição para criar contratos Lorawan.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados necessários para criar contratos de LoRaWAN.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerId": {
+                    "type": "integer",
+                    "example": 47926
+                  },
+                  "monthlyFee": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "activationPrice": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "planDesc": {
+                    "type": "string",
+                    "example": "API_CONTRACT7"
+                  },
+                  "sharingType": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "uplinkCount": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "downlinkCount": {
+                    "type": "integer",
+                    "example": 47926
+                  },
+                  "excessUplinkPrice": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "excessDownlinkPrice": {
+                    "type": "integer",
+                    "example": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação criada com sucesso."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retorna informações de contratos LoRaWAN filtrados pelo nome ",
+        "description": "Retorna informações de contratos LoRaWAN filtrados pelo nome ",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Identificador do client id do sensedia",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do contrato (planDesc) para filtro.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "API_TESTE_EXTERNAL_ID"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "Identificador do cliente",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": "5464646"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "query",
+            "description": "Identificador externo",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": "5464646"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de contratos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 607,
+                    "customer": {
+                      "id": 17961,
+                      "name": "Teste Faturamento MVNO"
+                    },
+                    "planDesc": "API_TESTE_EXTERNAL_ID",
+                    "status": "ACTIVE",
+                    "uplinkCount": 100,
+                    "downlinkCount": 100,
+                    "activationPrice": "4",
+                    "excessUplinkPrice": "15",
+                    "excessDownlinkPrice": "10",
+                    "loyaltyType": null,
+                    "loyaltyTime": null,
+                    "penalty": null,
+                    "externalId": "17961",
+                    "createdAt": "2025-10-01T15:04:54",
+                    "createdBy": "thiago.moreira@eticasolucoes.com.br",
+                    "sharingType": 1,
+                    "monthlyFee": "2",
+                    "nbVirtualAccounts": 0
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Falha de autenticação (token inválido ou ausente).",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Falha de autenticação (token inválido ou ausente)."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Erro interno do servidor."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/order": {
+      "post": {
+        "summary": "Realiza uma nova ação de ativação com dispositivos",
+        "description": "Envia uma solicitação para realizar uma nova ação de ativação com dispositivos.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados necessários para criar um novo pedido LoRaWAN",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Pedido_API_Tranfer"
+                  },
+                  "uplinkCount": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "excessUplinkPrice": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "downlinkCount": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "excessDownlinkPrice": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "monthlyFee": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "activationPrice": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "virtualPlanId": {
+                    "type": "integer",
+                    "example": 384
+                  },
+                  "parentIdMOT": {
+                    "type": "integer",
+                    "example": "29623"
+                  },
+                  "parentIdLorawan": {
+                    "type": "integer",
+                    "example": "29345"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação criada com sucesso."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/transfer": {
+      "post": {
+        "summary": "Realiza uma nova transferência de LoRaWAN",
+        "description": "Envia uma solicitação para realizar uma nova transferência de LoRaWAN.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "client_id"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "required": true,
+            "description": "Token gerado.",
+            "schema": {
+              "type": "string",
+              "example": "access_token"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados necessários para realizar uma transferência de LoRaWAN",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "1": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "integer",
+                          "description": "Identificador devEui do dispositivo.",
+                          "example": "12345678"
+                        },
+                        "newCustomerVirtualAccountId": {
+                          "type": "integer",
+                          "example": 125
+                        }
+                      }
+                    }
+                  },
+                  "2": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "integer",
+                          "description": "Identificador devEui do dispositivo.",
+                          "example": "87654321"
+                        },
+                        "newCustomerVirtualAccountId": {
+                          "type": "integer",
+                          "example": 124
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Ação criada com sucesso."
+                }
+              }
+            }
+          },
+          "207": {
+            "description": "Multi-Status",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Multi-Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Requisição requer autenticação."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/lorawan/broker/deactivation": {
       "post": {
         "summary": "Envia uma ação de desativação com dispositivos",
@@ -5631,7 +9139,7 @@
       }
     },
     "/lorawan/broker/report/device": {
-      "get": {
+      "post": {
         "summary": "Busca relatório de histórico de dispositivos",
         "description": "Retorna um relatório de histórico de dispositivos com base nos filtros fornecidos.",
         "parameters": [
@@ -5694,8 +9202,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "date-time",
-              "example": "2025-01-01T00:00:00Z"
+              "format": "date",
+              "example": "2025-01-01"
             }
           },
           {
@@ -5705,8 +9213,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "date-time",
-              "example": "2025-01-31T23:59:59Z"
+              "format": "date",
+              "example": "2025-01-31"
             }
           },
           {
@@ -5736,14 +9244,28 @@
         ],
         "responses": {
           "200": {
-            "description": "Relatório de histórico de mensagens retornada com sucesso.",
+            "description": "Lista de ativações retornada com sucesso.",
             "content": {
               "application/json": {
                 "example": [
                   {
-                    "totalDevices": 0,
-                    "activeDownlinkDevices": 0,
-                    "activeUplinkDevices": 0
+                    "actionType": "string",
+                    "idContract": "string",
+                    "devEui": "string",
+                    "customer": {
+                      "id": 0,
+                      "name": "string",
+                      "email": "string"
+                    },
+                    "customerId": 0,
+                    "status": "PENDING",
+                    "processLog": "string",
+                    "processingDate": "2025-10-06T20:20:09.673Z",
+                    "createdAt": "2025-10-06T20:20:09.673Z",
+                    "createdBy": "string",
+                    "updatedAt": "2025-10-06T20:20:09.673Z",
+                    "updatedBy": "string",
+                    "processData": "string"
                   }
                 ]
               }
@@ -5802,7 +9324,100 @@
         }
       }
     },
-    "/lorawan/broker/report/topCustomerByDeviceCount": {
+    "/lorawan/broker/device/status": {
+      "get": {
+        "summary": "Gera informações para Dashboard dos Devices LoRaWAN",
+        "description": "Obtém informações para alimentar o Dashboard com dados relacionados ao status dos dispositivos no sistema LoRaWAN.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Produto a ser selecionado.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 123
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de dispositivos retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "totalDevices": 0,
+                  "activeDownlinkDevices": 0,
+                  "activeUplinkDevices": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formatada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/topCustomersByDeviceCount": {
       "get": {
         "summary": "Gera informações para Dashboard relacionadas dos clientes LoRaWAN",
         "description": "Gera informações para dashboard dos clientes Lorawan.",
@@ -5861,325 +9476,6 @@
           },
           "400": {
             "description": "Requisição mal formada.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Parameter not found"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Requisição requer autenticação.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Unauthorized"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "O acesso ao recurso foi negado.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Forbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URI de API/Recurso inexistente para processamento.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Not Found"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Internal Server Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/lorawan/broker/report/topDownlinks": {
-      "get": {
-        "summary": "Gera informações para Dashboard relacionados aos Downlinks Lorawan",
-        "description": "Gera informações para Dashboard relacionados aos Downlinks Lorawan",
-        "parameters": [
-          {
-            "name": "linesPerPage",
-            "in": "query",
-            "description": "Quantidade de registros por página.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": 10
-            }
-          },
-          {
-            "name": "product",
-            "in": "query",
-            "description": "Produto a ser selecionado.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": 123
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Lista de ativações retornada com sucesso.",
-            "content": {
-              "application/json": {
-                "example": [
-                  [
-                    {
-                      "devEui": 12345678,
-                      "value": "example_value_1"
-                    },
-                    {
-                      "devEui": 87654321,
-                      "value": "example_value_2"
-                    }
-                  ]
-                ]
-              }
-            }
-          },
-          "400": {
-            "description": "Requisição mal formada.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Parameter not found"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Requisição requer autenticação.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Unauthorized"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "O acesso ao recurso foi negado.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Forbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URI de API/Recurso inexistente para processamento.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Not Found"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Internal Server Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/lorawan/broker/report/topUplinks": {
-      "get": {
-        "summary": "Gera informações para Dashboard relacionados aos Uplinks Lorawan",
-        "description": "Gera informações para Dashboard relacionados aos Uplinks Lorawan",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
-            "schema": {
-              "type": "string",
-              "example": "application/json",
-              "default": "application/json"
-            }
-          },
-          {
-            "name": "linesPerPage",
-            "in": "query",
-            "description": "Quantidade de registros por página.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": 10
-            }
-          },
-          {
-            "name": "product",
-            "in": "query",
-            "description": "Produto a ser selecionado.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": 123
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Lista de ativações retornada com sucesso.",
-            "content": {
-              "application/json": {
-                "example": [
-                  [
-                    {
-                      "devEui": 12345678,
-                      "value": "example_value_1"
-                    },
-                    {
-                      "devEui": 87654321,
-                      "value": "example_value_2"
-                    }
-                  ]
-                ]
-              }
-            }
-          },
-          "400": {
-            "description": "Requisição mal formada.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Parameter not found"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Requisição requer autenticação.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Unauthorized"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "O acesso ao recurso foi negado.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Forbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URI de API/Recurso inexistente para processamento.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Not Found"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "example": {
-                  "errors": "Internal Server Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/lorawan/broker/report/status": {
-      "get": {
-        "summary": "Busca relatório de histórico de dispositivos",
-        "description": "Retorna um relatório de histórico de dispositivos com base nos filtros fornecidos.",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
-            "schema": {
-              "type": "string",
-              "example": "application/json",
-              "default": "application/json"
-            }
-          },
-          {
-            "name": "product",
-            "in": "query",
-            "description": "Produto a ser selecionado.",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 12345
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Lista de ativações retornada com sucesso.",
-            "content": {
-              "application/json": {
-                "example": [
-                  {
-                    "actionType": "string",
-                    "idContract": "string",
-                    "devEui": "string",
-                    "customer": {
-                      "id": 0,
-                      "name": "string",
-                      "email": "string"
-                    },
-                    "customerId": 0,
-                    "status": "PENDING",
-                    "processLog": "string",
-                    "processingDate": "2025-02-18T15:20:35.576Z",
-                    "createdAt": "2025-02-18T15:20:35.576Z",
-                    "createdBy": "string",
-                    "updatedAt": "2025-02-18T15:20:35.576Z",
-                    "updatedBy": "string",
-                    "processData": "string"
-                  }
-                ]
-              }
-            }
-          },
-          "400": {
-            "description": "Requisição inválida.",
             "content": {
               "application/json": {
                 "example": {
@@ -6447,10 +9743,443 @@
         }
       }
     },
-    "/lorawan/broker/device/status": {
+    "/lorawan/broker/devices": {
       "get": {
-        "summary": "Gera informações para Dashboard dos Devices LoRaWAN",
-        "description": "Obtém informações para alimentar o Dashboard com dados relacionados ao status dos dispositivos no sistema LoRaWAN.",
+        "summary": "Busca de inventário Lorawan Broker",
+        "description": "Obtém uma lista paginada de dispositivos LoRaWAN.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Tamanho da página para paginação.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 24,
+              "example": 24
+            }
+          },
+          {
+            "name": "showContracted",
+            "in": "query",
+            "description": "Visão dos dispositivos. Available values : true (visão a receber), false (visão a pagar)",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "example": "true"
+            }
+          },
+          {
+            "name": "customerIdFilter",
+            "in": "query",
+            "description": "Cliente",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": 12345
+            }
+          },
+          {
+            "name": "devEui",
+            "in": "query",
+            "description": "Filtro pelo devEui do dispositivo.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ABCDEF1234567890"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "content": [
+                      {
+                        "id": 0,
+                        "idTerminal": 359009,
+                        "devEui": "7cc98b1b09dabb00",
+                        "appEui": null,
+                        "tags": ["tag"],
+                        "activationType": "OTTA",
+                        "encryptionType": "NS",
+                        "devAddr": "string",
+                        "nwkskey": "string",
+                        "appskey": "string",
+                        "adrMode": "string",
+                        "adrTxPower": 0,
+                        "adrDatarate": 0,
+                        "blockUplink": false,
+                        "blockDownlink": false,
+                        "devClass": "A",
+                        "countersSize": 4,
+                        "status": "ACTIVE",
+                        "activationDate": "2024-11-05T16:12:27",
+                        "cancellationDate": "2024-11-05T16:12:27",
+                        "customer": {
+                          "id": 64545646,
+                          "parentId": 325697,
+                          "name": "Teste Cliente"
+                        },
+                        "contract": "string",
+                        "virtualAccount": {
+                          "id": 201,
+                          "idRMS": 205,
+                          "name": "Teste",
+                          "customer": {
+                            "id": 64545646,
+                            "parentId": 325697,
+                            "name": "Teste Cliente"
+                          },
+                          "uplinkCount": 2000,
+                          "downlinkCount": 5000
+                        },
+                        "virtualAccountId": 0,
+                        "uplinksConsumed": 0,
+                        "downlinksConsumed": 0,
+                        "updatedAt": "2025-10-06",
+                        "product": "string",
+                        "description": "Teste_Dispositivo_REAL_API",
+                        "dailyUplinkConsumption": 0,
+                        "dailyDownlinkConsumption": 0
+                      }
+                    ],
+                    "pageable": {
+                      "sort": {
+                        "sorted": true,
+                        "unsorted": true,
+                        "empty": true
+                      },
+                      "pageNumber": 0,
+                      "pageSize": 0,
+                      "offset": 0,
+                      "paged": true,
+                      "unpaged": true
+                    },
+                    "totalElements": 0,
+                    "totalPages": 0,
+                    "last": true,
+                    "sort": {
+                      "sorted": true,
+                      "unsorted": true,
+                      "empty": true
+                    },
+                    "first": true,
+                    "numberOfElements": 0,
+                    "size": 0,
+                    "number": 0,
+                    "empty": true
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/schedule-downlink": {
+      "post": {
+        "summary": "Agenda um downlink via Broker",
+        "description": "Agenda um downlink via Broker.",
+        "requestBody": {
+          "description": "Agenda um downlink via Broker",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "integer",
+                    "example": 18
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "devEui": {
+                          "type": "string",
+                          "description": "Identificador devEui do dispositivo.",
+                          "example": "261a1a85f51543a7"
+                        },
+                        "base64Payload": {
+                          "type": "string",
+                          "example": "VGVzdGUgYWdlbmRhbWVudG8"
+                        },
+                        "port": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "confirmed": {
+                          "type": "boolean",
+                          "example": "true"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "action": "1",
+                "devices": [
+                  {
+                    "devEui": "sdf1s1df51s1df5s"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação criada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": 18,
+                  "devices": [
+                    {
+                      "devEui": "261a1a85f51543a7",
+                      "base64Payload": "VGVzdGUgYWdlbmRhbWVudG8=",
+                      "port": 1,
+                      "confirmed": true
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Consulta o status de um downlink agendado.",
+        "description": "Consulta o status de um downlink agendado.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "devEui",
+            "in": "query",
+            "description": "Identificador único do dispositivo LoRaWAN",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "261a1a85f51543a7"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ativações retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "status": "SUCCESS",
+                    "devEui": "261a1a85f51543a7",
+                    "base64Payload": "VGVzdGUgYWdlbmRhbWVudG8=",
+                    "port": 1,
+                    "confirmed": true,
+                    "scheduledAt": "2025-09-24T11:03:24"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição mal formada.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Parameter not found"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Requisição requer autenticação.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "O acesso ao recurso foi negado.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URI de API/Recurso inexistente para processamento.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Not Found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lorawan/broker/report/status": {
+      "get": {
+        "summary": "Busca relatório de histórico de dispositivos",
+        "description": "Retorna um relatório de histórico de dispositivos com base nos filtros fornecidos.",
         "parameters": [
           {
             "name": "Content-Type",
@@ -6467,28 +10196,45 @@
             "name": "product",
             "in": "query",
             "description": "Produto a ser selecionado.",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "integer",
-              "example": 123
+              "format": "int32",
+              "example": 12345
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Lista de dispositivos retornada com sucesso.",
+            "description": "Lista de ativações retornada com sucesso.",
             "content": {
               "application/json": {
-                "example": {
-                  "totalDevices": 0,
-                  "activeDownlinkDevices": 0,
-                  "activeUplinkDevices": 0
-                }
+                "example": [
+                  {
+                    "actionType": "string",
+                    "idContract": "string",
+                    "devEui": "string",
+                    "customer": {
+                      "id": 0,
+                      "name": "string",
+                      "email": "string"
+                    },
+                    "customerId": 0,
+                    "status": "PENDING",
+                    "processLog": "string",
+                    "processingDate": "2025-02-18T15:20:35.576Z",
+                    "createdAt": "2025-02-18T15:20:35.576Z",
+                    "createdBy": "string",
+                    "updatedAt": "2025-02-18T15:20:35.576Z",
+                    "updatedBy": "string",
+                    "processData": "string"
+                  }
+                ]
               }
             }
           },
           "400": {
-            "description": "Requisição mal formatada.",
+            "description": "Requisição inválida.",
             "content": {
               "application/json": {
                 "example": {
@@ -10394,7 +14140,6 @@
             "content": {
               "application/json": {
                 "example": "Quando o usuário ultrapassa o limite provisionado de requisições para o endpoint da API, será retornado o código HTTP 429 “Muitas Requisições”."
-
               }
             }
           }
@@ -10617,7 +14362,6 @@
                     "Sucesso": {
                       "type": "string",
                       "example": {
-
                         "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
                         "created_at": "now",
                         "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -11193,7 +14937,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "token": {
                     "type": "string",
                     "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
@@ -11217,7 +14960,7 @@
                   "fantasy_name": {
                     "type": "string",
                     "example": "fantasy_name"
-                  },    
+                  },
                   "tax_id": {
                     "type": "string",
                     "example": "tax_id"
@@ -11225,11 +14968,11 @@
                   "id": {
                     "type": "string",
                     "example": "id"
-                  },    
+                  },
                   "webhook": {
                     "type": "string",
                     "example": "webhook"
-                  }              
+                  }
                 },
                 "required": ["username", "password"]
               }
@@ -12023,7 +15766,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "token": {
                     "type": "string",
                     "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
@@ -12047,11 +15789,11 @@
                   "fantasy_name": {
                     "type": "string",
                     "example": "fantasy_name"
-                  },    
+                  },
                   "tax_id": {
                     "type": "string",
                     "example": "tax_id"
-                  }            
+                  }
                 },
                 "required": ["username", "password"]
               }
@@ -12068,8 +15810,7 @@
                   "properties": {
                     "Sucesso": {
                       "type": "string",
-                      "example":{
-
+                      "example": {
                         "id": 0,
                         "created_at": "now",
                         "accounts_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -12836,7 +16577,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "token": {
                     "type": "string",
                     "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
@@ -12860,7 +16600,7 @@
                   "tag_account": {
                     "type": "string",
                     "example": "tag_account"
-                  }         
+                  }
                 },
                 "required": ["username", "password"]
               }
@@ -13046,7 +16786,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "token": {
                     "type": "string",
                     "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
@@ -13120,12 +16859,12 @@
                           }
                         }
                       }
-                  }
+                    }
                   },
                   "tag_id": {
                     "type": "string",
                     "example": "f6b687e2-4231-4996-86db-adf7611dfcac"
-                  }       
+                  }
                 }
               }
             }
@@ -13431,7 +17170,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-
                   "token": {
                     "type": "string",
                     "example": "20234397fs9vcd978qr308q9703cbfdbd9vuy07wrw97rq90qrw08"
@@ -13510,7 +17248,7 @@
                   "tag_id": {
                     "type": "string",
                     "example": "f6b687e2-4231-4996-86db-adf7611dfcac"
-                  }    
+                  }
                 }
               }
             }
@@ -13672,7 +17410,7 @@
                     }
                   },
                   "tag_id": "f6b687e2-4231-4996-86db-adf7611dfcac"
-                }       
+                }
               }
             }
           },
@@ -13874,13 +17612,11 @@
                   "properties": {
                     "Sucesso": {
                       "type": "string",
-                      "example": {
-                      }
+                      "example": {}
                     }
                   }
                 },
-                "example": {
-                }
+                "example": {}
               }
             }
           },
