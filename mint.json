@@ -55,8 +55,19 @@
         "api-reference/endpoint/allmanager/mot/reset-network-get",
         "api-reference/endpoint/allmanager/mot/reset-network-post",
         "api-reference/endpoint/allmanager/mot/actions-queue-get",
-        "api-reference/endpoint/allmanager/mot/bait-renewall-post",
-        "api-reference/endpoint/allmanager/mot/franchise-renewall-post"
+        "api-reference/endpoint/allmanager/mot/bait-renewal-post",
+        "api-reference/endpoint/allmanager/mot/franchise-renewal-post",
+        "api-reference/endpoint/allmanager/mot/invoices-report-detailed",
+        "api-reference/endpoint/allmanager/mot/plans-get",
+        "api-reference/endpoint/allmanager/mot/order-get",
+        "api-reference/endpoint/allmanager/mot/customerId-invoices-invoiceId",
+        "api-reference/endpoint/allmanager/mot/customerId-invoices-invoiceId-usage",
+        "api-reference/endpoint/allmanager/mot/deviceId-consumption-virtualAccountId",
+        "api-reference/endpoint/allmanager/mot/invoices-items",
+        "api-reference/endpoint/allmanager/mot/admins-quantities",
+        "api-reference/endpoint/allmanager/mot/admins-details",
+        "api-reference/endpoint/allmanager/mot/admins-quantities-sumaries",
+        "api-reference/endpoint/allmanager/mot/sessions-history"
       ]
     },
     {
@@ -78,25 +89,33 @@
       "group": "Lorawan",
       "pages": [
         "api-reference/endpoint/allmanager/lorawan/activation",
-        "api-reference/endpoint/allmanager/lorawan/actions",
-        "api-reference/endpoint/allmanager/lorawan/change-description",
-        "api-reference/endpoint/allmanager/lorawan/change-tag",
+        "api-reference/endpoint/allmanager/lorawan/contract-post",
+        "api-reference/endpoint/allmanager/lorawan/contract-get",
+        "api-reference/endpoint/allmanager/lorawan/order",
+        "api-reference/endpoint/allmanager/lorawan/transfer",
         "api-reference/endpoint/allmanager/lorawan/deactivation",
-        "api-reference/endpoint/allmanager/lorawan/device-status",
+        "api-reference/endpoint/allmanager/lorawan/uplink-block",
+        "api-reference/endpoint/allmanager/lorawan/uplink-unlock",
         "api-reference/endpoint/allmanager/lorawan/downlink-block",
         "api-reference/endpoint/allmanager/lorawan/downlink-unlock",
-        "api-reference/endpoint/allmanager/lorawan/messages",
-        "api-reference/endpoint/allmanager/lorawan/report-device",
-        "api-reference/endpoint/allmanager/lorawan/report-status",
-        "api-reference/endpoint/allmanager/lorawan/report-top-customer-by-device-count",
-        "api-reference/endpoint/allmanager/lorawan/report-top-messages",
+        "api-reference/endpoint/allmanager/lorawan/change-tag",
+        "api-reference/endpoint/allmanager/lorawan/change-description",
+        "api-reference/endpoint/allmanager/lorawan/referrals-post",
         "api-reference/endpoint/allmanager/lorawan/referrals-delete",
         "api-reference/endpoint/allmanager/lorawan/referrals-get",
-        "api-reference/endpoint/allmanager/lorawan/referrals-post",
+        "api-reference/endpoint/allmanager/lorawan/actions",
+        "api-reference/endpoint/allmanager/lorawan/messages",
+        "api-reference/endpoint/allmanager/lorawan/report-top-messages",
+        "api-reference/endpoint/allmanager/lorawan/report-device",
+        "api-reference/endpoint/allmanager/lorawan/device-status",
+        "api-reference/endpoint/allmanager/lorawan/report-top-customer-by-device-count",
         "api-reference/endpoint/allmanager/lorawan/top-downlinks",
         "api-reference/endpoint/allmanager/lorawan/top-uplinks",
-        "api-reference/endpoint/allmanager/lorawan/uplink-block",
-        "api-reference/endpoint/allmanager/lorawan/uplink-unlock"
+        "api-reference/endpoint/allmanager/lorawan/devices",
+        "api-reference/endpoint/allmanager/lorawan/schedule-downlink-post",
+        "api-reference/endpoint/allmanager/lorawan/schedule-downlink-get",
+
+        "api-reference/endpoint/allmanager/lorawan/report-status"
       ]
     },
     {
@@ -107,7 +126,19 @@
         "api-reference/endpoint/allmanager/satellite/devices-get",
         "api-reference/endpoint/allmanager/satellite/actions-get",
         "api-reference/endpoint/allmanager/satellite/devices-details-get",
-        "api-reference/endpoint/allmanager/satellite/devices-report"
+        "api-reference/endpoint/allmanager/satellite/devices-report",
+        "api-reference/endpoint/allmanager/satellite/orders",
+        "api-reference/endpoint/allmanager/satellite/contracts",
+        "api-reference/endpoint/allmanager/satellite/invoices-details-report",
+        "api-reference/endpoint/allmanager/satellite/solutions-providers"
+      ]
+    },
+    {
+      "group": "Sms",
+      "pages": [
+        "api-reference/endpoint/allmanager/sms/sms",
+        "api-reference/endpoint/allmanager/sms/request-get",
+        "api-reference/endpoint/allmanager/sms/request-post"
       ]
     },
 
