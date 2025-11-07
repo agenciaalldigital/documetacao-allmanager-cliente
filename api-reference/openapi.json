@@ -9958,6 +9958,38 @@
       "post": {
         "summary": "Agenda um downlink via Broker",
         "description": "Agenda um downlink via Broker.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Define o formato da requisição.\n\n🔹 **Valor padrão:**\n```\napplication/json\n```\n📌 **Dica:** Copie e cole esse valor no campo Content-Type.",
+            "schema": {
+              "type": "string",
+              "example": "application/json",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "required": true,
+            "description": "Identificador do client id do sensedia",
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          },
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token gerado",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Agenda um downlink via Broker",
           "required": true,
@@ -9998,7 +10030,7 @@
                 }
               },
               "example": {
-                "action": "1",
+                "action": "18",
                 "devices": [
                   {
                     "devEui": "sdf1s1df51s1df5s"
@@ -10010,20 +10042,10 @@
         },
         "responses": {
           "201": {
-            "description": "Ação criada com sucesso.",
+            "description": "Downlink agendado com sucesso",
             "content": {
               "application/json": {
-                "example": {
-                  "action": 18,
-                  "devices": [
-                    {
-                      "devEui": "261a1a85f51543a7",
-                      "base64Payload": "VGVzdGUgYWdlbmRhbWVudG8=",
-                      "port": 1,
-                      "confirmed": true
-                    }
-                  ]
-                }
+                "example": "Downlink agendado com sucesso"
               }
             }
           },
