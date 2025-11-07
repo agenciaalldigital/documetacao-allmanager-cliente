@@ -66,7 +66,6 @@
         "api-reference/endpoint/allmanager/mot/invoices-items",
         "api-reference/endpoint/allmanager/mot/admins-quantities",
         "api-reference/endpoint/allmanager/mot/admins-details",
-        "api-reference/endpoint/allmanager/mot/admins-quantities-sumaries",
         "api-reference/endpoint/allmanager/mot/sessions-history"
       ]
     },
