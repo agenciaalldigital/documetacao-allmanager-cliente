@@ -11,4 +11,4 @@ services:
     volumes:
       - .:/app
       - /app/node_modules # Evita problemas de dependências do host
-    command: ["npx", "mintlify", "dev"]
+    tty: true

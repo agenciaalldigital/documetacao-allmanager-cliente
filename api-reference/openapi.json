@@ -14547,7 +14547,7 @@
     "/auth": {
       "servers": [
         {
-          "url": "https://api.allcomtelecom.com/api:XUynQtIz",
+          "url": "https://api.allcomtelecom.com/api:XUynQtIz ",
           "description": "Faz a autenticação dos dados do usuário"
         }
       ],
