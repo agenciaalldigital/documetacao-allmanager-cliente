@@ -12892,7 +12892,7 @@
       "get": {
         "tags": ["Info"],
         "summary": "Recupera as informações de um terminal específico (Autenticação)",
-        "description": "Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário\r\n\r\nA chamada retorna um registro TerminalInfo relacionado a um terminal especificado pelo seu ID principal (PrimeID).",
+        "description":"Autenticação: Token Bearer\r\n\r\nLimitação de taxa: sim (grupo INFO de métodos)   \r\n\r\nAutorização: Conta de usuário\r\n\r\nA chamada retorna um registro TerminalInfo relacionado a um terminal especificado pelo seu ID principal (PrimeID).",
         "parameters": [
           {
             "name": "PrimeID",
