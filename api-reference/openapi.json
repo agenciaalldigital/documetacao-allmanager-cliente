@@ -11735,6 +11735,12 @@
 
 
     "/api/v{version}/auth/token": {
+      "servers": [
+        {
+          "url": "https://api.google.com/api:XUynQtIz",
+          "description": "Gera o Token de Autenticação"
+        }
+      ],
       "post": {
         "tags": ["Auth"],
         "summary": "Cria token bearer de autenticação",
@@ -14175,7 +14181,7 @@
 
 
 
-    
+
     "/auth/account": {
       "servers": [
         {
